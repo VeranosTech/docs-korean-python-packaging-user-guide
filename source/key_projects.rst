@@ -1,5 +1,5 @@
 
-.. _projects:
+#.. _projects:
 
 =================
 Project Summaries
@@ -8,12 +8,12 @@ Project Summaries
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
 
-.. _pypa_projects:
+#.. _pypa_projects:
 
 PyPA Projects
 #############
 
-.. _bandersnatch:
+#.. _bandersnatch:
 
 bandersnatch
 ============
@@ -27,7 +27,7 @@ bandersnatch is a PyPI mirroring client designed to efficiently create a
 complete mirror of the contents of PyPI.
 
 
-.. _distlib:
+#.. _distlib:
 
 distlib
 =======
@@ -45,7 +45,7 @@ project, which was intended to be released as ``packaging`` in the Python 3.3
 stdlib, but was removed shortly before Python 3.3 entered beta testing.
 
 
-.. _packaging:
+#.. _packaging:
 
 packaging
 =========
@@ -60,7 +60,7 @@ Dev irc:#pypa-dev
 Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 
 
-.. _pip:
+#.. _pip:
 
 pip
 ===
@@ -101,8 +101,8 @@ Dev irc:#pypa-dev
 This guide!
 
 
-.. _setuptools:
-.. _easy_install:
+#.. _setuptools:
+#.. _easy_install:
 
 setuptools
 ==========
@@ -125,7 +125,7 @@ distributions, especially ones that have dependencies on other packages.
 v0.7), thereby making setuptools the primary choice for Python packaging.
 
 
-.. _twine:
+#.. _twine:
 
 twine
 =====
@@ -140,7 +140,7 @@ Twine is a utility for interacting with PyPI, that offers a secure replacement f
 
 
 
-.. _virtualenv:
+#.. _virtualenv:
 
 virtualenv
 ==========
@@ -157,7 +157,7 @@ Dev irc:#pypa-dev
 A tool for creating isolated Python environments.
 
 
-.. _warehouse:
+#.. _warehouse:
 
 Warehouse
 =========
@@ -173,7 +173,7 @@ The current codebase powering the :term:`Python Package Index (PyPI)`. It is
 hosted at `pypi.org <https://pypi.org/>`_.
 
 
-.. _wheel:
+#.. _wheel:
 
 wheel
 =====
@@ -195,7 +195,7 @@ command line utility for creating and installing wheels.
 Non-PyPA Projects
 #################
 
-.. _bento:
+#.. _bento:
 
 bento
 =====
@@ -210,7 +210,7 @@ Bento is a packaging tool solution for Python software, targeted as an
 alternative to distutils, setuptools, distribute, etc....  Bento's philosophy is
 reproducibility, extensibility and simplicity (in that order).
 
-.. _buildout:
+#.. _buildout:
 
 buildout
 ========
@@ -225,7 +225,7 @@ Buildout is a Python-based build system for creating, assembling and deploying
 applications from multiple parts, some of which may be non-Python-based.  It
 lets you create a buildout configuration and reproduce the same software later.
 
-.. _conda:
+#.. _conda:
 
 conda
 =====
@@ -293,7 +293,7 @@ pip, and wheels that are independent of enscons.
 
 .. _SCons: http://scons.org/
 
-.. _hashdist:
+#.. _hashdist:
 
 Hashdist
 ========
@@ -306,7 +306,7 @@ trying to be “the Debian of choice for cases where Debian technology doesn’t
 work”. The best way for Pythonistas to think about Hashdist may be a more
 powerful hybrid of virtualenv and buildout.
 
-.. _pex:
+#.. _pex:
 
 pex
 ===
@@ -362,7 +362,7 @@ used immediately after cloning from github.
 Standard Library Projects
 #########################
 
-.. _ensurepip:
+#.. _ensurepip:
 
 ensurepip
 =========
@@ -376,7 +376,7 @@ cases, end users won't use this module, but rather it will be used during the
 build of the Python distribution.
 
 
-.. _distutils:
+#.. _distutils:
 
 distutils
 =========
@@ -393,7 +393,7 @@ provides enhancements to distutils, and is much more commonly used than just
 using distutils by itself.
 
 
-.. _venv:
+#.. _venv:
 
 venv
 ====

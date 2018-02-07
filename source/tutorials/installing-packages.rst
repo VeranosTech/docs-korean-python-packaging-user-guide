@@ -21,7 +21,7 @@ distribution, or another larger software distribution like Python itself.
    :local:
 
 
-.. _installing_requirements:
+#.. _installing_requirements:
 
 Requirements for Installing Packages
 ====================================
@@ -148,7 +148,7 @@ This will create a new virtual environment in the ``tutorial_env`` subdirectory,
 and configure the current shell to use it as the default ``python`` environment.
 
 
-.. _`Creating and using Virtual Environments`:
+#.. _`Creating and using Virtual Environments`:
 
 Creating Virtual Environments
 =============================

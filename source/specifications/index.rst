@@ -1,3 +1,6 @@
+
+#.. _specifications:
+
 PyPA Specifications
 ###################
 
