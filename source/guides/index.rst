@@ -9,6 +9,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    :maxdepth: 1
 
    tool-recommendations
+   installing-using-pip-and-virtualenv
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
@@ -21,3 +22,4 @@ introduction to packaging, see :doc:`/tutorials/index`.
    index-mirrors-and-caches
    hosting-your-own-index
    migrating-to-pypi-org
+   using-testpypi

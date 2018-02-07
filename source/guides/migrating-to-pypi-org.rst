@@ -3,11 +3,11 @@
 Migrating to PyPI.org
 =====================
 
-PyPI.org is a new, rewritten version of PyPI that is replacing the legacy code
-base located at pypi.python.org. As it becomes the default, and eventually only,
-version of PyPI people are expected to interact with, there will be a transition
-period where tooling and processes are expected to need to update to deal with
-the new location.
+:term:`PyPI.org` is a new, rewritten version of PyPI that is replacing the
+legacy code base located at `pypi.python.org`. As it becomes the default, and
+eventually only, version of PyPI people are expected to interact with, there
+will be a transition period where tooling and processes are expected to need to
+update to deal with the new location.
 
 This section covers how to migrate to the new PyPI.org for different tasks.
 
@@ -23,7 +23,7 @@ included with Python 3.4.6+, Python 3.5.3+, Python 3.6+, and 2.7.13+.
 In addition to ensuring you're on a new enough version of the tool for the
 tool's default to have switched, you must also make sure that you have not
 configured the tool to override its default upload URL. Typically this is
-configured in a file located at ``~/.pypirc``. If you see a file like:
+configured in a file located at ``$HOME/.pypirc``. If you see a file like:
 
 .. code::
 
@@ -40,10 +40,10 @@ configured in a file located at ``~/.pypirc``. If you see a file like:
 Then simply delete the line starting with ``repository`` and you will use
 your upload tool's default URL.
 
-If for some reason you're unable to upgrade the version of your tool to a
-version that defaults to using PyPI.org, then you may edit ``~/.pypirc`` and
-include the ``repository:`` line, but use the value
-``https://upload.pypi.org/legacy/`` instead:
+If for some reason you're unable to upgrade the version of your tool
+to a version that defaults to using PyPI.org, then you may edit
+``$HOME/.pypirc`` and include the ``repository:`` line, but use the
+value ``https://upload.pypi.org/legacy/`` instead:
 
 .. code::
 
@@ -76,7 +76,7 @@ uploading artifacts.
 Using TestPyPI
 --------------
 
-If you use TestPyPI, you must update your ``~/.pypirc`` to handle
+If you use TestPyPI, you must update your ``$HOME/.pypirc`` to handle
 TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
 with ``https://test.pypi.org/legacy/``, for example:
 
@@ -88,6 +88,6 @@ with ``https://test.pypi.org/legacy/``, for example:
         testpypi
 
     [testpypi]
-    repository: https://test.pypi.org/legacy
+    repository: https://test.pypi.org/legacy/
     username: your testpypi username
     password: your testpypi password

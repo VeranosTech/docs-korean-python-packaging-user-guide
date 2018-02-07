@@ -76,6 +76,17 @@ Dev irc:#pypa-dev
 
 A tool for installing Python packages.
 
+.. _Pipfile:
+
+Pipfile
+=======
+
+`Source <https://github.com/pypa/pipfile>`__
+
+``Pipfile`` and its sister ``Pipfile.lock`` are a higher-level
+application-centric alternative to :ref:`pip`'s lower-level
+``requirements.txt`` file.
+
 
 Python Packaging User Guide
 ===========================
@@ -158,7 +169,8 @@ Warehouse
 Dev irc:#pypa-dev
 
 
-The new unreleased PyPI application which can be previewed at https://pypi.org/.
+The current codebase powering the :term:`Python Package Index (PyPI)`. It is
+hosted at `pypi.org <https://pypi.org/>`_.
 
 
 #.. _wheel:
@@ -168,8 +180,8 @@ wheel
 
 `Docs <https://wheel.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <https://bitbucket.org/pypa/wheel/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/pypa/wheel>`__ |
+`Issues <https://github.com/pypa/wheel/issues>`__ |
+`Bitbucket <https://github.com/pypa/wheel>`__ |
 `PyPI <https://pypi.python.org/pypi/wheel>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
@@ -194,7 +206,7 @@ bento
 `Github <https://github.com/cournape/Bento>`__ |
 `PyPI <https://pypi.python.org/pypi/bento>`__
 
-Bento is a packaging tool solution for python software, targeted as an
+Bento is a packaging tool solution for Python software, targeted as an
 alternative to distutils, setuptools, distribute, etc....  Bento's philosophy is
 reproducibility, extensibility and simplicity (in that order).
 
@@ -309,7 +321,23 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 ``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
 deployment of Python applications as simple as ``cp``.
 
-#.. _spack:
+
+.. _Pipenv:
+
+Pipenv
+======
+
+`Docs <https://docs.pipenv.org>`__ |
+`Source <https://github.com/kennethreitz/pipenv>`__ |
+`Issues <https://github.com/kennethreitz/pipenv/issues>`__ |
+`PyPI <https://pypi.python.org/pypi/pipenv>`__
+
+Pipenv is a project that aims to bring the best of all packaging worlds to the
+Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
+into one single toolchain. It features very pretty terminal colors.
+
+
+.. _spack:
 
 Spack
 =====
