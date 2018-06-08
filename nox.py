@@ -3,43 +3,28 @@
 # Attribution-ShareAlike license:
 #   http://creativecommons.org/licenses/by-sa/3.0.
 
-import os
-
+import shutil
 import nox
 
 
 @nox.session
-def build(session):
+def build(session, autobuild=False):
     session.interpreter = 'python3.6'
     session.install('-r', 'requirements.txt')
     # Treat warnings as errors.
     session.env['SPHINXOPTS'] = '-W'
-    session.run('make', 'clean', 'html')
+    session.run(shutil.rmtree, 'build', ignore_errors=True)
+
+    if autobuild:
+        command = 'sphinx-autobuild'
+    else:
+        command = 'sphinx-build'
+
+    session.run(command, '-W', '-b', 'html', 'source', 'build')
 
 
 @nox.session
 def preview(session):
     session.reuse_existing_virtualenv = True
-    build(session)
-    session.chdir('build/html')
-    session.run('python', '-m', 'http.server')
-
-
-def linkmonitor(session, command):
-    if not os.path.exists(os.path.join('build', 'html')):
-        session.error('HTML output not available, run nox -s build first.')
-    session.interpreter = 'python3.6'
-    session.install('-r', 'scripts/linkmonitor/requirements.txt')
-    session.run(
-        'python', 'scripts/linkmonitor/linkmonitor.py', command,
-        success_codes=range(0, 100))
-
-
-@nox.session
-def checklinks(session):
-    linkmonitor(session, 'check')
-
-
-@nox.session
-def updatelinks(session):
-    linkmonitor(session, 'update')
+    session.install("sphinx-autobuild")
+    build(session, autobuild=True)

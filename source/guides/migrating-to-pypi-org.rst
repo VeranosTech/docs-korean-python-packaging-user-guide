@@ -3,22 +3,30 @@
 Migrating to PyPI.org
 =====================
 
-:term:`PyPI.org` is a new, rewritten version of PyPI that is replacing the
-legacy code base located at `pypi.python.org`. As it becomes the default, and
-eventually only, version of PyPI people are expected to interact with, there
-will be a transition period where tooling and processes are expected to need to
-update to deal with the new location.
+:term:`PyPI.org` is the new, rewritten version of PyPI that has replaced the
+legacy PyPI code base. It is the default version of PyPI that people are
+expected to use. These are the tools and processes that people will need to
+interact with ``PyPI.org``.
 
-This section covers how to migrate to the new PyPI.org for different tasks.
+Publishing releases
+-------------------
 
+``pypi.org`` is the default upload platform as of September 2016.
 
-Uploading
----------
+Uploads through ``pypi.python.org`` were *switched off* on **July 3, 2017**.
+As of April 13th, 2018,``pypi.org`` is the URL for PyPI.
 
 The recommended way to migrate to PyPI.org for uploading is to ensure that you
-are using a new enough version of your upload tool. Tools that support PyPI.org
-by default are twine v1.8.0+ (recommended tool), setuptools 27+, or the distutils
-included with Python 3.4.6+, Python 3.5.3+, Python 3.6+, and 2.7.13+.
+are using a new enough version of your upload tool.
+
+The default upload settings switched to ``pypi.org`` in the following versions:
+
+* ``twine`` 1.8.0
+* ``setuptools`` 27.0.0
+* Python 2.7.13 (``distutils`` update)
+* Python 3.4.6 (``distutils`` update)
+* Python 3.5.3 (``distutils`` update)
+* Python 3.6.0 (``distutils`` update)
 
 In addition to ensuring you're on a new enough version of the tool for the
 tool's default to have switched, you must also make sure that you have not
@@ -56,6 +64,9 @@ value ``https://upload.pypi.org/legacy/`` instead:
     username: your username
     password: your password
 
+(``legacy`` in this URL refers to the fact that this is the new server
+implementation's emulation of the legacy server implementation's upload API.)
+
 
 Registering package names & metadata
 ------------------------------------
@@ -76,9 +87,11 @@ uploading artifacts.
 Using TestPyPI
 --------------
 
-If you use TestPyPI, you must update your ``$HOME/.pypirc`` to handle
-TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
-with ``https://test.pypi.org/legacy/``, for example:
+Legacy TestPyPI (testpypi.python.org) is no longer available; use
+`test.pypi.org <https://test.pypi.org>`_ instead. If you use TestPyPI,
+you must update your ``$HOME/.pypirc`` to handle TestPyPI's new
+location, by replacing ``https://testpypi.python.org/pypi`` with
+``https://test.pypi.org/legacy/``, for example:
 
 .. code::
 
@@ -91,3 +104,32 @@ with ``https://test.pypi.org/legacy/``, for example:
     repository: https://test.pypi.org/legacy/
     username: your testpypi username
     password: your testpypi password
+
+
+Registering new user accounts
+-----------------------------
+
+In order to help mitigate spam attacks against PyPI, new user registration
+through ``pypi.python.org`` was *switched off* on **February 20, 2018**.
+New user registrations at ``pypi.org`` are open.
+
+
+Browsing packages
+-----------------
+
+While ``pypi.python.org`` is may still be used in links from other PyPA
+documentation, etc, the default interface for browsing packages is
+``pypi.org``. The domain pypi.python.org now redirects to pypi.org,
+and may be disabled sometime in the future.
+
+
+Downloading packages
+--------------------
+
+``pypi.org`` is the default host for downloading packages.
+
+Managing published packages and releases
+----------------------------------------
+
+``pypi.org`` provides a fully functional interface for logged in users to
+manage their published packages and releases.

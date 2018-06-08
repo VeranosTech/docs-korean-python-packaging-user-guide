@@ -1,12 +1,12 @@
 .. _distributing-packages:
 
 ===================================
-Packaging and Distributing Projects
+Packaging and distributing projects
 ===================================
 
 This section covers the basics of how to configure, package and distribute your
 own Python projects.  It assumes that you are already familiar with the contents
-of the :doc:`installing` page.
+of the :doc:`/tutorials/installing-packages` page.
 
 The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
@@ -22,7 +22,7 @@ Packaging User Guide.
    :local:
 
 
-Requirements for Packaging and Distributing
+Requirements for packaging and distributing
 ===========================================
 
 1. First, make sure you have already fulfilled the :ref:`requirements for
@@ -39,27 +39,27 @@ Requirements for Packaging and Distributing
    <Uploading your Project to PyPI>`).
 
 
-Configuring your Project
+Configuring your project
 ========================
 
 
-Initial Files
+Initial files
 -------------
 
 setup.py
 ~~~~~~~~
 
-The most important file is "setup.py" which exists at the root of your project
-directory. For an example, see the `setup.py
+The most important file is :file:`setup.py` which exists at the root of your
+project directory. For an example, see the `setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-"setup.py" serves two primary functions:
+:file:`setup.py` serves two primary functions:
 
 1. It's the file where various aspects of your project are configured. The
-   primary feature of ``setup.py`` is that it contains a global ``setup()``
-   function.  The keyword arguments to this function are how specific details of
-   your project are defined.  The most relevant arguments are explained in
+   primary feature of :file:`setup.py` is that it contains a global ``setup()``
+   function.  The keyword arguments to this function are how specific details
+   of your project are defined.  The most relevant arguments are explained in
    :ref:`the section below <setup() args>`.
 
 2. It's the command line interface for running various commands that
@@ -70,28 +70,32 @@ sample project <https://github.com/pypa/sampleproject>`_.
 setup.cfg
 ~~~~~~~~~
 
-"setup.cfg" is an ini file that contains option defaults for ``setup.py``
-commands.  For an example, see the `setup.cfg
+:file:`setup.cfg` is an ini file that contains option defaults for
+:file:`setup.py` commands.  For an example, see the `setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 
-README.rst
-~~~~~~~~~~
+README.rst / README.md
+~~~~~~~~~~~~~~~~~~~~~~
 
-All projects should contain a readme file that covers the goal of the
-project. The most common format is `reStructuredText
+All projects should contain a readme file that covers the goal of the project.
+The most common format is `reStructuredText
 <http://docutils.sourceforge.net/rst.html>`_ with an "rst" extension, although
-this is not a requirement.
+this is not a requirement; multiple variants of `Markdown
+<https://daringfireball.net/projects/markdown/>`_ are supported as well (look
+at ``setup()``'s :ref:`long_description_content_type <description>` argument).
 
-For an example, see `README.rst
-<https://github.com/pypa/sampleproject/blob/master/README.rst>`_ from the `PyPA
+For an example, see `README.md
+<https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-.. note:: Projects using :ref:`setuptools` have :file:`README.rst` included in
-   source distributions by default (since 0.6.27). The built-in :ref:`distutils`
-   library adopts this behavior beginning in Python 3.7. If you are using
-   setuptools, you don't need to list :file:`README.rst` in :file:`MANIFEST.in`.
+.. note:: Projects using :ref:`setuptools` 0.6.27+ have standard readme files
+   (:file:`README.rst`, :file:`README.txt`, or :file:`README`) included in
+   source distributions by default. The built-in :ref:`distutils` library adopts
+   this behavior beginning in Python 3.7. Additionally, :ref:`setuptools`
+   36.4.0+ will include a :file:`README.md` if found. If you are using
+   setuptools, you don't need to list your readme file in :file:`MANIFEST.in`.
    Otherwise, include it to be explicit.
 
 MANIFEST.in
@@ -107,7 +111,8 @@ For an example, see the `MANIFEST.in
 <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
+For details on writing a :file:`MANIFEST.in` file, see the `The MANIFEST.in
+template
 <https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
 section from the :ref:`distutils` documentation.
 
@@ -143,8 +148,8 @@ included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 setup() args
 ------------
 
-As mentioned above, the primary feature of ``setup.py`` is that it contains a
-global ``setup()`` function.  The keyword arguments to this function are how
+As mentioned above, the primary feature of :file:`setup.py` is that it contains
+a global ``setup()`` function.  The keyword arguments to this function are how
 specific details of your project are defined.
 
 The most relevant arguments are explained below. The snippets given are taken
@@ -199,10 +204,11 @@ See :ref:`Choosing a versioning scheme` for more information on ways to use vers
 compatibility information to your users.
 
 If the project code itself needs run-time access to the version, the simplest
-way is to keep the version in both ``setup.py`` and your code. If you'd rather
-not duplicate the value, there are a few ways to manage this. See the
+way is to keep the version in both :file:`setup.py` and your code. If you'd
+rather not duplicate the value, there are a few ways to manage this. See the
 ":ref:`Single sourcing the version`" Advanced Topics section.
 
+.. _`description`:
 
 description
 ~~~~~~~~~~~
@@ -211,11 +217,29 @@ description
 
   description='A sample Python project',
   long_description=long_description,
+  long_description_content_type='text/x-rst',
 
-Give a short and long description for your project.  These values will be
-displayed on :term:`PyPI <Python Package Index (PyPI)>` if you publish your
-project.
+Give a short and long description for your project.
 
+These values will be displayed on :term:`PyPI <Python Package Index (PyPI)>`
+if you publish your project. On ``pypi.org``, the user interface displays
+``description`` in the grey banner and ``long_description`` in the section
+named "Project Description".
+
+``description`` is also displayed in lists of projects. For example, it's
+visible in the search results pages such as https://pypi.org/search/?q=jupyter,
+the front-page lists of trending projects and new releases, and the list of
+projects you maintain within your account profile (such as
+https://pypi.org/user/jaraco/).
+
+A `content type
+<https://packaging.python.org/specifications/core-metadata/#description-content-type-optional>`_
+can be specified with the ``long_description_content_type`` argument, which can
+be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
+to no formatting, `reStructuredText (reST)
+<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#reference-names>`_,
+and the Github-flavored Markdown dialect of `Markdown
+<https://daringfireball.net/projects/markdown/>`_ respectively.
 
 url
 ~~~
@@ -246,7 +270,20 @@ license
 
   license='MIT',
 
-Provide the type of license you are using.
+The ``license`` argument doesn't have to indicate the license under
+which your package is being released, although you may optionally do
+so if you want.  If you're using a standard, well-known license, then
+your main indication can and should be via the ``classifiers``
+argument. Classifiers exist for all major open-source licenses.
+
+The "license" argument is more typically used to indicate differences
+from well-known licenses, or to include your own, unique license. As a
+general rule, it's a good idea to use a standard, well-known license,
+both to avoid confusion and because some organizations avoid software
+whose license is unapproved.
+
+See :ref:`"Classifier" <metadata-classifier>` for some examples of
+values for ``license``.
 
 
 classifiers
@@ -280,7 +317,7 @@ classifiers
   ],
 
 Provide a list of classifiers that categorize your project. For a full listing,
-see https://pypi.python.org/pypi?%3Aaction=list_classifiers.
+see https://pypi.org/classifiers/.
 
 Although the list of classifiers is often used to declare what Python versions
 a project supports, this information is only used for searching & browsing
@@ -297,6 +334,24 @@ keywords
   keywords='sample setuptools development',
 
 List keywords that describe your project.
+
+
+project_urls
+~~~~~~~~~~~~
+
+::
+
+  project_urls={
+      'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
+      'Funding': 'https://donate.pypi.org',
+      'Say Thanks!': 'http://saythanks.io/to/example',
+      'Source': 'https://github.com/pypa/sampleproject/',
+      'Tracker': 'https://github.com/pypa/sampleproject/issues',
+  },
+
+List additional relevant URLs about your project. This is the place to link to
+bug trackers, source repositories, or where to support package development.
+The string of the key is the exact text that will be displayed on PyPI.
 
 
 packages
@@ -404,26 +459,26 @@ data_files
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
 cases you may need to place data files *outside* of your :term:`packages
 <Import Package>`.  The ``data_files`` directive allows you to do that.
+It is mostly useful if you need to install files which are used by other
+programs, which may be unaware of Python packages.
 
-Each (directory, files) pair in the sequence specifies the installation
-directory and the files to install there. If directory is a relative path, it is
-interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python :term:`distributions <Distribution Package>`, sys.exec_prefix for
-distributions that contain extension modules). Each file name in files is
-interpreted relative to the ``setup.py`` script at the top of the project source
-distribution.
+Each ``(directory, files)`` pair in the sequence specifies the installation
+directory and the files to install there. The ``directory`` must be a relative
+path (although this may change in the future, see
+`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_).
+and it is interpreted relative to the installation prefix (Python’s ``sys.prefix``).
+Each file name in ``files`` is interpreted relative to the :file:`setup.py`
+script at the top of the project source distribution.
 
 For more information see the distutils section on `Installing Additional Files
 <http://docs.python.org/3/distutils/setupscript.html#installing-additional-files>`_.
 
 .. note::
 
-  :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
-  absolute, when installing from :term:`sdist <Source Distribution (or
-  "sdist")>`.  This is not true when installing from :term:`wheel`
-  distributions. Wheels don't support absolute paths, and they end up being
-  installed relative to "site-packages".  For discussion see `wheel Issue #92
-  <https://github.com/pypa/wheel/issues/92>`_.
+  When installing packages as egg, ``data_files`` is not supported.
+  So, if your project uses :ref:`setuptools`, you must use ``pip``
+  to install it. Alternatively, if you must use ``python setup.py``,
+  then you need to pass the ``--old-and-unmanageable`` option.
 
 
 scripts
@@ -607,7 +662,7 @@ For example::
    1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
-Working in "Development Mode"
+Working in "development mode"
 =============================
 
 Although not required, it's common to locally install your project in "editable"
@@ -657,9 +712,9 @@ For more information, see the `Development Mode
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_ section
 of the `setuptools docs <https://setuptools.readthedocs.io>`_.
 
-.. _`Packaging Your Project`:
+.. _`Packaging your project`:
 
-Packaging your Project
+Packaging your project
 ======================
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
@@ -669,7 +724,7 @@ project.
 
 
 
-Source Distributions
+Source distributions
 --------------------
 
 Minimally, you should create a :term:`Source Distribution <Source Distribution (or
@@ -680,10 +735,10 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
  python setup.py sdist
 
 
-A "source distribution" is unbuilt (i.e. it's not a :term:`Built Distribution`),
-and requires a build step when installed by pip.  Even if the distribution is
-pure Python (i.e. contains no extensions), it still involves a build step to
-build out the installation metadata from ``setup.py``.
+A "source distribution" is unbuilt (i.e. it's not a :term:`Built
+Distribution`), and requires a build step when installed by pip.  Even if the
+distribution is pure Python (i.e. contains no extensions), it still involves a
+build step to build out the installation metadata from :file:`setup.py`.
 
 
 Wheels
@@ -728,8 +783,8 @@ To build the wheel:
 
   python setup.py bdist_wheel --universal
 
-You can also permanently set the ``--universal`` flag in "setup.cfg" (e.g., see
-`sampleproject/setup.cfg
+You can also permanently set the ``--universal`` flag in :file:`setup.cfg`
+(e.g., see `sampleproject/setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
 
 .. code-block:: text
@@ -816,13 +871,13 @@ distribution file(s) to upload.
 
 .. note:: These files are only created when you run the command to create your
   distribution. This means that any time you change the source of your project
-  or the configuration in your ``setup.py`` file, you will need to rebuild
+  or the configuration in your :file:`setup.py` file, you will need to rebuild
   these files again before you can distribute the changes to PyPI.
 
-.. note:: Before releasing on main PyPI repo, you might prefer training with
-  the `PyPI test site <https://testpypi.python.org/pypi>`_
-  which is cleaned on a semi regular basis. See :ref:`using-test-pypi`
-  on how to setup your configuration in order to use it.
+.. note:: Before releasing on main PyPI repo, you might prefer
+  training with the `PyPI test site <https://test.pypi.org/>`_ which
+  is cleaned on a semi regular basis. See :ref:`using-test-pypi` on
+  how to setup your configuration in order to use it.
 
 .. warning:: In other resources you may encounter references to using
   ``python setup.py register`` and ``python setup.py upload``. These methods
@@ -834,8 +889,8 @@ distribution file(s) to upload.
   Furthermore, to ensure safety of all users, certain kinds of URLs and
   directives are forbidden or stripped out (e.g., the ``.. raw::``
   directive). **Before** trying to upload your distribution, you should check
-  to see if your brief / long descriptions provided in ``setup.py`` are valid.
-  You can do this by following the instructions for the
+  to see if your brief / long descriptions provided in :file:`setup.py` are
+  valid.  You can do this by following the instructions for the
   `pypa/readme_renderer <https://github.com/pypa/readme_renderer>`_ tool.
 
 Create an account
@@ -843,7 +898,7 @@ Create an account
 
 First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. You
 can create an account
-`using the form on the PyPI website <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
+`using the form on the PyPI website <https://pypi.org/account/register/>`_.
 
 .. Note:: If you want to avoid entering your username and password when
   uploading, you can create a ``$HOME/.pypirc`` file with your username and
@@ -863,31 +918,23 @@ Upload your distributions
 -------------------------
 
 Once you have an account you can upload your distributions to
-:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`. If this is
-your first time uploading a distribution for a new project, twine will handle
-registering the project.
+:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`.
+
+The process for uploading a release is the same regardless of whether
+or not the project already exists on PyPI - if it doesn't exist yet,
+it will be automatically created when the first release is uploaded.
+
+For the second and subsequent releases, PyPI only requires that the
+version number of the new release differ from any previous releases.
 
 .. code-block:: text
 
     twine upload dist/*
 
-
-.. note:: Twine allows you to pre-sign your distribution files using gpg:
-
-  .. code-block:: text
-
-      gpg --detach-sign -a dist/package-1.0.1.tar.gz
-
-  and pass the gpg-created .asc files into the command line invocation:
-
-  .. code-block:: text
-
-      twine upload dist/package-1.0.1.tar.gz package-1.0.1.tar.gz.asc
-
-  This enables you to be assured that you're only ever typing your gpg
-  passphrase into gpg itself and not anything else since *you* will be
-  the one directly executing the ``gpg`` command.
-
+You can see if your package has successfully uploaded by navigating to the URL
+``https://pypi.org/project/<sampleproject>`` where ``sampleproject`` is
+the name of your project that you uploaded. It may take a minute or two for
+your project to appear on the site.
 
 ----
 

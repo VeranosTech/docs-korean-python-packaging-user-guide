@@ -13,13 +13,17 @@ introduction to packaging, see :doc:`/tutorials/index`.
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
+   distributing-packages-using-setuptools
    single-sourcing-package-version
    supporting-multiple-python-versions
+   dropping-older-python-versions
    packaging-binary-extensions
    supporting-windows-using-appveyor
    packaging-namespace-packages
    creating-and-discovering-plugins
+   analyzing-pypi-package-downloads
    index-mirrors-and-caches
    hosting-your-own-index
    migrating-to-pypi-org
    using-testpypi
+   making-a-pypi-friendly-readme

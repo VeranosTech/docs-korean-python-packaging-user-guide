@@ -231,7 +231,7 @@ To install pre-release versions of packages, use the ``--pre`` flag:
 Installing extras
 -----------------
 
-Some packages have optioanl `extras`_. You can tell pip to install these by
+Some packages have optional `extras`_. You can tell pip to install these by
 specifying the extra in brackets:
 
 .. code-block:: bash
@@ -337,7 +337,7 @@ Using requirements files
 
 Instead of installing packages individually, pip allows you to declare all
 dependencies in a :ref:`Requirements File <pip:Requirements Files>`. For
-example you could create a ``requirements.txt`` file containing:
+example you could create a :file:`requirements.txt` file containing:
 
 .. code-block:: text
 

@@ -24,7 +24,6 @@ testing environments for any kind of project.
 .. Note:: This guide is written for Python 3, however, these instructions
     should also work on Python 2.7.
 
-
 Installing Pipenv
 -----------------
 
@@ -81,7 +80,7 @@ tutorial) and run:
     cd myproject
     pipenv install requests
 
-Pipenv will install the excellent `Requests`_ library and create a ``Pipfile``
+Pipenv will install the `Requests`_ library and create a ``Pipfile``
 for you in your project's directory. The :ref:`Pipfile` is used to track which
 dependencies your project needs in case you need to re-install them, such as
 when you share your project with others. You should get output similar to this
@@ -112,16 +111,16 @@ when you share your project with others. You should get output similar to this
     Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
     Adding requests to Pipfile's [packages]...
-    P.S. You have excellent taste! ✨ 🍰 ✨
 
 .. _Requests: https://python-requests.org
+.. _pipenv-tox: https://docs.pipenv.org/advanced/#tox-automation-project
 
 
 Using installed packages
 ------------------------
 
-Now that Requests is installed you can create a simple ``main.py`` file to
-use it:
+Now that Requests is installed you can create a simple :file:`main.py` file
+to use it:
 
 .. code-block:: python
 
@@ -154,11 +153,26 @@ Next steps
 Congratulations, you now know how to effectively manage dependencies and
 development environments on a collaborative Python project! ✨ 🍰 ✨
 
-If you find this particular approach isn't working well for you or your use
-case, you may want to explore these other approaches:
-
-* `pip-tools <https://github.com/jazzband/pip-tools>`_
-* `hatch <https://github.com/ofek/hatch>`_
-
-If you're interesting in creating and distributing your own Python packages, see
+If you're interested in creating and distributing your own Python packages, see
 the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
+
+Note that when your application includes definitions of Python source packages,
+they (and their dependencies) can be added to your ``pipenv`` environment with
+``pipenv install -e <relative-path-to-source-directory>`` (e.g.
+``pipenv install -e .`` or ``pipenv install -e src``).
+
+If you find this particular approach to managing application dependencies isn't
+working well for you or your use case, you may want to explore these other tools
+and techniques to see if one of them is a better fit:
+
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
+  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
+  more steps in the project management workflow (such as incrementing versions,
+  tagging releases, and creating new skeleton projects from project templates)
+* `poetry <https://github.com/sdispater/poetry>`_ for a tool comparable in scope
+  to `pipenv` that focuses more directly on use cases where the repository being
+  managed is structured as a Python project with a valid ``pyproject.toml`` file
+  (by contrast, ``pipenv`` explicitly avoids making the assumption that the
+  application being worked on that's depending on components from PyPI will
+  itself support distribution as a ``pip``-installable Python package).

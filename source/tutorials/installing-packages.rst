@@ -59,14 +59,20 @@ please install the latest 3.x version from `python.org`_ or refer to the
     an introduction to using your operating system's shell and interacting with
     Python.
 
-    If you're using an enhanced shell like IPython or the Jupyter notebook, you
-    can run system commands like those in this tutorial by prefacing them with
-    a ``!`` character:
+.. Note:: If you're using an enhanced shell like IPython or the Jupyter
+   notebook, you can run system commands like those in this tutorial by
+   prefacing them with a ``!`` character:
 
-    .. code-block:: python
+    ::
 
-        In [1]: !python --version
+        In [1]: import sys
+                !{sys.executable} --version
         Python 3.6.3
+
+   It's recommended to write ``{sys.executable}`` rather than plain ``python`` in
+   order to ensure that commands are run in the Python installation matching
+   the currently running notebook (which may not be the same Python
+   installation that the ``python`` command refers to).
 
 .. Note:: Due to the way most Linux distributions are handling the Python 3
    migration, Linux users using the system Python without creating a virtual
@@ -159,7 +165,7 @@ rather than being installed globally.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
-install everything into /usr/lib/python2.7/site-packages (or whatever your
+install everything into /usr/lib/python3.6/site-packages (or whatever your
 platform’s standard location is), it’s easy to end up in a situation where you
 unintentionally upgrade an application that shouldn’t be upgraded.
 
@@ -204,6 +210,13 @@ Using `venv`_:
 
 For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `venv`_ docs.
+
+In both of the above cases, Windows users should _not_ use the
+`source` command, but should rather run the `activate` script directly
+from the command shell. The use of `source` under Unix shells ensures
+that the virtual environment's variables are set within the current
+shell, and not in a subprocess (which then disappears, having no
+useful effect).
 
 Managing multiple virtual environments directly can become tedious, so the
 :ref:`dependency management tutorial <managing-dependencies>` introduces a
