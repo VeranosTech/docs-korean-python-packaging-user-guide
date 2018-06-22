@@ -1,5 +1,5 @@
 ========
-Glossary
+용어집
 ========
 
 
@@ -170,7 +170,7 @@ Glossary
 
     Source Archive
 
-        :term:`Source Distribution <Source Distribution (or "sdist")>` 또는 
+        :term:`Source Distribution <Source Distribution (or "sdist")>` 또는
         :term:`Built Distribution` 을 생성 하기 전, :term:`Release` 의
         raw source code를 포함하는 아카이브.
 
