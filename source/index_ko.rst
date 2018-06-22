@@ -13,12 +13,12 @@
    key_projects_ko
    glossary_ko
    support_ko
-   contribute
+   contribute_ko
 
 이 *파이썬 패키징 사용자 가이드*\ 는 현대적인 툴로 파이썬 패키지를 배포하고
-설치할 수 있게 도움을 주는 튜토리얼과 레퍼런스 모음집이다. 
+설치할 수 있게 도움을 주는 튜토리얼과 레퍼런스 모음집이다.
 
-이 가이드는 `Python Packaging Authority`_\ 에 의해 `Github`_ 에서 관리되고 있다. 
+이 가이드는 `Python Packaging Authority`_\ 에 의해 `Github`_ 에서 관리되고 있다.
 우리는 어떤 식의 :doc:`기여와 피드백 <contribute>`\ 도 환영한다. 😊
 
 .. _GitHub: https://github.com/pypa/python-packaging-user-guide
@@ -29,7 +29,7 @@
 시작하기
 ===========
 
-파이썬 패키징 생태계에서 일하는 것에 대한 개념과 핵심적인 툴은 :doc:`tutorials/index_ko` 섹션에서 
+파이썬 패키징 생태계에서 일하는 것에 대한 개념과 핵심적인 툴은 :doc:`tutorials/index_ko` 섹션에서
 다루어지고 있다:
 
 * 패키지 설치에 대한 방법은 :doc:`패키지 설치하기 <tutorials/installing-packages_ko>`\ 를 참고하라.
