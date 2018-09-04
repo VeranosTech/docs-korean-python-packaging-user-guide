@@ -31,7 +31,7 @@
 
     pip install twine
 
-   이것은 프로젝트 :term:`배포판(distributions) <Distribution Package>`\ 을
+   이것은 프로젝트 :term:`배포판(distributions) <배포용 패키지(Distribution Package)>`\ 을
    :term:`PyPI <Python Package Index (PyPI)>`\ 에 업로드 할 때 필요하다.
    (:ref:`아래 <PyPI에 프로젝트 업로드하기>`\ 를 참고하라).
 
@@ -391,7 +391,7 @@ data_files
 
 시퀀스에 있는 각각의 (디렉토리, 파일) 짝은 설치 디렉토리와 그곳에 설치되는 파일을
 지정한다. 만약 디렉토리가 상대 경로라면, 그것은 설치 접두사(prefix 순수 파이썬
-:term:`distributions <Distribution Package>`\ 을 위한 파이썬의 sys.prefix, 확장
+:term:`배포판s <배포용 패키지(Distribution Package)>`\ 을 위한 파이썬의 sys.prefix, 확장
 모듈을 포함하는 배포판을 위한 sys.exec_prefix))에 따라서 해석된다. 파일에 있는
 각 파일의 이름은 프로젝트 소스 배포판의 최상위에 있는 ``setup.py`` 스크립트에 따라서
 해석된다.
@@ -402,7 +402,7 @@ data_files
 
 .. note::
 
-  :term:`sdist <Source Distribution (or "sdist")>`\ 로 설치할 때
+  :term:`sdist <소스 배포판(Source Distribution or "sdist")>`\ 로 설치할 때
   :ref:`setuptools`\ 는 절대 "data_files" 경로를 허용하고, pip도 절대 경로로
   인식한다. 하지만 :term:`wheel` 배포판으로 설치할 때는 그렇지 않다. Wheel은
   절대 경로를 지원하지 않으며 "site-packages"\ 로 설치한다.
@@ -456,7 +456,7 @@ console_scripts
 당신의 스크립트 인터페이스를 등록하려면 "console_script" `entry points
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_\ 를
 사용하라. 그러면 툴체인(toolchain)으로 인터페이스를 실제 스크립트로 바꾸는 작업을
-처리하게 할 수 있다 [2]_.  이 스크립트는 :term:`distribution <Distribution
+처리하게 할 수 있다 [2]_.  이 스크립트는 :term:`배포판 <Distribution
 Package>`\ 를 설치하는 동안에 생성될 것이다.
 
 더 자세한 정보는 `setuptools docs <https://setuptools.readthedocs.io>`_ 에 있는
@@ -635,8 +635,8 @@ pip 문서의 :ref:`VCS Support <pip:VCS Support>` 섹션을 참고하라.
 ======================
 
 :term:`PyPI <Python Package Index (PyPI)>` 같은 :term:`Package Index`로부터
-당신의 패키지가 설치 가능하게 하려면 :term:`Distribution
-<Distribution Package>` (":term:`Package <Distribution Package>`")를
+당신의 패키지가 설치 가능하게 하려면 :term:`배포판
+<배포용 패키지(Distribution Package)>` (":term:`Package <배포용 패키지(Distribution Package)>`")를
 생성해야 할 필요가 있을 것이다.
 
 
@@ -644,7 +644,7 @@ pip 문서의 :ref:`VCS Support <pip:VCS Support>` 섹션을 참고하라.
 소스 배포판
 --------------------
 
-최소한, :term:`Source Distribution <Source Distribution (or "sdist")>`\ 을
+최소한, :term:`Source Distribution <소스 배포판(Source Distribution or "sdist")>`\ 을
 생성해야 한다:
 
 ::
@@ -663,7 +663,7 @@ Wheels
 
 또한 당신은 프로젝트를 위해서 wheel을 생성해야 한다.
 Wheel은 "빌드" 과정을 없이 설치될 수 있는 :term:`built package
-<Built Distribution>`\ 다. Wheel 설치는 소스 배포판에서 설치하는 것 보다
+<빌드 패포판(Built Distribution)>`\ 다. Wheel 설치는 소스 배포판에서 설치하는 것 보다
 최종 사용자로 설치하는 것이 훨씬 빠르다.
 
 프로젝트가 순수 파이썬이고 기본적으로 파이썬 2와 3을 지원한다면, 당신은

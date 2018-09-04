@@ -10,7 +10,7 @@
 설치 도구 추천 
 =================================
 
-* :ref:`pip` 를 사용해서 :term:`packages <Distribution Package>` 부터  
+* :ref:`pip` 를 사용해서 :term:`packages <배포용 패키지(Distribution Package)>` 부터
   :term:`PyPI <Python Package Index (PyPI)>` 까지의 파이썬을 설치해라. [1]_ [2]_ :ref:`pip`
   가 어떻게 설치됐는지에 따라 wheel 캐싱을 사용하기 위해 :ref:`wheel` 을 추가적으로 설치해야 할 수도 있다. [3]_
 
@@ -28,7 +28,7 @@
 ==============================
 
 * :ref:`setuptools` 을 사용하여 프로젝트를 확정하거나 :term:`Source Distributions
-  <Source Distribution (or "sdist")>`. [5]_ [6]_ 을 만들어라.
+  <소스 배포판(Source Distribution or "sdist")>`. [5]_ [6]_ 을 만들어라.
 
 * :ref:`wheel project <wheel>` 을 통해 사용할 수 있는 ``bdist_wheel`` :ref:`setuptools`  확장판     
   을 사용해 :term:`wheels <Wheel>` 을 생성해라. 이는 특히 프로젝트가 바이너리 확장을 포함하고 있는 경우 유용하  

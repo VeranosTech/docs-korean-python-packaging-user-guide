@@ -145,10 +145,10 @@ Source distribution format(``sdist``)은 현재 공식적으로 정의되어 있
 대신, ``setup.py sdist`` command를 실행 할 때 standard library의 ``disutils`` module의
 동작에 의해 암시적으로 정의된다.
 
-Binary Distribution Format
+바이너리 배포판(Binary Distribution) Format
 ==========================
 
-Binary distribution format(``wheel``)은 :pep:`427` 에 정의되어 있다.
+바이너리 배포판(Binary Distribution) format(``wheel``)은 :pep:`427` 에 정의되어 있다.
 
 Platform Compatibility Tags
 ===========================

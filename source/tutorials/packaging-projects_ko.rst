@@ -95,7 +95,7 @@ minimal set:
   이 예제에서는 :file:`README.md` 에서 불러와 사용하게 되며 이는 일반적인 방식이다.
 - ``long_description_content_type`` 어떤 타입의 마크업이 long_description에 사용되었는지 알려준다. 이 예제에서는 마크다운이다.
 - ``url`` 프로젝트 홈페이지의 URL을 알려준다. 많은 프로젝트들이 GitHub, GitLab, Bitbucket와 같은 코드 호스팅 서비스 페이지를 쓰곤 한다.
-- ``packages`` :term:`distribution package` 에 포함되어야 할 모든 파이썬 :term:`import packages <Import Package>` 의 리스트다.
+- ``packages`` :term:`배포판 package` 에 포함되어야 할 모든 파이썬 :term:`import packages <Import Package>` 의 리스트다.
   하나하나 패키지를 수동으로 리스팅할 필요없이 :func:`find_packages` 를 사용하면 자동으로 모든 패키지와 서브패키지를 찾아준다.
   여기서는 `example_pkg` 가 유일하게 포함될 패키지이다.
 - ``classifiers`` 인덱스와 :ref:`pip` 에 추가적인 패키지에 대한 메타데이터를 알려준다. 이 예제에서는 패키지가 오직 파이썬 3 버전과 호환되고 MIT
@@ -155,7 +155,7 @@ PPI에 패키지를 업로드할 때 라이센스 정보를 포함하는 것은 
 디스트리뷰션 아카이브 생성하기
 --------------------------------
 
-다음 단계는 패키지를 위한 :term:`distribution packages <distribution package>` 만들기다.
+다음 단계는 패키지를 위한 :term:`배포판 packages <배포용 패키지(Distribution Package)>` 만들기다.
 이것은 Package Index에 업로드 되는 아카이브들로 :ref:`pip` 을 통해 설치가 가능하다.
 
 최신 버전의 ``setuptools`` 와 ``wheel`` 이 설치되었는지 확인하라.
@@ -266,7 +266,7 @@ Run the Python interpreter (make sure you're still in your virtualenv):
     python
 
 그리고 모듈을 임포트하고 ``name`` 이 잘 출력되는지 확인하라. 당신의 :term:`import package` 가 ``example_pkg`` 이므로
-어떤 이름을 :term:`distribution package` 에 주었더라도 같은 결과가 출력된다.
+어떤 이름을 :term:`배포판 package` 에 주었더라도 같은 결과가 출력된다.
 
 .. code-block:: python
 

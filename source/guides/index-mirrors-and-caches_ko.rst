@@ -18,14 +18,14 @@ PyPI 미러링 또는 캐싱은 로컬 패키지 설치 속도를 높이고 오�
 
 1. pip은 로컬 캐싱 옵션을 제공한다.
 2. devpi는 잠재적으로 많은 사용자 또는 컴퓨터에서 공유될 수 있는 higher-level 캐싱 옵션을 제공한다.
-3. bandersnatch는 모든 PyPI :term:`package <Distribution Package>` 의 완전한 로컬
+3. bandersnatch는 모든 PyPI :term:`package <배포용 패키지(Distribution Package)>` 의 완전한 로컬
    미러를 제공한다.
 
 
 Caching with pip
 ----------------
 
-pip는 다음과 같은 :term:`package <Distribution Package>` 의 로컬에 캐시 된 복사본을 사용하여
+pip는 다음과 같은 :term:`package <배포용 패키지(Distribution Package)>` 의 로컬에 캐시 된 복사본을 사용하여
 설치 속도를 높이는 여러 가지 기능을 제공한다:
 
 1. 프로젝트의 모든 requirement를 다운로드하고 PyPI로 가지 않고 다운로드 된 파일에 대해 pip를 사용하는
@@ -49,12 +49,12 @@ __ http://doc.devpi.net/latest/quickstart-pypimirror.html
 Complete mirror with bandersnatch
 ----------------------------------
 
-bandersnatch는 모든 PyPI :term:`package <Distribution Package>` 의 완전한 로컬 미러를
+bandersnatch는 모든 PyPI :term:`package <배포용 패키지(Distribution Package)>` 의 완전한 로컬 미러를
 설정한다. 단, 외부 호스팅되는 패키지는 미러링 되지 않는다.
 `bandersnatch documentation for getting that going`__ 참조.
 
 __ https://bitbucket.org/pypa/bandersnatch/overview
 
-devpi의 장점은 PyPI에 호스팅되는 :term:`package <Distribution Package>` 만 캐시하는
-bandersnatch와는 다르게 PyPI 외부의 :term:`package <Distribution Package>` 도 포함하는
+devpi의 장점은 PyPI에 호스팅되는 :term:`package <배포용 패키지(Distribution Package)>` 만 캐시하는
+bandersnatch와는 다르게 PyPI 외부의 :term:`package <배포용 패키지(Distribution Package)>` 도 포함하는
 미러를 생성한다.

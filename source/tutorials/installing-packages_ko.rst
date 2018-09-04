@@ -1,14 +1,16 @@
+.. _installing-packages:
+
 ===================
 패키지 설치하기
 ===================
 
-이 섹션은 파이썬 :term:`packages <Distribution Package>` 설치 방법의 기본을 다룬다.
+여기에서는 기초적인 파이썬 :term:`패키지 <배포용 패키지(Distribution Package)>` 설치법을 다룬다.
 
-이 맥락에서 용어 "패키지"는 :term:`distribution <Distribution Package>`
-(설치되는 소프트웨어 번들(bundle))의 동의어로서 사용되고 있다는 사실을 유의하라.
-파이썬 소스 코드에서 임포트 하는 :term:`package <Import Package>` (모듈 컨테이너)
-같은 것을 의미하는 것이 아니다. 파이썬 커뮤니티에서는 :term:`distribution
-<Distribution Package>`\ 를 "패키지"라고 언급하는 일이 일반적이다.
+"패키지"라는 용어가 :term:`배포판 <배포용 패키지(Distribution Package)>`
+(설치되는 소프트웨어 번들(bundle))과 같은 뜻으로 사용되고 있다는 사실을 유의하라.
+파이썬 소스 코드에서 임포트 하는 :term:`package <임포트용 패키지(Import Package)>` (모듈 컨테이너)
+같은 것을 의미하는 것이 아니다. 파이썬 커뮤니티에서는 :term:`배포판
+<배포용 패키지(Distribution Package)>`\ 를 "패키지"라고 언급하는 일이 일반적이다.
 "distribution"이라는 용어를 사용하는 것은 권장되지 않는다. 왜냐하면,
 리눅스 distribution이나 파이썬 같은 다른 큰 소프트웨어 distribution과 쉽게 혼동을
 일으킬 수 있기 때문이다.
@@ -95,7 +97,7 @@ pip, setuptools, wheel 설치하기
 가상 환경 생성하기
 =============================
 
-파이썬 "가상 환경"은 파이썬 :term:`packages <Distribution Package>`\ 가 글로벌하게
+파이썬 "가상 환경"은 파이썬 :term:`packages <배포용 패키지(Distribution Package)>`\ 가 글로벌하게
 (globally) 설치되지 않고 특정한 어플리케이션을 위한 독립된 위치에 설치되게 할 수 있다.
 
 당신이 LibFoo 버전 1을 필요로 하는 어플리케이션을 가지고 있다고 상상해보자, 그런데
@@ -108,7 +110,7 @@ pip, setuptools, wheel 설치하기
 어플리케이션이 작동하면, 라이브러리나 라이브러리 버전의 변화가 어플리케이션을
 망가뜨릴 수 있다.
 
-또한, :term:`packages <Distribution Package>`\ 를 글로벌 site-packages 디렉토리에
+또한, :term:`packages <배포용 패키지(Distribution Package)>`\ 를 글로벌 site-packages 디렉토리에
 깔 수 없다면? 예를 들면, 호스트를 공유하고 있는 경우.
 
 이러한 모든 경우에, 가상 환경이 도움이 될 수 있다. 가상 환경은 모두 개별적인 설치
@@ -208,8 +210,8 @@ Distribution (or "sdist")>` 또는 :term:`Wheels <Wheel>`\ 로부터 설치할 �
 
 :term:`Wheels <Wheel>`\ 는 :term:`Source Distributions (sdist) <Source
 Distribution (or "sdist")>`\ 과 비교했을 때 (특히 컴파일된 확장자가 있을 떄)
-훨씬 더 빠르게 설치할 수 있는 프리 빌드된(pre-built) :term:`distribution
-<Distribution Package>` 포맷이다.
+훨씬 더 빠르게 설치할 수 있는 프리 빌드된(pre-built) :term:`배포판
+<배포용 패키지(Distribution Package)>` 포맷이다.
 
 만약 :ref:`pip`\ 가 설치할 wheel을 찾지 못하면, pip는 나중에 source distribution
 을 리빌딩 하는 대신 로컬에서 미래에 설치할 wheel을 빌드하고 저장(cache)해둔다.
@@ -230,8 +232,8 @@ PyPI로부터 설치된 `SomeProject`\ 를 최신 버전으로 업그레이드�
 사용자 사이트에 설치하기
 ===========================
 
-현재 사용자와 분리된 :term:`packages <Distribution Package>`\ 설치하려면
-``--user`` 플래그(flag)를 사용하라:
+현재 사용자와 분리된 :term:`패키지 <배포용 패키지(Distribution Package)>`\ 를 설치하려면
+``--user`` 플래그(flag)를 사용한다.:
 
 ::
 

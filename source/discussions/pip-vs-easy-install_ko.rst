@@ -9,12 +9,12 @@ pip vs easy_install
 `easy_install`\ 은 :ref:`setuptools`\ 의 일부로서 2004년에 공개되었다.
 이것은 당시에 요구사항 지정자(requirement specifiers)를 사용해서
 자동적으로 의존성(dependencies)을 설치하는 :term:`PyPI <Python Package
-Index (PyPI)>`\ 의 :term:`packages <Distribution Package>`\ 를 설치하는
+Index (PyPI)>`\ 의 :term:`packages <배포용 패키지(Distribution Package)>`\ 를 설치하는
 것으로 유명했다.
 
 :ref:`pip`\ 는 :ref:`setuptools` 구성요소의 최상단에 빌드되어 있지만
 `easy_install`\ 의 대안으로 2008년에 나왔다. 이것은 당시에 :term:`Eggs <Egg>`\
-처럼 (하지만 :term:`sdists <Source Distribution (or "sdist")>`\ 의 'flat' 패키지
+처럼 (하지만 :term:`sdists <소스 배포판(Source Distribution or "sdist")>`\ 의 'flat' 패키지
 보다 단순한) :term:`Eggs <Egg>`\ 의 패키지를 설치하지 *않는* 것과 사용자에게
 쉽게 환경을 복제할 수 있는 권한을 주는 :ref:`Requirements Files
 <pip:Requirements Files>` 개념을 도입하는 것으로 유명했다.

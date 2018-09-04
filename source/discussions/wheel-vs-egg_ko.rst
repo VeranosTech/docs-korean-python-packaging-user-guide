@@ -11,8 +11,8 @@ Wheel vs Egg
 :term:`Egg` 포맷은 2004년 :ref:`setuptools`\ 에 의해 도입되었고,
 :term:`Wheel` 포맷은 :pep:`427`\ 에 의해 2012년에 도입되었다.
 
-:term:`Wheel`\ 은 현재 파이썬용 패키지 :term:`built <Built Distribution>`\ 과
-:term:`binary <Binary Distribution>`\ 의 표준으로 간주되고 있다.
+:term:`Wheel`\ 은 현재 파이썬용 패키지 :term:`built <빌드 패포판(Built Distribution)>`\ 과
+:term:`binary <바이너리 배포판(Binary Distribution)>`\ 의 표준으로 간주되고 있다.
 
 아래는 :term:`Wheel`\ 과 :term:`Egg`\ 의 중요한 차이점을 설명한 것이다.
 
@@ -20,13 +20,13 @@ Wheel vs Egg
 * :term:`Wheel`\ 는 :pep:`official PEP <427>`\ 를 따르고 :term:`Egg`\ 은
   따르지 않는다.
 
-* :term:`Wheel` \ 는 :term:`distribution <Distribution Package>` 포맷이다, 즉
+* :term:`Wheel` \ 는 :term:`배포판 <배포용 패키지(Distribution Package)>` 포맷이다, 즉
   패키징 포맷이다. [1]_ :term:`Egg`\ 는 배포 포맷이며 동시에 런타임 설치 포맷이기도
   하다 (압축되어 있는 경우), 그리고 임포터블(importable) 하도록 디자인 되었다.
 
 * :term:`Wheel` 아카이브는 .pyc 파일을 포함하지 않는다. 따라서 배포판이 파이썬
   파일만 포함할 때 (즉, 컴파일된 확장판이 없을 때), 그리고 파이썬 2, 3과 호환 가능할
-  때 wheel이 :term:`sdist <Source Distribution (or "sdist")>`\ 와 비슷하게
+  때 wheel이 :term:`sdist <소스 배포판(Source Distribution or "sdist")>`\ 와 비슷하게
   "범용(universal)"이 될 수 있다.
 
 * :term:`Wheel`\ 은 :pep:`PEP376-compliant <376>` ``.dist-info``

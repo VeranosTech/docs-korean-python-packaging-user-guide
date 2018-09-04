@@ -338,7 +338,7 @@ distutils
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
-:term:`distributions <Distribution Package>` 을 생성하고 설치하는 것을 지원하는
+:term:`배포판s <배포용 패키지(Distribution Package)>` 을 생성하고 설치하는 것을 지원하는
 Python Standard Library 내의 package. :ref:`Setuptools` 가 distutils에 향상된 기능을
 지원하며, distutils를 단독으로 사용하는 것 보다 훨씬 더 일반적으로 사용된다.
 
