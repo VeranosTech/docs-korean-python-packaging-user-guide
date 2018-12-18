@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/tool-recommendations.rst:5
+msgid "Tool recommendations"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:7
+msgid ""
+"If you're familiar with Python packaging and installation, and just want "
+"to know what tools are currently recommended, then here it is."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:12
+msgid "Application dependency management"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:14
+msgid ""
+"Use :ref:`pipenv` to manage library dependencies when developing Python "
+"applications. See :doc:`../tutorials/managing-dependencies` for more "
+"details on using ``pipenv``."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:18
+msgid ""
+"Consider other tools such as :ref:`pip` when ``pipenv`` does not meet "
+"your use case."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:22
+msgid "Installation tool recommendations"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:24
+msgid ""
+"Use :ref:`pip` to install Python :term:`packages <Distribution Package>` "
+"from :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ Depending on "
+"how :ref:`pip` is installed, you may need to also install :ref:`wheel` to"
+" get the benefit of wheel caching. [3]_"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:29
+msgid ""
+"Use :ref:`virtualenv`, or `venv`_ to isolate application specific "
+"dependencies from a shared Python installation. [4]_"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:32
+msgid ""
+"If you're looking for management of fully integrated cross-platform "
+"software stacks, consider:"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:35
+msgid ":ref:`buildout`: primarily focused on the web development community"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:37
+msgid ""
+":ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused on the "
+"scientific community."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:42
+msgid "Packaging tool recommendations"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:44
+msgid ""
+"Use :ref:`setuptools` to define projects and create :term:`Source "
+"Distributions <Source Distribution (or \"sdist\")>`. [5]_ [6]_"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:47
+msgid ""
+"Use the ``bdist_wheel`` :ref:`setuptools` extension available from the "
+":ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is "
+"especially beneficial, if your project contains binary extensions."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:51
+msgid ""
+"Use `twine <https://pypi.org/project/twine>`_ for uploading distributions"
+" to :term:`PyPI <Python Package Index (PyPI)>`."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:56
+msgid "Publishing platform migration"
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:58
+msgid ""
+"The original Python Package Index implementation (previously hosted at "
+"`pypi.python.org <https://pypi.python.org>`_) has been phased out in "
+"favour of an updated implementation hosted at `pypi.org "
+"<https://pypi.org>`_."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:62
+msgid ""
+"See :ref:`Migrating to PyPI.org` for more information on the status of "
+"the migration, and what settings to change in your clients."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:67
+msgid ""
+"There are some cases where you might choose to use ``easy_install`` (from"
+" :ref:`setuptools`), e.g. if you need to install from :term:`Eggs <Egg>` "
+"(which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs "
+"easy_install`."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:72
+msgid ""
+"The acceptance of :pep:`453` means that :ref:`pip` will be available by "
+"default in most installations of Python 3.4 or later.  See the "
+":pep:`rationale section <453#rationale>` from :pep:`453` as for why pip "
+"was chosen."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:77
+msgid ""
+":ref:`get-pip.py <pip:get-pip>` and :ref:`virtualenv` install "
+":ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not "
+"currently.  Also, the common \"python-pip\" package that's found in "
+"various linux distros, does not depend on \"python-wheel\" currently."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:82
+msgid ""
+"Beginning with Python 3.4, ``venv`` will create virtualenv environments "
+"with ``pip`` installed, thereby making it an equal alternative to "
+":ref:`virtualenv`. However, using :ref:`virtualenv` will still be "
+"recommended for users that need cross-version consistency."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:87
+msgid ""
+"Although you can use pure ``distutils`` for many projects, it does not "
+"support defining dependencies on other projects and is missing several "
+"convenience utilities for automatically populating distribution metadata "
+"correctly that are provided by ``setuptools``. Being outside the standard"
+" library, ``setuptools`` also offers a more consistent feature set across"
+" different versions of Python, and (unlike ``distutils``), recent "
+"versions of ``setuptools`` support all of the modern metadata fields "
+"described in :ref:`core-metadata`."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:96
+msgid ""
+"Even for projects that do choose to use ``distutils``, when :ref:`pip` "
+"installs such projects directly from source (rather than installing from "
+"a prebuilt :term:`wheel <Wheel>` file), it will actually build your "
+"project using :ref:`setuptools` instead."
+msgstr ""
+
+#: ../../source/guides/tool-recommendations.rst:101
+msgid ""
+"`distribute`_ (a fork of setuptools) was merged back into "
+":ref:`setuptools` in June 2013, thereby making setuptools the default "
+"choice for packaging."
+msgstr ""
+

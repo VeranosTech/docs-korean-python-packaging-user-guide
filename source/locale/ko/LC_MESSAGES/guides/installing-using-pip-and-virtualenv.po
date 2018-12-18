@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:2
+msgid "Installing packages using pip and virtualenv"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:4
+msgid ""
+"This guide discusses how to install packages using :ref:`pip` and "
+":ref:`virtualenv`. These are the lowest-level tools for managing Python "
+"packages and are recommended if higher-level tools do not suit your "
+"needs."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:8
+msgid ""
+"This doc uses the term **package** to refer to a :term:`Distribution "
+"Package`  which is different from a :term:`Import Package` that which is "
+"used to import modules in your Python source code."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:14
+msgid "Installing pip"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:16
+msgid ""
+":ref:`pip` is the reference Python package manager. It's used to install "
+"and update packages. You'll need to make sure you have the latest version"
+" of pip installed."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:22
+msgid "Windows"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:24
+msgid ""
+"The Python installers for Windows include pip. You should be able to "
+"access pip using:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:32
+msgid "You can make sure that pip is up-to-date by running:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:40
+msgid "Linux and macOS"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:42
+msgid ""
+"Debian and most other distributions include a `python-pip`_ package, if "
+"you want to use the Linux distribution-provided versions of pip see "
+":doc:`/guides/installing-using-linux-tools`."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:46
+msgid ""
+"You can also install pip yourself to ensure you have the latest version. "
+"It's recommended to use the system pip to bootstrap a user installation "
+"of pip:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:53
+msgid "Afterwards, you should have the newest pip installed in your user site:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:64
+msgid "Installing virtualenv"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:66
+msgid ""
+":ref:`virtualenv` is used to manage Python packages for different "
+"projects. Using virtualenv allows you to avoid installing Python packages"
+" globally which could break system tools or other projects. You can "
+"install virtualenv using pip."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:71
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:103
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:131
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:144
+msgid "On macOS and Linux:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:77
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:109
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:151
+msgid "On Windows:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:84
+msgid ""
+"If you are using Python 3.3 or newer the :mod:`venv` module is included "
+"in the Python standard library. This can also create and manage virtual "
+"environments, however, it only supports Python 3."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:90
+msgid "Creating a virtualenv"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:92
+msgid ""
+":ref:`virtualenv` allows you to manage separate package installations for"
+" different projects. It essentially allows you to create a \"virtual\" "
+"isolated Python installation and install packages into that virtual "
+"installation. When you switch projects, you can simply create a new "
+"virtual environment and not have to worry about breaking the packages "
+"installed in the other environments. It is always recommended to use a "
+"virtualenv while developing Python applications."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:100
+msgid ""
+"To create a virtual environment, go to your project's directory and run "
+"virtualenv."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:115
+msgid ""
+"The second argument is the location to create the virtualenv. Generally, "
+"you can just create this in your project and call it ``env``."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:118
+msgid ""
+"virtualenv will create a virtual Python installation in the ``env`` "
+"folder."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:120
+msgid ""
+"You should exclude your virtualenv directory from your version control "
+"system using ``.gitignore`` or similar."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:125
+msgid "Activating a virtualenv"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:127
+msgid ""
+"Before you can start installing or using packages in your virtualenv "
+"you'll need to *activate* it. Activating a virtualenv will put the "
+"virtualenv-specific ``python`` and ``pip`` executables into your shell's "
+"``PATH``."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:137
+msgid "On Windows::"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:141
+msgid ""
+"You can confirm you're in the virtualenv by checking the location of your"
+" Python interpreter, it should point to the ``env`` directory."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:159
+msgid ""
+"As long as your virtualenv is activated pip will install packages into "
+"that specific environment and you'll be able to import and use packages "
+"in your Python application."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:165
+msgid "Leaving the virtualenv"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:167
+msgid ""
+"If you want to switch projects or otherwise leave your virtualenv, simply"
+" run:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:173
+msgid ""
+"If you want to re-enter the virtualenv just follow the same instructions "
+"above about activating a virtualenv. There's no need to re-create the "
+"virtualenv."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:178
+msgid "Installing packages"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:180
+msgid ""
+"Now that you're in your virtualenv you can install packages. Let's "
+"install the excellent `Requests`_ library from the :term:`Python Package "
+"Index (PyPI)`:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:187
+msgid "pip should download requests and all of its dependencies and install them:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:208
+msgid "Installing specific versions"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:210
+msgid ""
+"pip allows you to specify which version of a package to install using "
+":term:`version specifiers <Version Specifier>`. For example, to install a"
+" specific version of ``requests``:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:218
+msgid "To install the latest ``2.x`` release of requests:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:224
+msgid "To install pre-release versions of packages, use the ``--pre`` flag:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:232
+msgid "Installing extras"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:234
+msgid ""
+"Some packages have optional `extras`_. You can tell pip to install these "
+"by specifying the extra in brackets:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:246
+msgid "Installing from source"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:248
+msgid "pip can install a package directly from source, for example:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:255
+msgid ""
+"Additionally, pip can install packages from source in `development "
+"mode`_, meaning that changes to the source directory will immediately "
+"affect the installed package without needing to re-install:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:269
+msgid "Installing from version control systems"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:271
+msgid ""
+"pip can install packages directly from their version control system. For "
+"example, you can install directly from a git repository:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:278
+msgid ""
+"For more information on supported version control systems and syntax, see"
+" pip's documentation on :ref:`VCS Support <pip:VCS Support>`."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:283
+msgid "Installing from local archives"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:285
+msgid ""
+"If you have a local copy of a :term:`Distribution Package`'s archive (a "
+"zip, wheel, or tar file) you can install it directly with pip:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:292
+msgid ""
+"If you have a directory containing archives of multiple packages, you can"
+" tell pip to look for packages there and not to use the :term:`Python "
+"Package Index (PyPI)` at all:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:300
+msgid ""
+"This is useful if you are installing packages on a system with limited "
+"connectivity or if you want to strictly control the origin of "
+"distribution packages."
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:306
+msgid "Using other package indexes"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:308
+msgid ""
+"If you want to download packages from a different index than the "
+":term:`Python Package Index (PyPI)`, you can use the ``--index-url`` "
+"flag:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:315
+msgid ""
+"If you want to allow packages from both the :term:`Python Package Index "
+"(PyPI)` and a separate index, you can use the ``--extra-index-url`` flag "
+"instead:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:325
+msgid "Upgrading packages"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:327
+msgid ""
+"pip can upgrade packages in-place using the ``--upgrade`` flag. For "
+"example, to install the latest version of ``requests`` and all of its "
+"dependencies:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:336
+msgid "Using requirements files"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:338
+msgid ""
+"Instead of installing packages individually, pip allows you to declare "
+"all dependencies in a :ref:`Requirements File <pip:Requirements Files>`. "
+"For example you could create a :file:`requirements.txt` file containing:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:347
+msgid ""
+"And tell pip to install all of the packages in this file using the ``-r``"
+" flag:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:355
+msgid "Freezing dependencies"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:357
+msgid ""
+"Pip can export a list of all installed packages and their versions using "
+"the ``freeze`` command:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:364
+msgid "Which will output a list of package specifiers such as:"
+msgstr ""
+
+#: ../../source/guides/installing-using-pip-and-virtualenv.rst:380
+msgid ""
+"This is useful for creating :ref:`pip:Requirements Files` that can re-"
+"create the exact versions of all packages installed in an environment."
+msgstr ""
+

@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/migrating-to-pypi-org.rst:4
+msgid "Migrating to PyPI.org"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:6
+msgid ""
+":term:`PyPI.org` is the new, rewritten version of PyPI that has replaced "
+"the legacy PyPI code base. It is the default version of PyPI that people "
+"are expected to use. These are the tools and processes that people will "
+"need to interact with ``PyPI.org``."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:12
+msgid "Publishing releases"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:14
+msgid "``pypi.org`` is the default upload platform as of September 2016."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:16
+msgid ""
+"Uploads through ``pypi.python.org`` were *switched off* on **July 3, "
+"2017**. As of April 13th, 2018,``pypi.org`` is the URL for PyPI."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:19
+msgid ""
+"The recommended way to migrate to PyPI.org for uploading is to ensure "
+"that you are using a new enough version of your upload tool."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:22
+msgid ""
+"The default upload settings switched to ``pypi.org`` in the following "
+"versions:"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:24
+msgid "``twine`` 1.8.0"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:25
+msgid "``setuptools`` 27.0.0"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:26
+msgid "Python 2.7.13 (``distutils`` update)"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:27
+msgid "Python 3.4.6 (``distutils`` update)"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:28
+msgid "Python 3.5.3 (``distutils`` update)"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:29
+msgid "Python 3.6.0 (``distutils`` update)"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:31
+msgid ""
+"In addition to ensuring you're on a new enough version of the tool for "
+"the tool's default to have switched, you must also make sure that you "
+"have not configured the tool to override its default upload URL. "
+"Typically this is configured in a file located at ``$HOME/.pypirc``. If "
+"you see a file like:"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:48
+msgid ""
+"Then simply delete the line starting with ``repository`` and you will use"
+" your upload tool's default URL."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:51
+msgid ""
+"If for some reason you're unable to upgrade the version of your tool to a"
+" version that defaults to using PyPI.org, then you may edit "
+"``$HOME/.pypirc`` and include the ``repository:`` line, but use the value"
+" ``https://upload.pypi.org/legacy/`` instead:"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:67
+msgid ""
+"(``legacy`` in this URL refers to the fact that this is the new server "
+"implementation's emulation of the legacy server implementation's upload "
+"API.)"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:72
+msgid "Registering package names & metadata"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:74
+msgid ""
+"Explicit pre-registration of package names with the ``setup.py register``"
+" command prior to the first upload is no longer required, and is not "
+"currently supported by the legacy upload API emulation on PyPI.org."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:78
+msgid ""
+"As a result, attempting explicit registration after switching to using "
+"PyPI.org for uploads will give the following error message::"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:83
+msgid ""
+"The solution is to skip the registration step, and proceed directly to "
+"uploading artifacts."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:88
+msgid "Using TestPyPI"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:90
+msgid ""
+"Legacy TestPyPI (testpypi.python.org) is no longer available; use "
+"`test.pypi.org <https://test.pypi.org>`_ instead. If you use TestPyPI, "
+"you must update your ``$HOME/.pypirc`` to handle TestPyPI's new location,"
+" by replacing ``https://testpypi.python.org/pypi`` with "
+"``https://test.pypi.org/legacy/``, for example:"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:110
+msgid "Registering new user accounts"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:112
+msgid ""
+"In order to help mitigate spam attacks against PyPI, new user "
+"registration through ``pypi.python.org`` was *switched off* on **February"
+" 20, 2018**. New user registrations at ``pypi.org`` are open."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:118
+msgid "Browsing packages"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:120
+msgid ""
+"While ``pypi.python.org`` is may still be used in links from other PyPA "
+"documentation, etc, the default interface for browsing packages is "
+"``pypi.org``. The domain pypi.python.org now redirects to pypi.org, and "
+"may be disabled sometime in the future."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:127
+msgid "Downloading packages"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:129
+msgid "``pypi.org`` is the default host for downloading packages."
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:132
+msgid "Managing published packages and releases"
+msgstr ""
+
+#: ../../source/guides/migrating-to-pypi-org.rst:134
+msgid ""
+"``pypi.org`` provides a fully functional interface for logged in users to"
+" manage their published packages and releases."
+msgstr ""
+

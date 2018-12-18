@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/using-testpypi.rst:5
+msgid "Using TestPyPI"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:7
+msgid ""
+"`TestPyPI` is a separate instance of the :term:`Python Package Index "
+"(PyPI)` that allows you to try out the distribution tools and process "
+"without worrying about affecting the real index. TestPyPI is hosted at "
+"`test.pypi.org <https://test.pypi.org>`_"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:13
+msgid "Registering your account"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:15
+msgid ""
+"Because TestPyPI has a separate database from the live PyPI, you'll need "
+"a separate user account for specifically for TestPyPI. Go to "
+"https://test.pypi.org/account/register/ to register your account."
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:19
+msgid ""
+"The database for TestPyPI may be periodically pruned, so it is not "
+"unusual for user accounts to be deleted."
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:24
+msgid "Using TestPyPI with Twine"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:26
+msgid ""
+"You can upload your distributions to TestPyPI using :ref:`twine` by "
+"passing in the ``--repository-url`` flag"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:33
+msgid ""
+"The ``legacy`` in the URL above refers to the legacy API for PyPI, which "
+"may change as the Warehouse project progresses."
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:36
+msgid ""
+"You can see if your package has successfully uploaded by navigating to "
+"the URL ``https://test.pypi.org/project/<sampleproject>`` where "
+"``sampleproject`` is the name of your project that you uploaded. It may "
+"take a minute or two for your project to appear on the site."
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:42
+msgid "Using TestPyPI with pip"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:44
+msgid ""
+"You can tell pip to download packages from TestPyPI instead of PyPI by "
+"specifying the ``--index-url`` flag"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:51
+msgid ""
+"If you want to allow pip to also pull other packages from PyPI you can "
+"specify ``--extra-index-url`` to point to PyPI. This is useful when the "
+"package you're testing has dependencies:"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:60
+msgid "Setting up TestPyPI in pypirc"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:62
+msgid ""
+"If you want to avoid entering the TestPyPI url and your username you can "
+"configure TestPyPI in your ``$HOME/.pypirc``."
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:65
+msgid "Create or modify ``$HOME/.pypirc`` with the following:"
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:79
+msgid ""
+"Do not store passwords in the pypirc file. Storing passwords in plain "
+"text is never a good idea."
+msgstr ""
+
+#: ../../source/guides/using-testpypi.rst:82
+msgid ""
+"You can then tell :ref:`twine` to upload to TestPyPI by specifying the "
+"``--repository`` flag:"
+msgstr ""
+

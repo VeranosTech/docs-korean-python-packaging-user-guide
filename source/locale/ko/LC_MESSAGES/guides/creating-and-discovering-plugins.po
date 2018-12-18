@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:3
+msgid "Creating and discovering plugins"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:5
+msgid ""
+"Often when creating a Python application or library you'll want the "
+"ability to provide customizations or extra features via **plugins**. "
+"Because Python packages can be separately distributed, your application "
+"or library may want to automatically **discover** all of the plugins "
+"available."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:10
+msgid "There are three major approaches to doing automatic plugin discovery:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:12
+msgid "`Using naming convention`_."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:13
+msgid "`Using namespace packages`_."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:14
+msgid "`Using package metadata`_."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:18
+msgid "Using naming convention"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:20
+msgid ""
+"If all of the plugins for your application follow the same naming "
+"convention, you can use :func:`pkgutil.iter_modules` to discover all of "
+"the top-level modules that match the naming convention. For example, "
+"`Flask`_ uses the naming convention ``flask_{plugin_name}``. If you "
+"wanted to automatically discover all of the Flask plugins installed:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:38
+msgid ""
+"If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins "
+"installed then ``flask_plugins`` would be:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:48
+msgid ""
+"Using naming convention for plugins also allows you to query the Python "
+"Package Index's `simple API`_ for all packages that conform to your "
+"naming convention."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:59
+msgid "Using namespace packages"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:61
+msgid ""
+":doc:`Namespace packages <packaging-namespace-packages>` can be used to "
+"provide a convention for where to place plugins and also provides a way "
+"to perform discovery. For example, if you make the sub-package "
+"``myapp.plugins`` a namespace package then other :term:`distributions "
+"<Distribution Package>` can provide modules and packages to that "
+"namespace. Once installed, you can use :func:`pkgutil.iter_modules` to "
+"discover all modules and packages installed under that namespace:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:89
+msgid ""
+"Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` "
+"causes it to only look for the modules directly under that namespace. For"
+" example, if you have installed distributions that provide the modules "
+"``myapp.plugin.a`` and ``myapp.plugin.b`` then ``myapp_plugins`` in this "
+"case would be:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:101
+msgid ""
+"This sample uses a sub-package as the namespace package "
+"(``myapp.plugin``), but it's also possible to use a top-level package for"
+" this purpose (such as ``myapp_plugins``). How to pick the namespace to "
+"use is a matter of preference, but it's not recommended to make your "
+"project's main top-level package ( ``myapp`` in this case) a namespace "
+"package for the purpose of plugins, as one bad plugin could cause the "
+"entire namespace to break which would in turn make your project "
+"unimportable. For the \"namespace sub-package\" approach to work, the "
+"plugin packages must omit the :file:`__init__.py` for your top-level "
+"package directory (``myapp`` in this case) and include the namespace-"
+"package style :file:`__init__.py` in the namespace sub-package directory "
+"(``myapp/plugins``).  This also means that plugins will need to "
+"explicitly pass a list of packages to :func:`setup`'s ``packages`` "
+"argument instead of using :func:`setuptools.find_packages`."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:115
+msgid ""
+"Namespace packages are a complex feature and there are several different "
+"ways to create them. It's highly recommended to read the :doc:`packaging-"
+"namespace-packages` documentation and clearly document which approach is "
+"preferred for plugins to your project."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:121
+msgid "Using package metadata"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:123
+msgid ""
+"`Setuptools`_ provides `special support`_ for plugins. By providing the "
+"``entry_points`` argument to :func:`setup` in :file:`setup.py` plugins "
+"can register themselves for discovery."
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:127
+msgid ""
+"For example if you have a package named ``myapp-plugin-a`` and it "
+"includes in its :file:`setup.py`:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:138
+msgid ""
+"Then you can discover and load all of the registered entry points by "
+"using :func:`pkg_resources.iter_entry_points`:"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:151
+msgid "In this example, ``plugins`` would be :"
+msgstr ""
+
+#: ../../source/guides/creating-and-discovering-plugins.rst:159
+msgid ""
+"The ``entry_point`` specification in :file:`setup.py` is fairly flexible "
+"and has a lot of options. It's recommended to read over the entire "
+"section on `entry points`_."
+msgstr ""
+

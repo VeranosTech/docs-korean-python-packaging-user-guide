@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/single-sourcing-package-version.rst:5
+msgid "Single-sourcing the package version"
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:8
+msgid ""
+"There are many techniques to maintain a single source of truth for the "
+"version number of your project:"
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:11
+msgid ""
+"Read the file in :file:`setup.py` and parse the version with a regex. "
+"Example ( from `pip setup.py "
+"<https://github.com/pypa/pip/blob/master/setup.py#L12>`_)::"
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:37
+msgid ""
+"This technique has the disadvantage of having to deal with complexities "
+"of regular expressions."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:39
+msgid ""
+"Use an external build tool that either manages updating both locations, "
+"or offers an API that both locations can use."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:42
+msgid ""
+"Few tools you could use, in no particular order, and not necessarily "
+"complete: `bump2version <https://pypi.org/project/bump2version>`_, "
+"`changes <https://pypi.org/project/changes>`_, `zest.releaser "
+"<https://pypi.org/project/zest.releaser>`_."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:47
+msgid ""
+"Set the value to a ``__version__`` global variable in a dedicated module "
+"in your project (e.g. :file:`version.py`), then have :file:`setup.py` "
+"read and ``exec`` the value into a variable."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:51
+msgid "Using ``execfile``:"
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:59
+msgid "Using ``exec``:"
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:68
+msgid ""
+"Example using this technique: `warehouse "
+"<https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:70
+msgid ""
+"Place the value in a simple ``VERSION`` text file and have both "
+":file:`setup.py` and the project code read it."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:78
+msgid ""
+"An advantage with this technique is that it's not specific to Python.  "
+"Any tool can read the version."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:83
+msgid ""
+"With this approach you must make sure that the ``VERSION`` file is "
+"included in all your source and binary distributions (e.g. add ``include "
+"VERSION`` to your :file:`MANIFEST.in`)."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:87
+msgid ""
+"Set the value in :file:`setup.py`, and have the project code use the "
+"``pkg_resources`` API."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:95
+msgid ""
+"Be aware that the ``pkg_resources`` API only knows about what's in the "
+"installation metadata, which is not necessarily the code that's currently"
+" imported."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:99
+msgid ""
+"Example using this technique: `setuptools "
+"<https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:102
+msgid ""
+"Set the value to ``__version__`` in ``sample/__init__.py`` and import "
+"``sample`` in :file:`setup.py`."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:116
+msgid ""
+"Although this technique is common, beware that it will fail if "
+"``sample/__init__.py`` imports packages from ``install_requires`` "
+"dependencies, which will very likely not be installed yet when "
+":file:`setup.py` is run."
+msgstr ""
+
+#: ../../source/guides/single-sourcing-package-version.rst:122
+msgid ""
+"Keep the version number in the tags of a version control system (Git, "
+"Mercurial, etc) instead of in the code, and automatically extract it from"
+" there using `setuptools_scm <https://pypi.org/project/setuptools_scm>`_."
+msgstr ""
+

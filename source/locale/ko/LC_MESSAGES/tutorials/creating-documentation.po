@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tutorials/creating-documentation.rst:5
+msgid "Creating Documentation"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:7
+msgid ""
+"This section covers the basics of how to create documentation using "
+"`Sphinx`_ and host the documentation for free in `Read The Docs`_."
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:13
+msgid "Installing Sphinx"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:14
+msgid "Use ``pip`` to install Sphinx:"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:20
+msgid "For other installation methods, see this `installation guide`_ by Sphinx."
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:25
+msgid "Getting Started With Sphinx"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:27
+msgid "Create a ``doc`` directory inside your project to hold your documentation:"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:34
+msgid "Run ``spinx-quickstart`` inside the ``docs`` directory:"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:41
+msgid ""
+"This sets up a source directory, walks you through some basic "
+"configurations, and creates an ``index.rst`` file as well as a "
+"``conf.py`` file."
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:43
+msgid ""
+"You can add some information about your project in ``index.rst``, then "
+"build them:"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:49
+msgid "For more details on the build process, see this `guide`_ by Read The Docs."
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:54
+msgid "Other Sources"
+msgstr ""
+
+#: ../../source/tutorials/creating-documentation.rst:56
+msgid ""
+"For a more detailed guide on how to use Sphinx and reStructuredText, "
+"please see this `documentation tutorial`_ on Hitchhiker's Guide to "
+"Python."
+msgstr ""
+

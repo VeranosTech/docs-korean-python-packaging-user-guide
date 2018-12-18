@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/discussions/pip-vs-easy-install.rst:6
+msgid "pip vs easy_install"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:9
+msgid ""
+"`easy_install` was released in 2004, as part of :ref:`setuptools`.  It "
+"was notable at the time for installing :term:`packages <Distribution "
+"Package>` from :term:`PyPI <Python Package Index (PyPI)>` using "
+"requirement specifiers, and automatically installing dependencies."
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:14
+msgid ""
+":ref:`pip` came later in 2008, as alternative to `easy_install`, although"
+" still largely built on top of :ref:`setuptools` components.  It was "
+"notable at the time for *not* installing packages as :term:`Eggs <Egg>` "
+"or from :term:`Eggs <Egg>` (but rather simply as 'flat' packages from "
+":term:`sdists <Source Distribution (or \"sdist\")>`), and introducing the"
+" idea of :ref:`Requirements Files <pip:Requirements Files>`, which gave "
+"users the power to easily replicate environments."
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:22
+msgid ""
+"Here's a breakdown of the important differences between pip and "
+"easy_install now:"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:25
+msgid "**pip**"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:25
+msgid "**easy_install**"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:27
+msgid "Installs from :term:`Wheels <Wheel>`"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:27
+#: ../../source/discussions/pip-vs-easy-install.rst:38
+#: ../../source/discussions/pip-vs-easy-install.rst:44
+#: ../../source/discussions/pip-vs-easy-install.rst:48
+#: ../../source/discussions/pip-vs-easy-install.rst:54
+#: ../../source/discussions/pip-vs-easy-install.rst:57
+msgid "Yes"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:27
+#: ../../source/discussions/pip-vs-easy-install.rst:30
+#: ../../source/discussions/pip-vs-easy-install.rst:32
+#: ../../source/discussions/pip-vs-easy-install.rst:35
+#: ../../source/discussions/pip-vs-easy-install.rst:38
+#: ../../source/discussions/pip-vs-easy-install.rst:44
+#: ../../source/discussions/pip-vs-easy-install.rst:48
+#: ../../source/discussions/pip-vs-easy-install.rst:51
+#: ../../source/discussions/pip-vs-easy-install.rst:54
+#: ../../source/discussions/pip-vs-easy-install.rst:57
+msgid "No"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:30
+msgid "Uninstall Packages"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:30
+msgid "Yes (``pip uninstall``)"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:32
+msgid "Dependency Overrides"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:32
+msgid "Yes (:ref:`Requirements Files <pip:Requirements Files>`)"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:35
+msgid "List Installed Packages"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:35
+msgid "Yes (``pip list`` and ``pip freeze``)"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:38
+msgid ":pep:`438` Support"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:41
+msgid "Installation format"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:41
+msgid "'Flat' packages with `egg-info` metadata."
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:41
+msgid "Encapsulated Egg format"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:44
+msgid "sys.path modification"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:48
+msgid "Installs from :term:`Eggs <Egg>`"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:51
+msgid "`pylauncher support`_"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:51
+msgid "Yes [1]_"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:54
+msgid ":ref:`Multi-version Installs`"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:57
+msgid "Exclude scripts during install"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:60
+msgid "per project index"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:60
+msgid "Only in virtualenv"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:60
+msgid "Yes, via setup.cfg"
+msgstr ""
+
+#: ../../source/discussions/pip-vs-easy-install.rst:66
+msgid ""
+"https://setuptools.readthedocs.io/en/latest/easy_install.html#natural-"
+"script-launcher"
+msgstr ""
+

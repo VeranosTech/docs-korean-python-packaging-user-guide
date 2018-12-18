@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/index-mirrors-and-caches.rst:5
+msgid "Package index mirrors and caches"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst
+msgid "Page Status"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:7
+msgid "Incomplete"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst
+msgid "Last Reviewed"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:8
+msgid "2014-12-24"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:12
+msgid "Contents"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:14
+msgid ""
+"Mirroring or caching of PyPI can be used to speed up local package "
+"installation, allow offline work, handle corporate firewalls or just "
+"plain Internet flakiness."
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:17
+msgid "Three options are available in this area:"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:19
+msgid "pip provides local caching options,"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:20
+msgid ""
+"devpi provides higher-level caching option, potentially shared amongst "
+"many users or machines, and"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:22
+msgid ""
+"bandersnatch provides a local complete mirror of all PyPI :term:`packages"
+" <Distribution Package>`."
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:27
+msgid "Caching with pip"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:29
+msgid ""
+"pip provides a number of facilities for speeding up installation by using"
+" local cached copies of :term:`packages <Distribution Package>`:"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:32
+msgid ""
+"`Fast & local installs <https://pip.pypa.io/en/latest/user_guide.html"
+"#fast-local-installs>`_ by downloading all the requirements for a project"
+" and then pointing pip at those downloaded files instead of going to "
+"PyPI."
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:36
+msgid ""
+"A variation on the above which pre-builds the installation files for the "
+"requirements using `pip wheel "
+"<https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_::"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:45
+msgid "Caching with devpi"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:47
+msgid ""
+"devpi is a caching proxy server which you run on your laptop, or some "
+"other machine you know will always be available to you. See the `devpi "
+"documentation for getting started`__."
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:55
+msgid "Complete mirror with bandersnatch"
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:57
+msgid ""
+"bandersnatch will set up a complete local mirror of all PyPI "
+":term:`packages <Distribution Package>` (externally-hosted packages are "
+"not mirrored). See the `bandersnatch documentation for getting that "
+"going`__."
+msgstr ""
+
+#: ../../source/guides/index-mirrors-and-caches.rst:63
+msgid ""
+"A benefit of devpi is that it will create a mirror which includes "
+":term:`packages <Distribution Package>` that are external to PyPI, unlike"
+" bandersnatch which will only cache :term:`packages <Distribution "
+"Package>` hosted on PyPI."
+msgstr ""
+

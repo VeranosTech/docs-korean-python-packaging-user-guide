@@ -390,3 +390,6 @@ def pr_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
     rn = nodes.reference(
         title, title, internal=False, refuri=uri, classes=['pr'])
     return [rn], []
+
+locale_dirs = ['locale/']
+gettext_compact = False

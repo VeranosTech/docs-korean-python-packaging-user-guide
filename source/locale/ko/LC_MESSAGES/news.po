@@ -1,0 +1,484 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/news.rst:2
+msgid "News"
+msgstr ""
+
+#: ../../source/news.rst:5
+msgid "September 2018"
+msgstr ""
+
+#: ../../source/news.rst:6
+msgid "Added a section on checking RST markup. (:pr:`554`)"
+msgstr ""
+
+#: ../../source/news.rst:7
+msgid "Updated user installs page. (:pr:`558`)"
+msgstr ""
+
+#: ../../source/news.rst:8
+msgid "Updated Google BigQuery urls. (:pr:`556`)"
+msgstr ""
+
+#: ../../source/news.rst:9
+msgid "Replaced tar command with working command. (:pr:`552`)"
+msgstr ""
+
+#: ../../source/news.rst:10
+msgid "Changed to double quotes in the pip install SomeProject==1.4. (:pr:`550`)"
+msgstr ""
+
+#: ../../source/news.rst:13
+msgid "August 2018"
+msgstr ""
+
+#: ../../source/news.rst:14
+msgid "Removed the recommendation to store passwords in cleartext. (:pr:`546`)"
+msgstr ""
+
+#: ../../source/news.rst:15
+msgid ""
+"Moved the Overview to a task based lead in along with the others. "
+"(:pr:`540`)"
+msgstr ""
+
+#: ../../source/news.rst:16
+msgid "Updated Python version supported by virtualenv. (:pr:`538`)"
+msgstr ""
+
+#: ../../source/news.rst:17
+msgid "Added outline/rough draft of new Overview page. (:pr:`519`)"
+msgstr ""
+
+#: ../../source/news.rst:20
+msgid "July 2018"
+msgstr ""
+
+#: ../../source/news.rst:22
+msgid "Improved binary extension docs. (:pr:`531`)"
+msgstr ""
+
+#: ../../source/news.rst:23
+msgid "Added scikit-build to key projects. (:pr:`530`)"
+msgstr ""
+
+#: ../../source/news.rst:26
+msgid "June 2018"
+msgstr ""
+
+#: ../../source/news.rst:28
+msgid "Fixed categories of interop PEP for pypa.io. (:pr:`527`)"
+msgstr ""
+
+#: ../../source/news.rst:29
+msgid "Updated Markdown descriptions explanation. (:pr:`522`)"
+msgstr ""
+
+#: ../../source/news.rst:32
+msgid "May 2018"
+msgstr ""
+
+#: ../../source/news.rst:34
+msgid "Noted issues with Provides-Dist and Obsoletes-Dist. (:pr:`513`)"
+msgstr ""
+
+#: ../../source/news.rst:35
+msgid ""
+"Removed outdated warning about Python version mixing with Pipenv. "
+"(:pr:`501`)"
+msgstr ""
+
+#: ../../source/news.rst:36
+msgid "Simplified packaging tutorial. (:pr:`498`)"
+msgstr ""
+
+#: ../../source/news.rst:37
+msgid "Updated Windows users instructions for clarity. (:pr:`493`)"
+msgstr ""
+
+#: ../../source/news.rst:38
+msgid "Updated the license section description for completeness. (:pr:`492`)"
+msgstr ""
+
+#: ../../source/news.rst:39
+msgid "Added specification-style document to contributing section. (:pr:`489`)"
+msgstr ""
+
+#: ../../source/news.rst:40
+msgid "Added documentation types to contributing guide. (:pr:`485`)"
+msgstr ""
+
+#: ../../source/news.rst:43
+msgid "April 2018"
+msgstr ""
+
+#: ../../source/news.rst:45
+msgid "Added README guide. (:pr:`461`)"
+msgstr ""
+
+#: ../../source/news.rst:46
+msgid "Updated instructions and status for PyPI launch. (:pr:`475`)"
+msgstr ""
+
+#: ../../source/news.rst:47
+msgid "Added instructions for Warehouse. (:pr:`471`)"
+msgstr ""
+
+#: ../../source/news.rst:48
+msgid "Removed GPG references from publishing tutorial. (:pr:`466`)"
+msgstr ""
+
+#: ../../source/news.rst:49
+msgid "Added 'What’s in which Python 3.4–3.6?'. (:pr:`468`)"
+msgstr ""
+
+#: ../../source/news.rst:50
+msgid "Added a guide for phasing out Python versions. (:pr:`459`)"
+msgstr ""
+
+#: ../../source/news.rst:51
+msgid "Made default Description-Content-Type variant GFM. (:pr:`462`)"
+msgstr ""
+
+#: ../../source/news.rst:54
+msgid "March 2018"
+msgstr ""
+
+#: ../../source/news.rst:56
+msgid "Updated \"installing scientific packages\". (:pr:`455`)"
+msgstr ""
+
+#: ../../source/news.rst:57
+msgid "Added `long_description_content_type` to follow PEP 556. (:pr:`457`)"
+msgstr ""
+
+#: ../../source/news.rst:58
+msgid "Clarified a long description classifier on pypi.org. (:pr:`456`)"
+msgstr ""
+
+#: ../../source/news.rst:59
+msgid "Updated Core Metadata spec to follw PEP 556. (:pr:`412`)"
+msgstr ""
+
+#: ../../source/news.rst:62
+msgid "February 2018"
+msgstr ""
+
+#: ../../source/news.rst:64
+msgid ""
+"Added python3-venv and python3-pip to Debian installation instructions. "
+"(:pr:`445`)"
+msgstr ""
+
+#: ../../source/news.rst:65
+msgid "Updated PyPI migration info. (:pr:`439`)"
+msgstr ""
+
+#: ../../source/news.rst:66
+msgid "Added a warning about managing multiple versions with pipenv. (:pr:`430`)"
+msgstr ""
+
+#: ../../source/news.rst:67
+msgid "Added example of multiple emails to Core Metadata. (:pr:`429`)"
+msgstr ""
+
+#: ../../source/news.rst:68
+msgid "Added explanation of \"legacy\" in test.pypi.org/legacy. (:pr:`426`)"
+msgstr ""
+
+#: ../../source/news.rst:71
+msgid "January 2018"
+msgstr ""
+
+#: ../../source/news.rst:73
+msgid "Added a link to PyPI's list of classifiers. (:pr:`425`)"
+msgstr ""
+
+#: ../../source/news.rst:74
+msgid "Updated README.rst explanation. (:pr:`419`)"
+msgstr ""
+
+#: ../../source/news.rst:77
+msgid "December 2017"
+msgstr ""
+
+#: ../../source/news.rst:79
+msgid "Replaced `~` with `$HOME` in guides and tutorials.  (:pr:`418`)"
+msgstr ""
+
+#: ../../source/news.rst:80
+msgid "Noted which fields can be used with environment markers. (:pr:`416`)"
+msgstr ""
+
+#: ../../source/news.rst:81
+msgid "Updated Requires-Python section. (:pr:`414`)"
+msgstr ""
+
+#: ../../source/news.rst:82
+msgid "Added news page. (:pr:`404`)"
+msgstr ""
+
+#: ../../source/news.rst:85
+msgid "November 2017"
+msgstr ""
+
+#: ../../source/news.rst:87
+msgid ""
+"Introduced a new dependency management tutorial based on Pipenv. "
+"(:pr:`402`)"
+msgstr ""
+
+#: ../../source/news.rst:88
+msgid ""
+"Updated the *Single Sourcing Package Version* tutorial to reflect pip's "
+"current strategy. (:pr:`400`)"
+msgstr ""
+
+#: ../../source/news.rst:90
+msgid ""
+"Added documentation about the ``py_modules`` argument to ``setup``. "
+"(:pr:`398`)"
+msgstr ""
+
+#: ../../source/news.rst:91
+msgid "Simplified the wording for the :file:`manifest.in` section. (:pr:`395`)"
+msgstr ""
+
+#: ../../source/news.rst:94
+msgid "October 2017"
+msgstr ""
+
+#: ../../source/news.rst:96
+msgid "Added a specification for the :file:`entry_points.txt` file. (:pr:`398`)"
+msgstr ""
+
+#: ../../source/news.rst:97
+msgid ""
+"Created a new guide for managing packages using ``pip`` and "
+"``virtualenv``. (:pr:`385`)"
+msgstr ""
+
+#: ../../source/news.rst:98
+msgid "Split the specifications page into multiple pages. (:pr:`386`)"
+msgstr ""
+
+#: ../../source/news.rst:101
+msgid "September 2017"
+msgstr ""
+
+#: ../../source/news.rst:103
+msgid ""
+"Encouraged using ``readme_renderer`` to validate :file:`README.rst`. "
+"(:pr:`379`)"
+msgstr ""
+
+#: ../../source/news.rst:105
+msgid "Recommended using the `--user-base` option. (:pr:`374`)"
+msgstr ""
+
+#: ../../source/news.rst:108
+msgid "August 2017"
+msgstr ""
+
+#: ../../source/news.rst:110
+msgid ""
+"Added a new, experimental tutorial on installing packages using "
+"``Pipenv``. (:pr:`369`)"
+msgstr ""
+
+#: ../../source/news.rst:111
+msgid "Added a new guide on how to use ``TestPyPI``. (:pr:`366`)"
+msgstr ""
+
+#: ../../source/news.rst:112
+msgid "Added :file:`pypi.org` as a term. (:pr:`365`)"
+msgstr ""
+
+#: ../../source/news.rst:115
+msgid "July 2017"
+msgstr ""
+
+#: ../../source/news.rst:117
+msgid "Added ``flit`` to the key projects list. (:pr:`358`)"
+msgstr ""
+
+#: ../../source/news.rst:118
+msgid "Added ``enscons`` to the list of key projects. (:pr:`357`)"
+msgstr ""
+
+#: ../../source/news.rst:119
+msgid ""
+"Updated this guide's ``readme`` with instructions on how to build the "
+"guide locally. (:pr:`356`)"
+msgstr ""
+
+#: ../../source/news.rst:120
+msgid ""
+"Made the new ``TestPyPI`` URL more visible, adding note to homepage about"
+" pypi.org. (:pr:`354`)"
+msgstr ""
+
+#: ../../source/news.rst:121
+msgid ""
+"Added a note about the removal of the explicit registration API. "
+"(:pr:`347`)"
+msgstr ""
+
+#: ../../source/news.rst:124
+msgid "June 2017"
+msgstr ""
+
+#: ../../source/news.rst:126
+msgid "Added a document on migrating uploads to :file:`PyPI.org`. (:pr:`339`)"
+msgstr ""
+
+#: ../../source/news.rst:127
+msgid "Added documentation for ``python_requires``. (:pr:`338`)"
+msgstr ""
+
+#: ../../source/news.rst:128
+msgid ""
+"Added a note about PyPI migration in the *Tool Recommendations* tutorial."
+" (:pr:`335`)"
+msgstr ""
+
+#: ../../source/news.rst:129
+msgid "Added a note that :file:`manifest.in` does not affect wheels. (:pr:`332`)"
+msgstr ""
+
+#: ../../source/news.rst:130
+msgid "Added a license section to the distributing guide. (:pr:`331`)"
+msgstr ""
+
+#: ../../source/news.rst:131
+msgid "Expanded the section on the ``name`` argument. (:pr:`329`)"
+msgstr ""
+
+#: ../../source/news.rst:132
+msgid "Adjusted the landing page. (:pr:`327`, :pr:`326`, :pr:`324`)"
+msgstr ""
+
+#: ../../source/news.rst:133
+msgid "Updated to Sphinx 1.6.2. (:pr:`323`)"
+msgstr ""
+
+#: ../../source/news.rst:134
+msgid "Switched to the PyPA theme. (:pr:`305`)"
+msgstr ""
+
+#: ../../source/news.rst:135
+msgid "Re-organized the documentation into the new structure. (:pr:`318`)"
+msgstr ""
+
+#: ../../source/news.rst:138
+msgid "May 2017"
+msgstr ""
+
+#: ../../source/news.rst:140
+msgid ""
+"Added documentation for the ``Description-Content-Type`` field. "
+"(:pr:`258`)"
+msgstr ""
+
+#: ../../source/news.rst:141
+msgid "Added contributor and style guide. (:pr:`307`)"
+msgstr ""
+
+#: ../../source/news.rst:142
+msgid ""
+"Documented ``pip`` and ``easy_install``'s differences for per-project "
+"indexes. (:pr:`233`)"
+msgstr ""
+
+#: ../../source/news.rst:145
+msgid "April 2017"
+msgstr ""
+
+#: ../../source/news.rst:147
+msgid "Added travis configuration for testing pull requests. (:pr:`300`)"
+msgstr ""
+
+#: ../../source/news.rst:148
+msgid ""
+"Mentioned the requirement of the ``wheel`` package for creating wheels "
+"(:pr:`299`)"
+msgstr ""
+
+#: ../../source/news.rst:149
+msgid ""
+"Removed the ``twine register`` reference in the *Distributing Packages* "
+"tutorial. (:pr:`271`)"
+msgstr ""
+
+#: ../../source/news.rst:150
+msgid "Added a topic on plugin discovery. (:pr:`294`, :pr:`296`)"
+msgstr ""
+
+#: ../../source/news.rst:151
+msgid "Added a topic on namespace packages. (:pr:`290`)"
+msgstr ""
+
+#: ../../source/news.rst:152
+msgid ""
+"Added documentation explaining prominently how to install ``pip`` in "
+"``/usr/local``. (:pr:`230`)"
+msgstr ""
+
+#: ../../source/news.rst:153
+msgid ""
+"Updated development mode documentation to mention that order of local "
+"packages matters. (:pr:`208`)"
+msgstr ""
+
+#: ../../source/news.rst:154
+msgid ""
+"Convert readthedocs link for their ``.org`` -> ``.io`` migration for "
+"hosted projects (:pr:`239`)"
+msgstr ""
+
+#: ../../source/news.rst:155
+msgid ""
+"Swaped order of :file:`setup.py` arguments for the upload command, as "
+"order is significant. (:pr:`260`)"
+msgstr ""
+
+#: ../../source/news.rst:157
+msgid ""
+"Explained how to install from unsupported sources using a helper "
+"application. (:pr:`289`)"
+msgstr ""
+
+#: ../../source/news.rst:161
+msgid "March 2017"
+msgstr ""
+
+#: ../../source/news.rst:163
+msgid "Covered ``manylinux1`` in *Platform Wheels*. (:pr:`283`)"
+msgstr ""
+
+#: ../../source/news.rst:166
+msgid "February 2017"
+msgstr ""
+
+#: ../../source/news.rst:168
+msgid "Added :pep:`518`. (:pr:`281`)"
+msgstr ""
+

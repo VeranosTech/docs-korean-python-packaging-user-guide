@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:2
+msgid "Making a PyPI-friendly README"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:4
+msgid ""
+"README files can help your users understand your project and can be used "
+"to set your project's description on PyPI. This guide helps you create a "
+"README in a PyPI-friendly format and include your README in your package "
+"so it appears on PyPI."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:9
+msgid "Creating a README file"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:11
+msgid ""
+"README files for Python projects are often named ``README``, "
+"``README.txt``, ``README.rst``, or ``README.md``."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:13
+msgid ""
+"For your README to display properly on PyPI, choose a markup language "
+"supported by PyPI. Formats supported by `PyPI's README renderer "
+"<https://github.com/pypa/readme_renderer>`_ are:"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:16
+msgid "plain text"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:17
+msgid ""
+"`reStructuredText <http://docutils.sourceforge.net/rst.html>`_ (without "
+"Sphinx extensions)"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:18
+msgid ""
+"Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by"
+" default, or `CommonMark <http://commonmark.org/>`_)"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:21
+msgid ""
+"It's customary to save your README file in the root of your project, in "
+"the same directory as your :file:`setup.py` file."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:25
+msgid "Including your README in your package's metadata"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:27
+msgid ""
+"To include your README's contents as your package description, set your "
+"project's ``Description`` and ``Description-Content-Type`` metadata, "
+"typically in your project's :file:`setup.py` file."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:33
+msgid ":ref:`description-optional`"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:34
+msgid ":ref:`description-content-type-optional`"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:36
+msgid ""
+"For example, to set these values in a package's :file:`setup.py` file, "
+"use ``setup()``'s ``long_description`` and "
+"``long_description_content_type``."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:39
+msgid ""
+"Set the value of ``long_description`` to the contents (not the path) of "
+"the README file itself. Set the ``long_description_content_type`` to an "
+"accepted ``Content-Type``-style value for your README file's markup, such"
+" as ``text/plain``, ``text/x-rst`` (for reStructuredText), or "
+"``text/markdown``."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:45
+msgid ""
+"If you're using GitHub-flavored Markdown to write a project's "
+"description, ensure you upgrade the following tools:"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:52
+msgid "The minimum required versions of the respective tools are:"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:54
+msgid "``setuptools >= 38.6.0``"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:55
+msgid "``wheel >= 0.31.0``"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:56
+msgid "``twine >= 1.11.0``"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:58
+msgid ""
+"It's recommended that you use ``twine`` to upload the project's "
+"distribution packages:"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:64
+msgid ""
+"For example, see this :file:`setup.py` file, which reads the contents of "
+":file:`README.md` as ``long_description`` and identifies the markup as "
+"GitHub-flavored Markdown:"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:87
+msgid "Validating reStructuredText markup"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:89
+msgid ""
+"If your README is written in reStructuredText, any invalid markup will "
+"prevent it from rendering, causing PyPI to instead just show the README's"
+" raw source."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:92
+msgid ""
+"Note that Sphinx extensions used in docstrings, such as `directives and "
+"roles <http://www.sphinx-"
+"doc.org/en/master/usage/restructuredtext/index.html>`_ (e.g., "
+"\"``:py:func:`getattr```\" or \"``:ref:`my-reference-label```\"), are not"
+" allowed here and will result in error messages like \"``Error: Unknown "
+"interpreted text role \"py:func\".``\"."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:97
+msgid "You can check your README for markup errors before uploading as follows:"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:99
+msgid ""
+"Install the latest version of `twine <https://github.com/pypa/twine>`_; "
+"version 1.12.0 or higher is required::"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:104
+msgid ""
+"Build the sdist and wheel for your project as described under "
+":ref:`Packaging Your Project`."
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:107
+msgid "Run ``twine check`` on the sdist and wheel::"
+msgstr ""
+
+#: ../../source/guides/making-a-pypi-friendly-readme.rst:111
+msgid ""
+"This command will report any problems rendering your README.  If your "
+"markup renders fine, the command will output ``Checking distribution "
+"FILENAME: Passed``."
+msgstr ""
+

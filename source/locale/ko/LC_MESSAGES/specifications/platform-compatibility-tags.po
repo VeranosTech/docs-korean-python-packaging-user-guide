@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specifications/platform-compatibility-tags.rst:6
+msgid "Platform compatibility tags"
+msgstr ""
+
+#: ../../source/specifications/platform-compatibility-tags.rst:8
+msgid ""
+"The platform compatibility tagging model used for ``wheel`` distribution "
+"is defined in :pep:`425`."
+msgstr ""
+
+#: ../../source/specifications/platform-compatibility-tags.rst:14
+msgid "Manylinux tags"
+msgstr ""
+
+#: ../../source/specifications/platform-compatibility-tags.rst:16
+msgid ""
+"The scheme defined in :pep:`425` is insufficient for public distribution "
+"of Linux wheel files (and \\*nix wheel files in general), so the "
+"*manylinux* platform tags were defined, to allow providing wheels for "
+"many common Linux distributions. See :pep:`513` for more about how this "
+"works."
+msgstr ""
+
+#: ../../source/specifications/platform-compatibility-tags.rst:21
+msgid ""
+"``manylinux1`` is defined in :pep:`513`, for x86_64 and i686 "
+"architectures."
+msgstr ""
+
+#: ../../source/specifications/platform-compatibility-tags.rst:22
+msgid ""
+"``manylinux2010`` is defined in :pep:`571`, for x86_64 and i686 "
+"architectures. It is based on a platform from 2010, whereas "
+"``manylinux1`` is based on a platform from 2007. This means that "
+"``manylinux2010`` packages are easier to create, but not compatible with "
+"some older systems where ``manylinux1`` packages would work."
+msgstr ""
+
+#: ../../source/specifications/platform-compatibility-tags.rst:28
+msgid "``manylinux2010`` is not yet widely recognised by install tools."
+msgstr ""
+

@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/specifications/distribution-formats.rst:6
+msgid "Distribution formats"
+msgstr ""
+
+#: ../../source/specifications/distribution-formats.rst:10
+msgid "Source distribution format"
+msgstr ""
+
+#: ../../source/specifications/distribution-formats.rst:12
+msgid ""
+"The accepted style of source distribution format based on "
+"``pyproject.toml``, defined in :pep:`518` and adopted by :pep:`517` has "
+"not been implemented yet."
+msgstr ""
+
+#: ../../source/specifications/distribution-formats.rst:16
+msgid ""
+"There is also the legacy source distribution format, implicitly defined "
+"by the behaviour of ``distutils`` module in the standard library, when "
+"executing ``setup.py sdist``."
+msgstr ""
+
+#: ../../source/specifications/distribution-formats.rst:21
+msgid "Binary distribution format"
+msgstr ""
+
+#: ../../source/specifications/distribution-formats.rst:23
+msgid "The binary distribution format (``wheel``) is defined in :pep:`427`."
+msgstr ""
+

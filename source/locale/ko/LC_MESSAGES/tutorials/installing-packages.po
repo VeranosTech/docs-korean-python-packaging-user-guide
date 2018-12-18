@@ -1,0 +1,555 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/tutorials/installing-packages.rst:5
+msgid "Installing Packages"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:7
+msgid ""
+"This section covers the basics of how to install Python :term:`packages "
+"<Distribution Package>`."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:10
+msgid ""
+"It's important to note that the term \"package\" in this context is being"
+" used as a synonym for a :term:`distribution <Distribution Package>` "
+"(i.e. a bundle of software to be installed), not to refer to the kind of "
+":term:`package <Import Package>` that you import in your Python source "
+"code (i.e. a container of modules). It is common in the Python community "
+"to refer to a :term:`distribution <Distribution Package>` using the term "
+"\"package\".  Using the term \"distribution\" is often not preferred, "
+"because it can easily be confused with a Linux distribution, or another "
+"larger software distribution like Python itself."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:22
+msgid "Contents"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:27
+msgid "Requirements for Installing Packages"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:29
+msgid ""
+"This section describes the steps to follow before installing other Python"
+" packages."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:34
+msgid "Ensure you can run Python from the command line"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:36
+msgid ""
+"Before you go any further, make sure you have Python and that the "
+"expected version is available from your command line. You can check this "
+"by running:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:43
+msgid ""
+"You should get some output like ``Python 3.6.3``. If you do not have "
+"Python, please install the latest 3.x version from `python.org`_ or refer"
+" to the `Installing Python`_ section of the Hitchhiker's Guide to Python."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:47
+msgid "If you're a newcomer and you get an error like this:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:56
+msgid ""
+"It's because this command and other suggested commands in this tutorial "
+"are intended to be run in a *shell* (also called a *terminal* or "
+"*console*). See the Python for Beginners `getting started tutorial`_ for "
+"an introduction to using your operating system's shell and interacting "
+"with Python."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:62
+msgid ""
+"If you're using an enhanced shell like IPython or the Jupyter notebook, "
+"you can run system commands like those in this tutorial by prefacing them"
+" with a ``!`` character:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:72
+msgid ""
+"It's recommended to write ``{sys.executable}`` rather than plain "
+"``python`` in order to ensure that commands are run in the Python "
+"installation matching the currently running notebook (which may not be "
+"the same Python installation that the ``python`` command refers to)."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:77
+msgid ""
+"Due to the way most Linux distributions are handling the Python 3 "
+"migration, Linux users using the system Python without creating a virtual"
+" environment first should replace the ``python`` command in this tutorial"
+" with ``python3`` and the ``pip`` command with ``pip3 --user``. Do *not* "
+"run any of the commands in this tutorial with ``sudo``: if you get a "
+"permissions error, come back to the section on creating virtual "
+"environments, set one up, and then continue with the tutorial as written."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:89
+msgid "Ensure you can run pip from the command line"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:91
+msgid ""
+"Additionally, you'll need to make sure you have :ref:`pip` available. You"
+" can check this by running:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:98
+msgid ""
+"If you installed Python from source, with an installer from "
+"`python.org`_, or via `Homebrew`_ you should already have pip. If you're "
+"on Linux and installed using your OS package manager, you may have to "
+"install pip separately, see :doc:`/guides/installing-using-linux-tools`."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:106
+msgid ""
+"If ``pip`` isn't already installed, then first try to bootstrap it from "
+"the standard library:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:113
+msgid "If that still doesn't allow you to run ``pip``:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:115
+msgid ""
+"Securely Download `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_ "
+"[1]_"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:118
+msgid ""
+"Run ``python get-pip.py``. [2]_  This will install or upgrade pip. "
+"Additionally, it will install :ref:`setuptools` and :ref:`wheel` if "
+"they're not installed already."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:124
+msgid ""
+"Be cautious if you're using a Python install that's managed by your "
+"operating system or another package manager. get-pip.py does not "
+"coordinate with those tools, and may leave your system in an inconsistent"
+" state. You can use ``python get-pip.py --prefix=/usr/local/`` to install"
+" in ``/usr/local`` which is designed for locally-installed software."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:133
+msgid "Ensure pip, setuptools, and wheel are up to date"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:135
+msgid ""
+"While ``pip`` alone is sufficient to install from pre-built binary "
+"archives, up to date copies of the ``setuptools`` and ``wheel`` projects "
+"are useful to ensure you can also install from source archives::"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:143
+msgid "Optionally, create a virtual environment"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:145
+msgid ""
+"See :ref:`section below <Creating and using Virtual Environments>` for "
+"details, but here's the basic `venv`_ [3]_ command to use on a typical "
+"Linux system:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:153
+msgid ""
+"This will create a new virtual environment in the ``tutorial_env`` "
+"subdirectory, and configure the current shell to use it as the default "
+"``python`` environment."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:160
+msgid "Creating Virtual Environments"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:162
+msgid ""
+"Python \"Virtual Environments\" allow Python :term:`packages "
+"<Distribution Package>` to be installed in an isolated location for a "
+"particular application, rather than being installed globally."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:166
+msgid ""
+"Imagine you have an application that needs version 1 of LibFoo, but "
+"another application requires version 2. How can you use both these "
+"applications? If you install everything into /usr/lib/python3.6/site-"
+"packages (or whatever your platform’s standard location is), it’s easy to"
+" end up in a situation where you unintentionally upgrade an application "
+"that shouldn’t be upgraded."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:172
+msgid ""
+"Or more generally, what if you want to install an application and leave "
+"it be? If an application works, any change in its libraries or the "
+"versions of those libraries can break the application."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:176
+msgid ""
+"Also, what if you can’t install :term:`packages <Distribution Package>` "
+"into the global site-packages directory? For instance, on a shared host."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:179
+msgid ""
+"In all these cases, virtual environments can help you. They have their "
+"own installation directories and they don’t share libraries with other "
+"virtual environments."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:183
+msgid ""
+"Currently, there are two common tools for creating Python virtual "
+"environments:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:185
+msgid ""
+"`venv`_ is available by default in Python 3.3 and later, and installs "
+":ref:`pip` and :ref:`setuptools` into created virtual environments in "
+"Python 3.4 and later."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:188
+msgid ""
+":ref:`virtualenv` needs to be installed separately, but supports Python "
+"2.7+ and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` "
+"are always installed into created virtual environments by default "
+"(regardless of Python version)."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:193
+msgid "The basic usage is like so:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:195
+msgid "Using :ref:`virtualenv`:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:203
+msgid "Using `venv`_:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:211
+msgid ""
+"For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ "
+"docs or the `venv`_ docs."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:214
+msgid ""
+"In both of the above cases, Windows users should _not_ use the `source` "
+"command, but should rather run the `activate` script directly from the "
+"command shell. The use of `source` under Unix shells ensures that the "
+"virtual environment's variables are set within the current shell, and not"
+" in a subprocess (which then disappears, having no useful effect)."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:221
+msgid ""
+"Managing multiple virtual environments directly can become tedious, so "
+"the :ref:`dependency management tutorial <managing-dependencies>` "
+"introduces a higher level tool, :ref:`Pipenv`, that automatically manages"
+" a separate virtual environment for each project and application that you"
+" work on."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:228
+msgid "Use pip for Installing"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:230
+msgid ""
+":ref:`pip` is the recommended installer.  Below, we'll cover the most "
+"common usage scenarios. For more detail, see the `pip docs "
+"<https://pip.pypa.io>`_, which includes a complete `Reference Guide "
+"<https://pip.pypa.io/en/latest/reference/index.html>`_."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:237
+msgid "Installing from PyPI"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:239
+msgid ""
+"The most common usage of :ref:`pip` is to install from the :term:`Python "
+"Package Index <Python Package Index (PyPI)>` using a :term:`requirement "
+"specifier <Requirement Specifier>`. Generally speaking, a requirement "
+"specifier is composed of a project name followed by an optional "
+":term:`version specifier <Version Specifier>`.  :pep:`440` contains a "
+":pep:`full specification <440#version-specifiers>` of the currently "
+"supported specifiers. Below are some examples."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:247
+msgid "To install the latest version of \"SomeProject\":"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:254
+msgid "To install a specific version:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:261
+msgid "To install greater than or equal to one version and less than another:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:268
+msgid ""
+"To install a version that's :pep:`\"compatible\" <440#compatible-"
+"release>` with a certain version: [4]_"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:275
+msgid ""
+"In this case, this means to install any version \"==1.4.*\" version "
+"that's also \">=1.4.2\"."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:280
+msgid "Source Distributions vs Wheels"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:282
+msgid ""
+":ref:`pip` can install from either :term:`Source Distributions (sdist) "
+"<Source Distribution (or \"sdist\")>` or :term:`Wheels <Wheel>`, but if "
+"both are present on PyPI, pip will prefer a compatible :term:`wheel "
+"<Wheel>`."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:286
+msgid ""
+":term:`Wheels <Wheel>` are a pre-built :term:`distribution <Distribution "
+"Package>` format that provides faster installation compared to "
+":term:`Source Distributions (sdist) <Source Distribution (or "
+"\"sdist\")>`, especially when a project contains compiled extensions."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:291
+msgid ""
+"If :ref:`pip` does not find a wheel to install, it will locally build a "
+"wheel and cache it for future installs, instead of rebuilding the source "
+"distribution in the future."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:297
+msgid "Upgrading packages"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:299
+msgid "Upgrade an already installed `SomeProject` to the latest from PyPI."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:309
+msgid "Installing to the User Site"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:311
+msgid ""
+"To install :term:`packages <Distribution Package>` that are isolated to "
+"the current user, use the ``--user`` flag:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:319
+msgid ""
+"For more information see the `User Installs "
+"<https://pip.readthedocs.io/en/latest/user_guide.html#user-installs>`_ "
+"section from the pip docs."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:323
+msgid ""
+"Note that the ``--user`` flag has no effect when inside a virtual "
+"environment - all installation commands will affect the virtual "
+"environment."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:326
+msgid ""
+"If ``SomeProject`` defines any command-line scripts or console entry "
+"points, ``--user`` will cause them to be installed inside the `user "
+"base`_'s binary directory, which may or may not already be present in "
+"your shell's :envvar:`PATH`.  (Starting in version 10, pip displays a "
+"warning when installing any scripts to a directory outside "
+":envvar:`PATH`.)  If the scripts are not available in your shell after "
+"installation, you'll need to add the directory to your :envvar:`PATH`:"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:334
+msgid ""
+"On Linux and macOS you can find the user base binary directory by running"
+" ``python -m site --user-base`` and adding ``bin`` to the end. For "
+"example, this will typically print ``~/.local`` (with ``~`` expanded to "
+"the absolute path to your home directory) so you'll need to add "
+"``~/.local/bin`` to your ``PATH``.  You can set your ``PATH`` permanently"
+" by `modifying ~/.profile`_."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:340
+msgid ""
+"On Windows you can find the user base binary directory by running ``py -m"
+" site --user-site`` and replacing ``site-packages`` with ``Scripts``. For"
+" example, this could return "
+"``C:\\Users\\Username\\AppData\\Roaming\\Python36\\site-packages`` so you"
+" would need to set your ``PATH`` to include "
+"``C:\\Users\\Username\\AppData\\Roaming\\Python36\\Scripts``. You can set"
+" your user ``PATH`` permanently in the `Control Panel`_. You may need to "
+"log out for the ``PATH`` changes to take effect."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:354
+msgid "Requirements files"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:356
+msgid ""
+"Install a list of requirements specified in a :ref:`Requirements File "
+"<pip:Requirements Files>`."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:365
+msgid "Installing from VCS"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:367
+msgid ""
+"Install a project from VCS in \"editable\" mode.  For a full breakdown of"
+" the syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:379
+msgid "Installing from other Indexes"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:381
+msgid "Install from an alternate index"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:388
+msgid ""
+"Search an additional index during install, in addition to :term:`PyPI "
+"<Python Package Index (PyPI)>`"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:398
+msgid "Installing from a local src tree"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:401
+msgid ""
+"Installing from local src in `Development Mode "
+"<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-"
+"mode>`_, i.e. in such a way that the project appears to be installed, but"
+" yet is still editable from the src tree."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:411
+msgid "You can also install normally from src"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:419
+msgid "Installing from local archives"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:421
+msgid "Install a particular source archive file."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:428
+msgid ""
+"Install from a local directory containing archives (and don't check "
+":term:`PyPI <Python Package Index (PyPI)>`)"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:439
+msgid "Installing from other sources"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:441
+msgid ""
+"To install from other data sources (for example Amazon S3 storage) you "
+"can create a helper application that presents the data in a :pep:`503` "
+"compliant index format, and use the ``--extra-index-url`` flag to direct "
+"pip to use that index."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:453
+msgid "Installing Prereleases"
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:455
+msgid ""
+"Find pre-release and development versions, in addition to stable "
+"versions.  By default, pip only finds stable versions."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:464
+msgid "Installing Setuptools \"Extras\""
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:466
+msgid "Install `setuptools extras`_."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:478
+msgid ""
+"\"Secure\" in this context means using a modern browser or a tool like "
+"`curl` that verifies SSL certificates when downloading from https URLs."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:482
+msgid ""
+"Depending on your platform, this may require root or Administrator "
+"access. :ref:`pip` is currently considering changing this by `making user"
+" installs the default behavior "
+"<https://github.com/pypa/pip/issues/1668>`_."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:487
+msgid ""
+"Beginning with Python 3.4, ``venv`` (a stdlib alternative to "
+":ref:`virtualenv`) will create virtualenv environments with ``pip`` pre-"
+"installed, thereby making it an equal alternative to :ref:`virtualenv`."
+msgstr ""
+
+#: ../../source/tutorials/installing-packages.rst:492
+msgid ""
+"The compatible release specifier was accepted in :pep:`440` and support "
+"was released in :ref:`setuptools` v8.0 and :ref:`pip` v6.0"
+msgstr ""
+
