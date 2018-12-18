@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/index.rst:3
 msgid "Python Packaging User Guide"
-msgstr "파이썬 패키지 사용자 설명서"
+msgstr "파이썬 패키지 사용자 안내서"
 
 #: ../../source/index.rst:5
 msgid ""
