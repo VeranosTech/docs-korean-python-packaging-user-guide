@@ -4,19 +4,20 @@
 # User Guide package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python Packaging User Guide \n"
+"Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-18 14:42+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2018-12-19 12:01+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"X-Generator: Poedit 2.2\n"
 
 #: ../../source/index.rst:3
 msgid "Python Packaging User Guide"
@@ -24,11 +25,11 @@ msgstr "파이썬 패키지 제작 사용자 안내서"
 
 #: ../../source/index.rst:5
 msgid ""
-"The Python Packaging User Guide (PyPUG) is a collection of tutorials and "
-"guides for packaging Python software."
+"The Python Packaging User Guide (PyPUG) is a collection of tutorials and guides "
+"for packaging Python software."
 msgstr ""
-"파이썬 패키지 제작 사용자 안내서(PyPUG)는 파이썬 소프트웨어 패키지 제작에 필요한 "
-"튜토리얼과 안내서 모음이다."
+"파이썬 패키지 제작 사용자 안내서(PyPUG)는 파이썬 소프트웨어 패키지 제작에 필요"
+"한 튜토리얼과 안내서 모음이다."
 
 #: ../../source/index.rst:5
 msgid "python, packaging, guide, tutorial"
@@ -36,16 +37,17 @@ msgstr "파이썬, 패키지 제작, 안내서, 튜토리얼"
 
 #: ../../source/index.rst:24
 msgid ""
-"Welcome to the *Python Packaging User Guide*, a collection of tutorials "
-"and references to help you distribute and install Python packages with "
-"modern tools."
+"Welcome to the *Python Packaging User Guide*, a collection of tutorials and "
+"references to help you distribute and install Python packages with modern tools."
 msgstr ""
+"Welcome to the *파이썬 패키지 제작 사용자 가이드*, a collection of tutorials "
+"and references to help you distribute and install Python packages with modern "
+"tools."
 
 #: ../../source/index.rst:28
 msgid ""
-"This guide is maintained on `GitHub`_ by the `Python Packaging "
-"Authority`_. We happily accept any :doc:`contributions and feedback "
-"<contribute>`. 😊"
+"This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We "
+"happily accept any :doc:`contributions and feedback <contribute>`. 😊"
 msgstr ""
 
 #: ../../source/index.rst:36
@@ -60,28 +62,27 @@ msgstr ""
 
 #: ../../source/index.rst:41
 msgid ""
-"to learn how to install packages, see the :doc:`tutorial on installing "
-"packages <tutorials/installing-packages>`."
+"to learn how to install packages, see the :doc:`tutorial on installing packages "
+"<tutorials/installing-packages>`."
 msgstr ""
 
 #: ../../source/index.rst:43
 msgid ""
-"to learn how to manage dependencies in a version controlled project, see "
-"the :doc:`tutorial on managing application dependencies <tutorials"
-"/managing-dependencies>`."
+"to learn how to manage dependencies in a version controlled project, see the :"
+"doc:`tutorial on managing application dependencies <tutorials/managing-"
+"dependencies>`."
 msgstr ""
 
 #: ../../source/index.rst:45
 msgid ""
-"to learn how to package and distribute your projects, see the "
-":doc:`tutorial on packaging and distributing <tutorials/packaging-"
-"projects>`"
+"to learn how to package and distribute your projects, see the :doc:`tutorial on "
+"packaging and distributing <tutorials/packaging-projects>`"
 msgstr ""
 
 #: ../../source/index.rst:47
 msgid ""
-"to get an overview of packaging options for Python libraries and "
-"applications, see the :doc:`Overview of Python Packaging <overview>`."
+"to get an overview of packaging options for Python libraries and applications, "
+"see the :doc:`Overview of Python Packaging <overview>`."
 msgstr ""
 
 #: ../../source/index.rst:52
@@ -94,16 +95,15 @@ msgstr ""
 
 #: ../../source/index.rst:56
 msgid ""
-"the :doc:`guides/index` section for walk throughs, such as :doc:`guides"
-"/installing-using-linux-tools` or :doc:`guides/packaging-binary-"
-"extensions`"
+"the :doc:`guides/index` section for walk throughs, such as :doc:`guides/"
+"installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`"
 msgstr ""
 
 #: ../../source/index.rst:58
 msgid ""
-"the :doc:`discussions/index` section for in-depth references on topics "
-"such as :doc:`discussions/deploying-python-applications` or "
-":doc:`discussions/pip-vs-easy-install`"
+"the :doc:`discussions/index` section for in-depth references on topics such as :"
+"doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-"
+"easy-install`"
 msgstr ""
 
 #: ../../source/index.rst:60
@@ -117,4 +117,3 @@ msgid ""
 "Additionally, there is a list of :doc:`other projects <key_projects>` "
 "maintained by members of the Python Packaging Authority."
 msgstr ""
-
