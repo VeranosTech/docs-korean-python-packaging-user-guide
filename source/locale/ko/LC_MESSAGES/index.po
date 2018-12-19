@@ -20,17 +20,19 @@ msgstr ""
 
 #: ../../source/index.rst:3
 msgid "Python Packaging User Guide"
-msgstr "파이썬 패키지 사용자 안내서"
+msgstr "파이썬 패키지 제작 사용자 안내서"
 
 #: ../../source/index.rst:5
 msgid ""
 "The Python Packaging User Guide (PyPUG) is a collection of tutorials and "
 "guides for packaging Python software."
 msgstr ""
+"파이썬 패키지 제작 사용자 안내서(PyPUG)는 파이썬 소프트웨어 패키지 제작에 필요한 "
+"튜토리얼과 안내서 모음이다."
 
 #: ../../source/index.rst:5
 msgid "python, packaging, guide, tutorial"
-msgstr ""
+msgstr "파이썬, 패키지 제작, 안내서, 튜토리얼"
 
 #: ../../source/index.rst:24
 msgid ""
