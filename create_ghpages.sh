@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+python -m venv env
+env/bin/python -m pip install -r requirements.txt
+
 git add . -A
 git commit -m "automatic commit"
 git push origin korean
@@ -13,7 +16,7 @@ echo '!build/' >> .gitignore
 echo '!env/' >> .gitignore
 
 cd source
-sphinx-build -b html -D language='ko' . ../build/html
+../env/bin/sphinx-build -b html -D language='ko' . ../build/html
 cd ..
 
 git add . -A
