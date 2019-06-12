@@ -21,7 +21,7 @@ bandersnatch
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/bandersnatch/issues>`__ |
 `Github <https://github.com/pypa/bandersnatch>`__ |
-`PyPI <https://pypi.org/project/bandersnatch>`__ | 
+`PyPI <https://pypi.org/project/bandersnatch>`__ |
 Dev irc:#bandersnatch
 
 bandersnatch is a PyPI mirroring client designed to efficiently create a
@@ -341,6 +341,17 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 ``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
 make deployment of Python applications as simple as ``cp``.
 
+.. _pipx:
+
+pipx
+====
+
+`Docs <https://github.com/pipxproject/pipx>`__ |
+`Github <https://github.com/pipxproject/pipx>`__ |
+`PyPI <https://pypi.org/project/pipx/>`__
+
+pipx is a tool to safely install and run Python CLI applications globally.
+
 .. _scikit-build:
 
 scikit-build
@@ -359,6 +370,19 @@ cross compilation, and locating dependencies and their associated
 build requirements. To speed up and parallelize the build of large projects,
 the user can install `ninja <https://pypi.org/project/ninja>`__ (also available
 on PyPI).
+
+.. _shiv:
+
+shiv
+====
+
+`Docs <https://shiv.readthedocs.io/en/latest/>`__ |
+`Github <https://github.com/linkedin/shiv>`__ |
+`PyPI <https://pypi.org/project/shiv/>`__
+
+shiv is a command line utility for building fully self contained Python zipapps as outlined in PEP
+441, but with all their dependencies included. It's primary goal is making distributing Python
+applications and command line tools fast & easy.
 
 .. _spack:
 

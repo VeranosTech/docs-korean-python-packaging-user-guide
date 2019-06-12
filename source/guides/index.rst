@@ -9,11 +9,13 @@ introduction to packaging, see :doc:`/tutorials/index`.
    :maxdepth: 1
 
    tool-recommendations
-   installing-using-pip-and-virtualenv
+   installing-using-pip-and-virtual-environments
+   installing-stand-alone-command-line-tools
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
    distributing-packages-using-setuptools
+   using-manifest-in
    single-sourcing-package-version
    supporting-multiple-python-versions
    dropping-older-python-versions

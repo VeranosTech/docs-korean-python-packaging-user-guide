@@ -161,7 +161,9 @@ Creating Virtual Environments
 
 Python "Virtual Environments" allow Python :term:`packages <Distribution
 Package>` to be installed in an isolated location for a particular application,
-rather than being installed globally.
+rather than being installed globally. If you are looking to safely install
+global command line tools,
+see :doc:`/guides/installing-stand-alone-command-line-tools`.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
@@ -192,6 +194,13 @@ Currently, there are two common tools for creating Python virtual environments:
 
 The basic usage is like so:
 
+Using `venv`_:
+
+::
+
+ python3 -m venv <DIR>
+ source <DIR>/bin/activate
+
 Using :ref:`virtualenv`:
 
 ::
@@ -200,16 +209,8 @@ Using :ref:`virtualenv`:
  source <DIR>/bin/activate
 
 
-Using `venv`_:
 
-::
-
- python3 -m venv <DIR>
- source <DIR>/bin/activate
-
-
-For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
-the `venv`_ docs.
+For more information, see the `venv`_ docs or the `virtualenv <http://virtualenv.pypa.io>`_ docs.
 
 In both of the above cases, Windows users should _not_ use the
 `source` command, but should rather run the `activate` script directly
@@ -470,7 +471,6 @@ Install `setuptools extras`_.
   $ pip install SomePackage[PDF]
   $ pip install SomePackage[PDF]==3.0
   $ pip install -e .[PDF]==3.0  # editable project in current directory
-
 
 
 ----
