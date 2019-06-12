@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2017, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-12 11:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../guides/using-manifest-in.rst:5
+msgid "Including files in source distributions with ``MANIFEST.in``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:7
+msgid ""
+"When building a :term:`source distribution <Source Distribution (or "
+"\"sdist\")>` for your package, by default only a minimal set of files are"
+" included.  You may find yourself wanting to include extra files in the "
+"source distribution, such as an authors/contributors file, a "
+":file:`docs/` directory, or a directory of data files used for testing "
+"purposes.  There may even be extra files that you *need* to include; for "
+"example, if your :file:`setup.py` computes your project's "
+"``long_description`` by reading from both a README and a changelog file, "
+"you'll need to include both those files in the sdist so that people that "
+"build or install from the sdist get the correct results."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:17
+msgid ""
+"Adding & removing files to & from the source distribution is done by "
+"writing a :file:`MANIFEST.in` file at the project root."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:22
+msgid "How files are included in an sdist"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:24
+msgid "The following files are included in a source distribution by default:"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:26
+msgid ""
+"all Python source files implied by the ``py_modules`` and ``packages`` "
+"``setup()`` arguments"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:28
+msgid ""
+"all C source files mentioned in the ``ext_modules`` or ``libraries`` "
+"``setup()`` arguments"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:30
+msgid "scripts specified by the ``scripts`` ``setup()`` argument"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:31
+msgid ""
+"all files specified by the ``package_data`` and ``data_files`` "
+"``setup()`` arguments"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:33
+msgid ""
+"the file specified by the ``license_file`` option in :file:`setup.cfg` "
+"(setuptools 40.8.0+)"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:35
+msgid "all files matching the pattern :file:`test/test*.py`"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:36
+msgid ":file:`setup.py` (or whatever you called your setup script)"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:37
+msgid ":file:`setup.cfg`"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:38
+msgid ":file:`README`"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:39
+msgid ":file:`README.txt`"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:40
+msgid ":file:`README.rst` (Python 3.7+ or setuptools 0.6.27+)"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:41
+msgid ":file:`README.md` (setuptools 36.4.0+)"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:42
+msgid ":file:`MANIFEST.in`"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:44
+msgid ""
+"After adding the above files to the sdist, the commands in "
+":file:`MANIFEST.in` (if such a file exists) are executed in order to add "
+"and remove further files to & from the sdist.  Default files can even be "
+"removed from the sdist with the appropriate :file:`MANIFEST.in` command."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:49
+msgid ""
+"After processing the :file:`MANIFEST.in` file, setuptools removes the "
+":file:`build/` directory as well as any directories named :file:`RCS`, "
+":file:`CVS`, or :file:`.svn` from the sdist, and it adds a :file:`PKG-"
+"INFO` file and an :file:`*.egg-info` directory.  This behavior cannot be "
+"changed with :file:`MANIFEST.in`."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:57
+msgid ":file:`MANIFEST.in` commands"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:59
+msgid ""
+"A :file:`MANIFEST.in` file consists of commands, one per line, "
+"instructing setuptools to add or remove some set of files from the sdist."
+"  The commands are:"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:64
+msgid "Command"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:64
+msgid "Description"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:66
+msgid "``include pat1 pat2 ...``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:66
+msgid "Include all files matching any of the listed patterns"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:67
+msgid "``exclude pat1 pat2 ...``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:67
+msgid "Exclude all files matching any of the listed patterns"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:68
+msgid "``recursive-include dir-pattern pat1 pat2 ...``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:68
+msgid ""
+"Include all files under directories matching ``dir-pattern`` that match "
+"any of the listed patterns"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:69
+msgid "``recursive-exclude dir-pattern pat1 pat2 ...``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:69
+msgid ""
+"Exclude all files under directories matching ``dir-pattern`` that match "
+"any of the listed patterns"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:70
+msgid "``global-include pat1 pat2 ...``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:70
+msgid ""
+"Include all files anywhere in the source tree matching any of the listed "
+"patterns"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:71
+msgid "``global-exclude pat1 pat2 ...``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:71
+msgid ""
+"Exclude all files anywhere in the source tree matching any of the listed "
+"patterns"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:72
+msgid "``graft dir-pattern``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:72
+msgid "Include all files under directories matching ``dir-pattern``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:73
+msgid "``prune dir-pattern``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:73
+msgid "Exclude all files under directories matching ``dir-pattern``"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:76
+msgid ""
+"The patterns here are glob-style patterns: ``*`` matches zero or more "
+"regular filename characters (on Unix, everything except forward slash; on"
+" Windows, everything except backslash and colon); ``?`` matches a single "
+"regular filename character, and ``[chars]`` matches any one of the "
+"characters between the square brackets (which may contain character "
+"ranges, e.g., ``[a-z]`` or ``[a-fA-F0-9]``).  Setuptools also has "
+"undocumented support for ``**`` matching zero or more characters "
+"including forward slash, backslash, and colon."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:84
+msgid ""
+"Directory patterns are relative to the root of the project directory; "
+"e.g., ``graft example*`` will include a directory named :file:`examples` "
+"in the project root but will not include :file:`docs/examples/`."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:88
+msgid ""
+"File & directory names in :file:`MANIFEST.in` should be ``/``-separated; "
+"setuptools will automatically convert the slashes to the local platform's"
+" appropriate directory separator."
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:92
+msgid ""
+"Commands are processed in the order they appear in the "
+":file:`MANIFEST.in` file.  For example, given the commands::"
+msgstr ""
+
+#: ../../guides/using-manifest-in.rst:98
+msgid ""
+"the contents of the directory tree :file:`tests` will first be added to "
+"the sdist, and then after that all files in the sdist with a ``.pyc``, "
+"``.pyo``, or ``.pyd`` extension will be removed from the sdist.  If the "
+"commands were in the opposite order, then ``*.pyc`` files etc. would be "
+"only be removed from what was already in the sdist before adding "
+":file:`tests`, and if :file:`tests` happened to contain any ``*.pyc`` "
+"files, they would end up included in the sdist because the exclusion "
+"happened before they were included."
+msgstr ""
+

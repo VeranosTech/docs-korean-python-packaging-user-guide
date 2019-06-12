@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 14:42+0900\n"
+"POT-Creation-Date: 2019-06-12 11:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: ../../source/specifications/entry-points.rst:3
+#: ../../specifications/entry-points.rst:3
 msgid "Entry points specification"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:5
+#: ../../specifications/entry-points.rst:5
 msgid ""
 "*Entry points* are a mechanism for an installed distribution to advertise"
 " components it provides to be discovered and used by other code. For "
 "example:"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:9
+#: ../../specifications/entry-points.rst:9
 msgid ""
 "Distributions can specify ``console_scripts`` entry points, each "
 "referring to a function. When *pip* (or another console_scripts aware "
@@ -37,7 +37,7 @@ msgid ""
 "wrapper for each entry point."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:12
+#: ../../specifications/entry-points.rst:12
 msgid ""
 "Applications can use entry points to load plugins; e.g. Pygments (a "
 "syntax highlighting tool) can use additional lexers and styles from "
@@ -45,7 +45,7 @@ msgid ""
 "/creating-and-discovering-plugins`."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:17
+#: ../../specifications/entry-points.rst:17
 msgid ""
 "The entry point file format was originally developed to allow packages "
 "built with setuptools to provide integration point metadata that would be"
@@ -57,15 +57,15 @@ msgid ""
 "conflict resolution strategies)."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:26
+#: ../../specifications/entry-points.rst:26
 msgid "Data model"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:28
+#: ../../specifications/entry-points.rst:28
 msgid "Conceptually, an entry point is defined by three required properties:"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:30
+#: ../../specifications/entry-points.rst:30
 msgid ""
 "The **group** that an entry point belongs to indicates what sort of "
 "object it provides. For instance, the group ``console_scripts`` is for "
@@ -78,7 +78,7 @@ msgid ""
 " (regex ``^\\w+(\\.\\w+)*$``)."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:40
+#: ../../specifications/entry-points.rst:40
 msgid ""
 "The **name** identifies this entry point within its group. The precise "
 "meaning of this is up to the consumer. For console scripts, the name of "
@@ -91,7 +91,7 @@ msgid ""
 "underscores, dashes and dots (regex ``[\\w-.]+``)."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:49
+#: ../../specifications/entry-points.rst:49
 msgid ""
 "The **object reference** points to a Python object. It is either in the "
 "form ``importable.module``, or ``importable.module:object.attr``. Each of"
@@ -99,14 +99,14 @@ msgid ""
 "It is intended to be looked up like this::"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:62
+#: ../../specifications/entry-points.rst:62
 msgid ""
 "Some tools call this kind of object reference by itself an 'entry point',"
 " for want of a better term, especially where it points to a function to "
 "launch a program."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:66
+#: ../../specifications/entry-points.rst:66
 msgid ""
 "There is also an optional property: the **extras** are a set of strings "
 "identifying optional features of the distribution providing the entry "
@@ -114,7 +114,7 @@ msgid ""
 "of those 'extras'. See the metadata field :ref:`metadata_provides_extra`."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:71
+#: ../../specifications/entry-points.rst:71
 msgid ""
 "Using extras for an entry point is no longer recommended. Consumers "
 "should support parsing them from existing distributions, but may then "
@@ -124,19 +124,19 @@ msgid ""
 " different model."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:78
+#: ../../specifications/entry-points.rst:78
 msgid "File format"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:80
+#: ../../specifications/entry-points.rst:80
 msgid ""
-"Entry points are defined in a file called :file:``entry_points.txt`` in "
-"the :file:``*.dist-info`` directory of the distribution. This is the "
-"directory described in :pep:`376` for installed distributions, and in "
-":pep:`427` for wheels.  The file uses the UTF-8 character encoding."
+"Entry points are defined in a file called :file:`entry_points.txt` in the"
+" :file:`*.dist-info` directory of the distribution. This is the directory"
+" described in :pep:`376` for installed distributions, and in :pep:`427` "
+"for wheels.  The file uses the UTF-8 character encoding."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:85
+#: ../../specifications/entry-points.rst:85
 msgid ""
 "The file contents are in INI format, as read by Python's "
 ":mod:`configparser` module. However, configparser treats names as case-"
@@ -144,13 +144,13 @@ msgid ""
 "case-sensitive config parser can be made like this::"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:95
+#: ../../specifications/entry-points.rst:95
 msgid ""
 "The entry points file must always use ``=`` to delimit names from values "
 "(whereas configparser also allows using ``:``)."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:98
+#: ../../specifications/entry-points.rst:98
 msgid ""
 "The sections of the config file represent entry point groups, the names "
 "are names, and the values encode both the object reference and the "
@@ -158,7 +158,7 @@ msgid ""
 "inside square brackets."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:102
+#: ../../specifications/entry-points.rst:102
 msgid ""
 "Within a value, readers must accept and ignore spaces (including multiple"
 " consecutive spaces) before or after the colon, between the object "
@@ -170,15 +170,15 @@ msgid ""
 "bracket."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:110
+#: ../../specifications/entry-points.rst:110
 msgid "For example::"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:122
+#: ../../specifications/entry-points.rst:122
 msgid "Use for scripts"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:124
+#: ../../specifications/entry-points.rst:124
 msgid ""
 "Two groups of entry points have special significance in packaging: "
 "``console_scripts`` and ``gui_scripts``. In both groups, the name of the "
@@ -189,13 +189,13 @@ msgid ""
 "``None`` is equivalent to returning ``0``."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:132
+#: ../../specifications/entry-points.rst:132
 msgid ""
 "For instance, the entry point ``mycmd = mymod:main`` would create a "
 "command ``mycmd`` launching a script like this::"
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:139
+#: ../../specifications/entry-points.rst:139
 msgid ""
 "The difference between ``console_scripts`` and ``gui_scripts`` only "
 "affects Windows systems. ``console_scripts`` are wrapped in a console "
@@ -206,7 +206,7 @@ msgid ""
 "redirects them. Other platforms do not have the same distinction."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:147
+#: ../../specifications/entry-points.rst:147
 msgid ""
 "Install tools are expected to set up wrappers for both "
 "``console_scripts`` and ``gui_scripts`` in the scripts directory of the "
@@ -215,11 +215,22 @@ msgid ""
 "are found."
 msgstr ""
 
-#: ../../source/specifications/entry-points.rst:152
+#: ../../specifications/entry-points.rst:152
 msgid ""
 "As files are created from the names, and some filesystems are case-"
 "insensitive, packages should avoid using names in these groups which "
 "differ only in case. The behaviour of install tools when names differ "
 "only in case is undefined."
 msgstr ""
+
+#~ msgid ""
+#~ "Entry points are defined in a file"
+#~ " called :file:``entry_points.txt`` in the "
+#~ ":file:``*.dist-info`` directory of the "
+#~ "distribution. This is the directory "
+#~ "described in :pep:`376` for installed "
+#~ "distributions, and in :pep:`427` for "
+#~ "wheels.  The file uses the UTF-8 "
+#~ "character encoding."
+#~ msgstr ""
 
