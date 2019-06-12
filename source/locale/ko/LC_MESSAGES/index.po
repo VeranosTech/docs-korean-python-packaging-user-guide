@@ -40,31 +40,36 @@ msgid ""
 "Welcome to the *Python Packaging User Guide*, a collection of tutorials and "
 "references to help you distribute and install Python packages with modern tools."
 msgstr ""
-"Welcome to the *파이썬 패키지 제작 사용자 가이드*, a collection of tutorials "
-"and references to help you distribute and install Python packages with modern "
-"tools."
+"*파이썬 패키지 제작 사용자 가이드* 에 오신걸 환영한다. "
+"본 페이지는 모던한 도구들로 파이썬 패키지들을 배포하고 설치하는 튜토리얼과 래퍼런스들을 제공한다."
 
 #: ../../source/index.rst:28
 msgid ""
 "This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We "
 "happily accept any :doc:`contributions and feedback <contribute>`. 😊"
 msgstr ""
+"`GitHub`_ 에 `Python Packaging Authority`_ 의해 관리된다. "
+"우리는 언제나 피드백을 환영한다 :doc:`contributions and feedback <contribute>`. 😊"
 
 #: ../../source/index.rst:36
 msgid "Get started"
-msgstr ""
+msgstr "시작하기"
 
 #: ../../source/index.rst:38
 msgid ""
 "Essential tools and concepts for working within the Python development "
 "ecosystem are covered in our :doc:`tutorials/index` section:"
 msgstr ""
+"파이썬 개발 생태계에서 작동하는 핵심적인 도구들과 개념들을 알아보려면 "
+":doc:`tutorials/index`\ 절을 참조한다:"
 
 #: ../../source/index.rst:41
 msgid ""
 "to learn how to install packages, see the :doc:`tutorial on installing packages "
 "<tutorials/installing-packages>`."
 msgstr ""
+"패키지를 설치하는 방법에 대해 배우려면 :doc:`tutorial on installing packages "
+"<tutorials/installing-packages>`\ 참조한다."
 
 #: ../../source/index.rst:43
 msgid ""
@@ -72,32 +77,41 @@ msgid ""
 "doc:`tutorial on managing application dependencies <tutorials/managing-"
 "dependencies>`."
 msgstr ""
+"버전 관리되는 프로젝트의 의존성들을 관리하려는 것을 배울려면 "
+"doc:`tutorial on managing application dependencies <tutorials/managing-"
+"dependencies>`\ 을 참조한다."
 
 #: ../../source/index.rst:45
 msgid ""
 "to learn how to package and distribute your projects, see the :doc:`tutorial on "
 "packaging and distributing <tutorials/packaging-projects>`"
 msgstr ""
+"패키지들과 프로젝트들을 배포하려면 :doc:`tutorial on "
+"packaging and distributing <tutorials/packaging-projects>`\ 을 참조한다."
 
 #: ../../source/index.rst:47
 msgid ""
 "to get an overview of packaging options for Python libraries and applications, "
 "see the :doc:`Overview of Python Packaging <overview>`."
 msgstr ""
+"파이썬 라이브러리들과 애플리케이션의 패키징 옵션에 대해 살펴보려면 "
+":doc:`Overview of Python Packaging <overview>`\ 참조"
 
 #: ../../source/index.rst:52
 msgid "Learn more"
-msgstr ""
+msgstr "더 알아보기"
 
 #: ../../source/index.rst:54
 msgid "Beyond our :doc:`tutorials/index`, this guide has several other resources:"
-msgstr ""
+msgstr ":doc:`tutorials/index`\ 절 넘어 가이드란엔 아래와 같은 내용들을 소개한다."
 
 #: ../../source/index.rst:56
 msgid ""
 "the :doc:`guides/index` section for walk throughs, such as :doc:`guides/"
 "installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`"
 msgstr ""
+":doc:`guides/index`\ 절은 :doc:`guides/installing-using-linux-tools`\ 이나 :doc:`guides/packaging-binary-extensions`\ "
+"과 같은 내용을 다룬다."
 
 #: ../../source/index.rst:58
 msgid ""
@@ -105,15 +119,20 @@ msgid ""
 "doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-"
 "easy-install`"
 msgstr ""
+":doc:`discussions/index`\ 절은 doc:`discussions/deploying-python-applications`\ 이나 :doc:`discussions/pip-vs-"
+"easy-install`\ 과 같은 주제에 대해 깊이있는 래퍼런스를 다룬다."
 
 #: ../../source/index.rst:60
 msgid ""
 "the :doc:`specifications/index` section for packaging interoperability "
 "specifications"
 msgstr ""
+":doc:`specifications/index`\ 절은 패키지 상호운용성(interoperability) 스펙에 대해 다룬다."
 
 #: ../../source/index.rst:62
 msgid ""
 "Additionally, there is a list of :doc:`other projects <key_projects>` "
 "maintained by members of the Python Packaging Authority."
 msgstr ""
+"추가적으로, :doc:`other projects <key_projects>`\ 에는 파이썬 패키지 위원회 멤버들이 관리하는 "
+"목록들이 있다."
