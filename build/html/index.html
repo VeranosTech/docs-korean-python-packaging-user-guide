@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="파이썬 패키지 제작 사용자 안내서(PyPUG)는 파이썬 소프트웨어 패키지 제작에 필요한 튜토리얼과 안내서 모음이다." name="description" />
+<meta content="파이썬, 패키지 제작, 안내서, 튜토리얼" name="keywords" />
+
+    <title>파이썬 패키지 제작 사용자 안내서 &#8212; Python Packaging User Guide</title>
+    <link rel="stylesheet" href="_static/pypa.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="An Overview of Packaging for Python" href="overview.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="overview.html" title="An Overview of Packaging for Python"
+             accesskey="N">다음</a> |</li>
+    <li><img src="_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="#">Python Packaging User Guide</a> &#187;
+    
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="python-packaging-user-guide">
+<h1>파이썬 패키지 제작 사용자 안내서<a class="headerlink" href="#python-packaging-user-guide" title="제목 주소">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p><em>파이썬 패키지 제작 사용자 가이드</em> 에 오신걸 환영한다. 본 페이지는 모던한 도구들로 파이썬 패키지들을 배포하고 설치하는 튜토리얼과 래퍼런스들을 제공한다.</p>
+<p><a class="reference external" href="https://github.com/pypa/python-packaging-user-guide">GitHub</a> 에 <a class="reference external" href="https://pypa.io">Python Packaging Authority</a> 의해 관리된다. 우리는 언제나 피드백을 환영한다 <a class="reference internal" href="contribute.html"><span class="doc">contributions and feedback</span></a>. 😊</p>
+<div class="section" id="get-started">
+<h2>시작하기<a class="headerlink" href="#get-started" title="제목 주소">¶</a></h2>
+<p>파이썬 개발 생태계에서 작동하는 핵심적인 도구들과 개념들을 알아보려면 <a class="reference internal" href="tutorials/index.html"><span class="doc">Tutorials</span></a>절을 참조한다:</p>
+<ul class="simple">
+<li>패키지를 설치하는 방법에 대해 배우려면 <a class="reference internal" href="tutorials/installing-packages.html"><span class="doc">tutorial on installing packages</span></a>참조한다.</li>
+<li>버전 관리되는 프로젝트의 의존성들을 관리하려는 것을 배울려면 doc:<cite>tutorial on managing application dependencies &lt;tutorials/managing-dependencies&gt;</cite>을 참조한다.</li>
+<li>패키지들과 프로젝트들을 배포하려면 <a class="reference internal" href="tutorials/packaging-projects.html"><span class="doc">tutorial on packaging and distributing</span></a>을 참조한다.</li>
+<li>파이썬 라이브러리들과 애플리케이션의 패키징 옵션에 대해 살펴보려면 <a class="reference internal" href="overview.html"><span class="doc">Overview of Python Packaging</span></a>참조</li>
+</ul>
+</div>
+<div class="section" id="learn-more">
+<h2>더 알아보기<a class="headerlink" href="#learn-more" title="제목 주소">¶</a></h2>
+<p><a class="reference internal" href="tutorials/index.html"><span class="doc">Tutorials</span></a>절 넘어 가이드란엔 아래와 같은 내용들을 소개한다.</p>
+<ul class="simple">
+<li><a class="reference internal" href="guides/index.html"><span class="doc">Guides</span></a>절은 <a class="reference internal" href="guides/installing-using-linux-tools.html"><span class="doc">Installing pip/setuptools/wheel with Linux Package Managers</span></a>이나 <a class="reference internal" href="guides/packaging-binary-extensions.html"><span class="doc">Packaging binary extensions</span></a>과 같은 내용을 다룬다.</li>
+<li><a class="reference internal" href="discussions/index.html"><span class="doc">Discussions</span></a>절은 doc:<cite>discussions/deploying-python-applications</cite>이나 <a class="reference internal" href="discussions/pip-vs-easy-install.html"><span class="doc">pip vs easy_install</span></a>과 같은 주제에 대해 깊이있는 래퍼런스를 다룬다.</li>
+<li><a class="reference internal" href="specifications/index.html"><span class="doc">PyPA specifications</span></a>절은 패키지 상호운용성(interoperability) 스펙에 대해 다룬다.</li>
+</ul>
+<p>추가적으로, <a class="reference internal" href="key_projects.html"><span class="doc">other projects</span></a>에는 파이썬 패키지 위원회 멤버들이 관리하는 목록들이 있다.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">An Overview of Packaging for Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">Discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="전체 색인"
+             >색인</a></li>
+        <li class="right" >
+          <a href="overview.html" title="An Overview of Packaging for Python"
+             >다음</a> |</li>
+    <li><img src="_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="#">Python Packaging User Guide</a> &#187;
+    
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">저작권</a> 2013–2017, PyPA.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    최종 업데이트: 2019년 06월 12일
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

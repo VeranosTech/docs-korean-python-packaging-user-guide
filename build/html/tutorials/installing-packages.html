@@ -1,0 +1,578 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Installing Packages &#8212; Python Packaging User Guide</title>
+    <link rel="stylesheet" href="../_static/pypa.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Managing Application Dependencies" href="managing-dependencies.html" />
+    <link rel="prev" title="Tutorials" href="index.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="managing-dependencies.html" title="Managing Application Dependencies"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Tutorials"
+             accesskey="P">이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-packages">
+<span id="id1"></span><h1>Installing Packages<a class="headerlink" href="#installing-packages" title="제목 주소">¶</a></h1>
+<p>This section covers the basics of how to install Python <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">packages</span></a>.</p>
+<p>It's important to note that the term &quot;package&quot; in this context is being used as
+a synonym for a <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">distribution</span></a> (i.e. a bundle of
+software to be installed), not to refer to the kind of <a class="reference internal" href="../glossary.html#term-import-package"><span class="xref std std-term">package</span></a> that you import in your Python source code (i.e. a container of
+modules). It is common in the Python community to refer to a <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">distribution</span></a> using the term &quot;package&quot;.  Using the term &quot;distribution&quot;
+is often not preferred, because it can easily be confused with a Linux
+distribution, or another larger software distribution like Python itself.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#requirements-for-installing-packages" id="id11">Requirements for Installing Packages</a><ul>
+<li><a class="reference internal" href="#ensure-you-can-run-python-from-the-command-line" id="id12">Ensure you can run Python from the command line</a></li>
+<li><a class="reference internal" href="#ensure-you-can-run-pip-from-the-command-line" id="id13">Ensure you can run pip from the command line</a></li>
+<li><a class="reference internal" href="#ensure-pip-setuptools-and-wheel-are-up-to-date" id="id14">Ensure pip, setuptools, and wheel are up to date</a></li>
+<li><a class="reference internal" href="#optionally-create-a-virtual-environment" id="id15">Optionally, create a virtual environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-virtual-environments" id="id16">Creating Virtual Environments</a></li>
+<li><a class="reference internal" href="#use-pip-for-installing" id="id17">Use pip for Installing</a></li>
+<li><a class="reference internal" href="#installing-from-pypi" id="id18">Installing from PyPI</a></li>
+<li><a class="reference internal" href="#source-distributions-vs-wheels" id="id19">Source Distributions vs Wheels</a></li>
+<li><a class="reference internal" href="#upgrading-packages" id="id20">Upgrading packages</a></li>
+<li><a class="reference internal" href="#installing-to-the-user-site" id="id21">Installing to the User Site</a></li>
+<li><a class="reference internal" href="#requirements-files" id="id22">Requirements files</a></li>
+<li><a class="reference internal" href="#installing-from-vcs" id="id23">Installing from VCS</a></li>
+<li><a class="reference internal" href="#installing-from-other-indexes" id="id24">Installing from other Indexes</a></li>
+<li><a class="reference internal" href="#installing-from-a-local-src-tree" id="id25">Installing from a local src tree</a></li>
+<li><a class="reference internal" href="#installing-from-local-archives" id="id26">Installing from local archives</a></li>
+<li><a class="reference internal" href="#installing-from-other-sources" id="id27">Installing from other sources</a></li>
+<li><a class="reference internal" href="#installing-prereleases" id="id28">Installing Prereleases</a></li>
+<li><a class="reference internal" href="#installing-setuptools-extras" id="id29">Installing Setuptools &quot;Extras&quot;</a></li>
+</ul>
+</div>
+<div class="section" id="requirements-for-installing-packages">
+<span id="installing-requirements"></span><h2><a class="toc-backref" href="#id11">Requirements for Installing Packages</a><a class="headerlink" href="#requirements-for-installing-packages" title="제목 주소">¶</a></h2>
+<p>This section describes the steps to follow before installing other Python
+packages.</p>
+<div class="section" id="ensure-you-can-run-python-from-the-command-line">
+<h3><a class="toc-backref" href="#id12">Ensure you can run Python from the command line</a><a class="headerlink" href="#ensure-you-can-run-python-from-the-command-line" title="제목 주소">¶</a></h3>
+<p>Before you go any further, make sure you have Python and that the expected
+version is available from your command line. You can check this by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python --version
+</pre></div>
+</div>
+<p>You should get some output like <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.6.3</span></code>. If you do not have Python,
+please install the latest 3.x version from <a class="reference external" href="https://python.org">python.org</a> or refer to the
+<a class="reference external" href="http://docs.python-guide.org/en/latest/starting/installation/">Installing Python</a> section of the Hitchhiker's Guide to Python.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p>If you're a newcomer and you get an error like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;python&#39; is not defined</span>
+</pre></div>
+</div>
+<p class="last">It's because this command and other suggested commands in this tutorial
+are intended to be run in a <em>shell</em> (also called a <em>terminal</em> or
+<em>console</em>). See the Python for Beginners <a class="reference external" href="https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly">getting started tutorial</a> for
+an introduction to using your operating system's shell and interacting with
+Python.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p>If you're using an enhanced shell like IPython or the Jupyter
+notebook, you can run system commands like those in this tutorial by
+prefacing them with a <code class="docutils literal notranslate"><span class="pre">!</span></code> character:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [1]: import sys
+        !{sys.executable} --version
+Python 3.6.3
+</pre></div>
+</div>
+</div></blockquote>
+<p class="last">It's recommended to write <code class="docutils literal notranslate"><span class="pre">{sys.executable}</span></code> rather than plain <code class="docutils literal notranslate"><span class="pre">python</span></code> in
+order to ensure that commands are run in the Python installation matching
+the currently running notebook (which may not be the same Python
+installation that the <code class="docutils literal notranslate"><span class="pre">python</span></code> command refers to).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">Due to the way most Linux distributions are handling the Python 3
+migration, Linux users using the system Python without creating a virtual
+environment first should replace the <code class="docutils literal notranslate"><span class="pre">python</span></code> command in this tutorial
+with <code class="docutils literal notranslate"><span class="pre">python3</span></code> and the <code class="docutils literal notranslate"><span class="pre">pip</span></code> command with <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">--user</span></code>. Do <em>not</em>
+run any of the commands in this tutorial with <code class="docutils literal notranslate"><span class="pre">sudo</span></code>: if you get a
+permissions error, come back to the section on creating virtual environments,
+set one up, and then continue with the tutorial as written.</p>
+</div>
+</div>
+<div class="section" id="ensure-you-can-run-pip-from-the-command-line">
+<h3><a class="toc-backref" href="#id13">Ensure you can run pip from the command line</a><a class="headerlink" href="#ensure-you-can-run-pip-from-the-command-line" title="제목 주소">¶</a></h3>
+<p>Additionally, you'll need to make sure you have <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> available. You can
+check this by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip --version
+</pre></div>
+</div>
+<p>If you installed Python from source, with an installer from <a class="reference external" href="https://python.org">python.org</a>, or
+via <a class="reference external" href="https://brew.sh">Homebrew</a> you should already have pip. If you're on Linux and installed
+using your OS package manager, you may have to install pip separately, see
+<a class="reference internal" href="../guides/installing-using-linux-tools.html"><span class="doc">Installing pip/setuptools/wheel with Linux Package Managers</span></a>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">pip</span></code> isn't already installed, then first try to bootstrap it from the
+standard library:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m ensurepip --default-pip
+</pre></div>
+</div>
+<p>If that still doesn't allow you to run <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Securely Download <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a> <a class="footnote-reference" href="#id7" id="id2">[1]</a></p>
+</li>
+<li><p class="first">Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-pip.py</span></code>. <a class="footnote-reference" href="#id8" id="id3">[2]</a>  This will install or upgrade pip.
+Additionally, it will install <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> and <a class="reference internal" href="../key_projects.html#wheel"><span class="std std-ref">wheel</span></a> if they're
+not installed already.</p>
+<div class="admonition warning">
+<p class="first admonition-title">경고</p>
+<p class="last">Be cautious if you're using a Python install that's managed by your
+operating system or another package manager. get-pip.py does not
+coordinate with those tools, and may leave your system in an
+inconsistent state. You can use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-pip.py</span> <span class="pre">--prefix=/usr/local/</span></code>
+to install in <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> which is designed for locally-installed
+software.</p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ensure-pip-setuptools-and-wheel-are-up-to-date">
+<h3><a class="toc-backref" href="#id14">Ensure pip, setuptools, and wheel are up to date</a><a class="headerlink" href="#ensure-pip-setuptools-and-wheel-are-up-to-date" title="제목 주소">¶</a></h3>
+<p>While <code class="docutils literal notranslate"><span class="pre">pip</span></code> alone is sufficient to install from pre-built binary archives,
+up to date copies of the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel</span></code> projects are useful
+to ensure you can also install from source archives:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span> <span class="n">wheel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="optionally-create-a-virtual-environment">
+<h3><a class="toc-backref" href="#id15">Optionally, create a virtual environment</a><a class="headerlink" href="#optionally-create-a-virtual-environment" title="제목 주소">¶</a></h3>
+<p>See <a class="reference internal" href="#creating-and-using-virtual-environments"><span class="std std-ref">section below</span></a> for details,
+but here's the basic <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> <a class="footnote-reference" href="#id9" id="id4">[3]</a> command to use on a typical Linux system:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv tutorial_env
+<span class="nb">source</span> tutorial_env/bin/activate
+</pre></div>
+</div>
+<p>This will create a new virtual environment in the <code class="docutils literal notranslate"><span class="pre">tutorial_env</span></code> subdirectory,
+and configure the current shell to use it as the default <code class="docutils literal notranslate"><span class="pre">python</span></code> environment.</p>
+</div>
+</div>
+<div class="section" id="creating-virtual-environments">
+<span id="creating-and-using-virtual-environments"></span><h2><a class="toc-backref" href="#id16">Creating Virtual Environments</a><a class="headerlink" href="#creating-virtual-environments" title="제목 주소">¶</a></h2>
+<p>Python &quot;Virtual Environments&quot; allow Python <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">packages</span></a> to be installed in an isolated location for a particular application,
+rather than being installed globally. If you are looking to safely install
+global command line tools,
+see <a class="reference internal" href="../guides/installing-stand-alone-command-line-tools.html"><span class="doc">Installing stand alone command line tools</span></a>.</p>
+<p>Imagine you have an application that needs version 1 of LibFoo, but another
+application requires version 2. How can you use both these applications? If you
+install everything into /usr/lib/python3.6/site-packages (or whatever your
+platform’s standard location is), it’s easy to end up in a situation where you
+unintentionally upgrade an application that shouldn’t be upgraded.</p>
+<p>Or more generally, what if you want to install an application and leave it be?
+If an application works, any change in its libraries or the versions of those
+libraries can break the application.</p>
+<p>Also, what if you can’t install <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">packages</span></a> into the
+global site-packages directory? For instance, on a shared host.</p>
+<p>In all these cases, virtual environments can help you. They have their own
+installation directories and they don’t share libraries with other virtual
+environments.</p>
+<p>Currently, there are two common tools for creating Python virtual environments:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> is available by default in Python 3.3 and later, and installs
+<a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> and <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> into created virtual environments in
+Python 3.4 and later.</li>
+<li><a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> needs to be installed separately, but supports Python 2.7+
+and Python 3.3+, and <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a>, <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> and <a class="reference internal" href="../key_projects.html#wheel"><span class="std std-ref">wheel</span></a> are
+always installed into created virtual environments by default (regardless of
+Python version).</li>
+</ul>
+<p>The basic usage is like so:</p>
+<p>Using <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">&lt;</span><span class="n">DIR</span><span class="o">&gt;</span>
+<span class="n">source</span> <span class="o">&lt;</span><span class="n">DIR</span><span class="o">&gt;/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>Using <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="o">&lt;</span><span class="n">DIR</span><span class="o">&gt;</span>
+<span class="n">source</span> <span class="o">&lt;</span><span class="n">DIR</span><span class="o">&gt;/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>For more information, see the <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> docs or the <a class="reference external" href="http://virtualenv.pypa.io">virtualenv</a> docs.</p>
+<p>In both of the above cases, Windows users should _not_ use the
+<cite>source</cite> command, but should rather run the <cite>activate</cite> script directly
+from the command shell. The use of <cite>source</cite> under Unix shells ensures
+that the virtual environment's variables are set within the current
+shell, and not in a subprocess (which then disappears, having no
+useful effect).</p>
+<p>Managing multiple virtual environments directly can become tedious, so the
+<a class="reference internal" href="managing-dependencies.html#managing-dependencies"><span class="std std-ref">dependency management tutorial</span></a> introduces a
+higher level tool, <a class="reference internal" href="../key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a>, that automatically manages a separate
+virtual environment for each project and application that you work on.</p>
+</div>
+<div class="section" id="use-pip-for-installing">
+<h2><a class="toc-backref" href="#id17">Use pip for Installing</a><a class="headerlink" href="#use-pip-for-installing" title="제목 주소">¶</a></h2>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> is the recommended installer.  Below, we'll cover the most common
+usage scenarios. For more detail, see the <a class="reference external" href="https://pip.pypa.io">pip docs</a>,
+which includes a complete <a class="reference external" href="https://pip.pypa.io/en/latest/reference/index.html">Reference Guide</a>.</p>
+</div>
+<div class="section" id="installing-from-pypi">
+<h2><a class="toc-backref" href="#id18">Installing from PyPI</a><a class="headerlink" href="#installing-from-pypi" title="제목 주소">¶</a></h2>
+<p>The most common usage of <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> is to install from the <a class="reference internal" href="../glossary.html#term-python-package-index-pypi"><span class="xref std std-term">Python Package
+Index</span></a> using a <a class="reference internal" href="../glossary.html#term-requirement-specifier"><span class="xref std std-term">requirement specifier</span></a>. Generally speaking, a requirement specifier is
+composed of a project name followed by an optional <a class="reference internal" href="../glossary.html#term-version-specifier"><span class="xref std std-term">version specifier</span></a>.  <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a> contains a <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440#version-specifiers"><strong>full
+specification</strong></a>
+of the currently supported specifiers. Below are some examples.</p>
+<p>To install the latest version of &quot;SomeProject&quot;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;SomeProject&quot;</span>
+</pre></div>
+</div>
+<p>To install a specific version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;SomeProject==1.4&quot;</span>
+</pre></div>
+</div>
+<p>To install greater than or equal to one version and less than another:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;SomeProject&gt;=1,&lt;2&quot;</span>
+</pre></div>
+</div>
+<p>To install a version that's <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440#compatible-release"><strong>&quot;compatible&quot;</strong></a>
+with a certain version: <a class="footnote-reference" href="#id10" id="id5">[4]</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;SomeProject~=1.4.2&quot;</span>
+</pre></div>
+</div>
+<p>In this case, this means to install any version &quot;==1.4.*&quot; version that's also
+&quot;&gt;=1.4.2&quot;.</p>
+</div>
+<div class="section" id="source-distributions-vs-wheels">
+<h2><a class="toc-backref" href="#id19">Source Distributions vs Wheels</a><a class="headerlink" href="#source-distributions-vs-wheels" title="제목 주소">¶</a></h2>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> can install from either <a class="reference internal" href="../glossary.html#term-source-distribution-or-sdist"><span class="xref std std-term">Source Distributions (sdist)</span></a> or <a class="reference internal" href="../glossary.html#term-wheel"><span class="xref std std-term">Wheels</span></a>, but if both are present
+on PyPI, pip will prefer a compatible <a class="reference internal" href="../glossary.html#term-wheel"><span class="xref std std-term">wheel</span></a>.</p>
+<p><a class="reference internal" href="../glossary.html#term-wheel"><span class="xref std std-term">Wheels</span></a> are a pre-built <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">distribution</span></a> format that provides faster installation compared to <a class="reference internal" href="../glossary.html#term-source-distribution-or-sdist"><span class="xref std std-term">Source
+Distributions (sdist)</span></a>, especially when a
+project contains compiled extensions.</p>
+<p>If <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> does not find a wheel to install, it will locally build a wheel
+and cache it for future installs, instead of rebuilding the source distribution
+in the future.</p>
+</div>
+<div class="section" id="upgrading-packages">
+<h2><a class="toc-backref" href="#id20">Upgrading packages</a><a class="headerlink" href="#upgrading-packages" title="제목 주소">¶</a></h2>
+<p>Upgrade an already installed <cite>SomeProject</cite> to the latest from PyPI.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-to-the-user-site">
+<span id="id6"></span><h2><a class="toc-backref" href="#id21">Installing to the User Site</a><a class="headerlink" href="#installing-to-the-user-site" title="제목 주소">¶</a></h2>
+<p>To install <a class="reference internal" href="../glossary.html#term-distribution-package"><span class="xref std std-term">packages</span></a> that are isolated to the
+current user, use the <code class="docutils literal notranslate"><span class="pre">--user</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+<p>For more information see the <a class="reference external" href="https://pip.readthedocs.io/en/latest/user_guide.html#user-installs">User Installs</a> section
+from the pip docs.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">--user</span></code> flag has no effect when inside a virtual environment
+- all installation commands will affect the virtual environment.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">SomeProject</span></code> defines any command-line scripts or console entry points,
+<code class="docutils literal notranslate"><span class="pre">--user</span></code> will cause them to be installed inside the <a class="reference external" href="https://docs.python.org/3/library/site.html#site.USER_BASE">user base</a>'s binary
+directory, which may or may not already be present in your shell's
+<span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>.  (Starting in version 10, pip displays a warning when
+installing any scripts to a directory outside <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>.)  If the scripts
+are not available in your shell after installation, you'll need to add the
+directory to your <span class="target" id="index-5"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>:</p>
+<ul class="simple">
+<li>On Linux and macOS you can find the user base binary directory by running
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">site</span> <span class="pre">--user-base</span></code> and adding <code class="docutils literal notranslate"><span class="pre">bin</span></code> to the end. For example,
+this will typically print <code class="docutils literal notranslate"><span class="pre">~/.local</span></code> (with <code class="docutils literal notranslate"><span class="pre">~</span></code> expanded to the absolute
+path to your home directory) so you'll need to add <code class="docutils literal notranslate"><span class="pre">~/.local/bin</span></code> to your
+<code class="docutils literal notranslate"><span class="pre">PATH</span></code>.  You can set your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> permanently by <a class="reference external" href="https://stackoverflow.com/a/14638025">modifying ~/.profile</a>.</li>
+<li>On Windows you can find the user base binary directory by running <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-m</span>
+<span class="pre">site</span> <span class="pre">--user-site</span></code> and replacing <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> with <code class="docutils literal notranslate"><span class="pre">Scripts</span></code>. For
+example, this could return
+<code class="docutils literal notranslate"><span class="pre">C:\Users\Username\AppData\Roaming\Python36\site-packages</span></code> so you would
+need to set your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> to include
+<code class="docutils literal notranslate"><span class="pre">C:\Users\Username\AppData\Roaming\Python36\Scripts</span></code>. You can set your user
+<code class="docutils literal notranslate"><span class="pre">PATH</span></code> permanently in the <a class="reference external" href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb776899(v=vs.85).aspx">Control Panel</a>. You may need to log out for the
+<code class="docutils literal notranslate"><span class="pre">PATH</span></code> changes to take effect.</li>
+</ul>
+</div>
+<div class="section" id="requirements-files">
+<h2><a class="toc-backref" href="#id22">Requirements files</a><a class="headerlink" href="#requirements-files" title="제목 주소">¶</a></h2>
+<p>Install a list of requirements specified in a <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(in pip v19.1)"><span class="xref std std-ref">Requirements File</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-from-vcs">
+<h2><a class="toc-backref" href="#id23">Installing from VCS</a><a class="headerlink" href="#installing-from-vcs" title="제목 주소">¶</a></h2>
+<p>Install a project from VCS in &quot;editable&quot; mode.  For a full breakdown of the
+syntax, see pip's section on <a class="reference external" href="https://pip.pypa.io/en/latest/reference/pip_install/#vcs-support" title="(in pip v19.1)"><span class="xref std std-ref">VCS Support</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">repo</span><span class="o">/</span><span class="n">some_pkg</span><span class="o">.</span><span class="n">git</span><span class="c1">#egg=SomeProject          # from git</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">hg</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hg</span><span class="o">.</span><span class="n">repo</span><span class="o">/</span><span class="n">some_pkg</span><span class="c1">#egg=SomeProject                # from mercurial</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">svn</span><span class="o">+</span><span class="n">svn</span><span class="p">:</span><span class="o">//</span><span class="n">svn</span><span class="o">.</span><span class="n">repo</span><span class="o">/</span><span class="n">some_pkg</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="c1">#egg=SomeProject         # from svn</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">repo</span><span class="o">/</span><span class="n">some_pkg</span><span class="o">.</span><span class="n">git</span><span class="nd">@feature</span><span class="c1">#egg=SomeProject  # from a branch</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-from-other-indexes">
+<h2><a class="toc-backref" href="#id24">Installing from other Indexes</a><a class="headerlink" href="#installing-from-other-indexes" title="제목 주소">¶</a></h2>
+<p>Install from an alternate index</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">my</span><span class="o">.</span><span class="n">package</span><span class="o">.</span><span class="n">repo</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+<p>Search an additional index during install, in addition to <a class="reference internal" href="../glossary.html#term-python-package-index-pypi"><span class="xref std std-term">PyPI</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">my</span><span class="o">.</span><span class="n">package</span><span class="o">.</span><span class="n">repo</span><span class="o">/</span><span class="n">simple</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-from-a-local-src-tree">
+<h2><a class="toc-backref" href="#id25">Installing from a local src tree</a><a class="headerlink" href="#installing-from-a-local-src-tree" title="제목 주소">¶</a></h2>
+<p>Installing from local src in <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode">Development Mode</a>,
+i.e. in such a way that the project appears to be installed, but yet is
+still editable from the src tree.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You can also install normally from src</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-from-local-archives">
+<h2><a class="toc-backref" href="#id26">Installing from local archives</a><a class="headerlink" href="#installing-from-local-archives" title="제목 주소">¶</a></h2>
+<p>Install a particular source archive file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">./</span><span class="n">downloads</span><span class="o">/</span><span class="n">SomeProject</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>Install from a local directory containing archives (and don't check <a class="reference internal" href="../glossary.html#term-python-package-index-pypi"><span class="xref std std-term">PyPI</span></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">index</span> <span class="o">--</span><span class="n">find</span><span class="o">-</span><span class="n">links</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">local</span><span class="o">/</span><span class="nb">dir</span><span class="o">/</span> <span class="n">SomeProject</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">index</span> <span class="o">--</span><span class="n">find</span><span class="o">-</span><span class="n">links</span><span class="o">=/</span><span class="n">local</span><span class="o">/</span><span class="nb">dir</span><span class="o">/</span> <span class="n">SomeProject</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">index</span> <span class="o">--</span><span class="n">find</span><span class="o">-</span><span class="n">links</span><span class="o">=</span><span class="n">relative</span><span class="o">/</span><span class="nb">dir</span><span class="o">/</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-from-other-sources">
+<h2><a class="toc-backref" href="#id27">Installing from other sources</a><a class="headerlink" href="#installing-from-other-sources" title="제목 주소">¶</a></h2>
+<p>To install from other data sources (for example Amazon S3 storage) you can
+create a helper application that presents the data in a <span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0503"><strong>PEP 503</strong></a> compliant
+index format, and use the <code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code> flag to direct pip to use
+that index.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">s3helper</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">7777</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">7777</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-prereleases">
+<h2><a class="toc-backref" href="#id28">Installing Prereleases</a><a class="headerlink" href="#installing-prereleases" title="제목 주소">¶</a></h2>
+<p>Find pre-release and development versions, in addition to stable versions.  By
+default, pip only finds stable versions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">pre</span> <span class="n">SomeProject</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-setuptools-extras">
+<h2><a class="toc-backref" href="#id29">Installing Setuptools &quot;Extras&quot;</a><a class="headerlink" href="#installing-setuptools-extras" title="제목 주소">¶</a></h2>
+<p>Install <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies">setuptools extras</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install SomePackage[PDF]
+$ pip install SomePackage[PDF]==3.0
+$ pip install -e .[PDF]==3.0  # editable project in current directory
+</pre></div>
+</div>
+<hr class="docutils" />
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>&quot;Secure&quot; in this context means using a modern browser or a
+tool like <cite>curl</cite> that verifies SSL certificates when downloading from
+https URLs.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>Depending on your platform, this may require root or Administrator
+access. <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> is currently considering changing this by <a class="reference external" href="https://github.com/pypa/pip/issues/1668">making user
+installs the default behavior</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td>Beginning with Python 3.4, <code class="docutils literal notranslate"><span class="pre">venv</span></code> (a stdlib alternative to
+<a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a>) will create virtualenv environments with <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+pre-installed, thereby making it an equal alternative to
+<a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td>The compatible release specifier was accepted in <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a>
+and support was released in <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> v8.0 and
+<a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> v6.0</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">An Overview of Packaging for Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-dependencies.html">Managing Application Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-projects.html">Packaging Python Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-documentation.html">Creating Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">Discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+</ul>
+
+
+  <h4>이전 항목</h4>
+  <p class="topless"><a href="index.html"
+                        title="이전 장">Tutorials</a></p>
+  <h4>다음 항목</h4>
+  <p class="topless"><a href="managing-dependencies.html"
+                        title="다음 장">Managing Application Dependencies</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             >색인</a></li>
+        <li class="right" >
+          <a href="managing-dependencies.html" title="Managing Application Dependencies"
+             >다음</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Tutorials"
+             >이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">저작권</a> 2013–2017, PyPA.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    최종 업데이트: 2019년 06월 12일
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

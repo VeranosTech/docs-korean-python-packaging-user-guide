@@ -1,0 +1,286 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Installing stand alone command line tools &#8212; Python Packaging User Guide</title>
+    <link rel="stylesheet" href="../_static/pypa.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Installing pip/setuptools/wheel with Linux Package Managers" href="installing-using-linux-tools.html" />
+    <link rel="prev" title="Installing packages using pip and virtual environments" href="installing-using-pip-and-virtual-environments.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="installing-using-linux-tools.html" title="Installing pip/setuptools/wheel with Linux Package Managers"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="installing-using-pip-and-virtual-environments.html" title="Installing packages using pip and virtual environments"
+             accesskey="P">이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Guides</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-stand-alone-command-line-tools">
+<h1>Installing stand alone command line tools<a class="headerlink" href="#installing-stand-alone-command-line-tools" title="제목 주소">¶</a></h1>
+<p>Many packages have command line entry points. Examples of this type of application are
+<a class="reference external" href="https://github.com/python/mypy">mypy</a>,
+<a class="reference external" href="https://github.com/PyCQA/flake8">flake8</a>,
+<a class="reference external" href="https://github.com/pypa/pipenv">pipenv</a>,and
+<a class="reference external" href="https://github.com/ambv/black">black</a>.</p>
+<p>Usually you want to be able to access these from anywhere,
+but installing packages and their dependencies to the same global environment
+can cause version conflicts and break dependencies the operating system has
+on Python packages.</p>
+<p><a class="reference external" href="https://github.com/pipxproject/pipx">pipx</a> solves this by creating a virtual
+environment for each package, while also ensuring that package's applications
+are accessible through a directory that is on your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>. This allows each
+package to be upgraded or uninstalled without causing conflicts with other
+packages, and allows you to safely run the program from anywhere.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">pipx only works with Python 3.6+.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pipx</span></code> is installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install --user pipx
+$ pipx ensurepath  # ensures the path of the CLI application directory is on your $PATH
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">You may need to restart your terminal for the path updates to take effect.</p>
+</div>
+<p>Now you can install packages with <code class="docutils literal notranslate"><span class="pre">pipx</span> <span class="pre">install</span></code> and access the package's entry point(s) from anywhere.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx install PACKAGE
+$ ENTRYPOINT_OF_PACKAGE [ARGS]
+</pre></div>
+</div>
+<p>For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx install cowsay
+  installed package cowsay 2.0, Python 3.6.2+
+  These binaries are now globally available
+    - cowsay
+done! ✨ 🌟 ✨
+$ cowsay moo
+  ___
+&lt; moo &gt;
+  ===
+        \
+         \
+           ^__^
+           (oo)\_______
+           (__)\       )\/       ||----w |
+               ||     ||
+</pre></div>
+</div>
+<p>To see a list of packages installed with pipx and which CLI applications are available, use <code class="docutils literal notranslate"><span class="pre">pipx</span> <span class="pre">list</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx list
+venvs are in /Users/user/.local/pipx/venvs
+symlinks to binaries are in /Users/user/.local/bin
+   package black 18.9b0, Python 3.6.2+
+    - black
+    - blackd
+   package cowsay 2.0, Python 3.6.2+
+    - cowsay
+   package mypy 0.660, Python 3.6.2+
+    - dmypy
+    - mypy
+    - stubgen
+   package nox 2018.10.17, Python 3.6.2+
+    - nox
+    - tox-to-nox
+</pre></div>
+</div>
+<p>To upgrade or uninstall the package</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx upgrade PACKAGE
+$ pipx uninstall PACKAGE
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pipx</span></code> can be upgraded or uninstalled with pip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -U pipx
+$ pip uninstall pipx
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pipx</span></code> also allows you to install and run the latest version of a cli tool
+in a temporary, ephemeral environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx run PACKAGE [ARGS]
+</pre></div>
+</div>
+<p>For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx run cowsay moooo
+</pre></div>
+</div>
+<p>To see the full list of commands <code class="docutils literal notranslate"><span class="pre">pipx</span></code> offers, run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipx --help
+</pre></div>
+</div>
+<p>You can learn more about <code class="docutils literal notranslate"><span class="pre">pipx</span></code> at its homepage,
+<a class="reference external" href="https://github.com/pipxproject/pipx">https://github.com/pipxproject/pipx</a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">An Overview of Packaging for Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing stand alone command line tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">Installing pip/setuptools/wheel with Linux Package Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">Multi-version installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">Supporting multiple Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">Dropping support for older Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">Creating and discovering plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">Analyzing PyPI package downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">Migrating to PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">Using TestPyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">Discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+</ul>
+
+
+  <h4>이전 항목</h4>
+  <p class="topless"><a href="installing-using-pip-and-virtual-environments.html"
+                        title="이전 장">Installing packages using pip and virtual environments</a></p>
+  <h4>다음 항목</h4>
+  <p class="topless"><a href="installing-using-linux-tools.html"
+                        title="다음 장">Installing pip/setuptools/wheel with Linux Package Managers</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             >색인</a></li>
+        <li class="right" >
+          <a href="installing-using-linux-tools.html" title="Installing pip/setuptools/wheel with Linux Package Managers"
+             >다음</a> |</li>
+        <li class="right" >
+          <a href="installing-using-pip-and-virtual-environments.html" title="Installing packages using pip and virtual environments"
+             >이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Guides</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">저작권</a> 2013–2017, PyPA.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    최종 업데이트: 2019년 06월 12일
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

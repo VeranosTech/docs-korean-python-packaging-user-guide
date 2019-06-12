@@ -1,0 +1,783 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Core metadata specifications &#8212; Python Packaging User Guide</title>
+    <link rel="stylesheet" href="../_static/pypa.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Version specifiers" href="version-specifiers.html" />
+    <link rel="prev" title="PyPA specifications" href="index.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="version-specifiers.html" title="Version specifiers"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="PyPA specifications"
+             accesskey="P">이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">PyPA specifications</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="core-metadata-specifications">
+<span id="core-metadata"></span><h1>Core metadata specifications<a class="headerlink" href="#core-metadata-specifications" title="제목 주소">¶</a></h1>
+<p>The current core metadata file format, version 2.1, is specified in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0566"><strong>PEP 566</strong></a>.
+It defines the following specification as the canonical source for the core
+metadata file format.</p>
+<p>Fields defined in the following specification should be considered valid,
+complete and not subject to change. The required fields are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Metadata-Version</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Name</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Version</span></code></li>
+</ul>
+<p>All the other fields are optional.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last"><em>Interpreting old metadata:</em> In <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0566"><strong>PEP 566</strong></a>, the version specifier
+field format specification was relaxed to accept the syntax used by popular
+publishing tools (namely to remove the requirement that version specifiers
+must be surrounded by parentheses). Metadata consumers may want to use the
+more relaxed formatting rules even for metadata files that are nominally
+less than version 2.1.</p>
+</div>
+<div class="contents local topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#metadata-version" id="id5">Metadata-Version</a></li>
+<li><a class="reference internal" href="#name" id="id6">Name</a></li>
+<li><a class="reference internal" href="#version" id="id7">Version</a></li>
+<li><a class="reference internal" href="#platform-multiple-use" id="id8">Platform (multiple use)</a></li>
+<li><a class="reference internal" href="#supported-platform-multiple-use" id="id9">Supported-Platform (multiple use)</a></li>
+<li><a class="reference internal" href="#summary" id="id10">Summary</a></li>
+<li><a class="reference internal" href="#description" id="id11">Description</a></li>
+<li><a class="reference internal" href="#description-content-type" id="id12">Description-Content-Type</a></li>
+<li><a class="reference internal" href="#keywords" id="id13">Keywords</a></li>
+<li><a class="reference internal" href="#home-page" id="id14">Home-page</a></li>
+<li><a class="reference internal" href="#download-url" id="id15">Download-URL</a></li>
+<li><a class="reference internal" href="#author" id="id16">Author</a></li>
+<li><a class="reference internal" href="#author-email" id="id17">Author-email</a></li>
+<li><a class="reference internal" href="#maintainer" id="id18">Maintainer</a></li>
+<li><a class="reference internal" href="#maintainer-email" id="id19">Maintainer-email</a></li>
+<li><a class="reference internal" href="#license" id="id20">License</a></li>
+<li><a class="reference internal" href="#classifier-multiple-use" id="id21">Classifier (multiple use)</a></li>
+<li><a class="reference internal" href="#requires-dist-multiple-use" id="id22">Requires-Dist (multiple use)</a></li>
+<li><a class="reference internal" href="#requires-python" id="id23">Requires-Python</a></li>
+<li><a class="reference internal" href="#requires-external-multiple-use" id="id24">Requires-External (multiple use)</a></li>
+<li><a class="reference internal" href="#project-url-multiple-use" id="id25">Project-URL (multiple-use)</a></li>
+<li><a class="reference internal" href="#provides-extra-multiple-use" id="id26">Provides-Extra (multiple use)</a></li>
+<li><a class="reference internal" href="#rarely-used-fields" id="id27">Rarely Used Fields</a><ul>
+<li><a class="reference internal" href="#provides-dist-multiple-use" id="id28">Provides-Dist (multiple use)</a></li>
+<li><a class="reference internal" href="#obsoletes-dist-multiple-use" id="id29">Obsoletes-Dist (multiple use)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="metadata-version">
+<h2><a class="toc-backref" href="#id5">Metadata-Version</a><a class="headerlink" href="#metadata-version" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>Version of the file format; legal values are &quot;1.0&quot;, &quot;1.1&quot;, &quot;1.2&quot; and &quot;2.1&quot;.</p>
+<p>Automated tools consuming metadata SHOULD warn if <code class="docutils literal notranslate"><span class="pre">metadata_version</span></code> is
+greater than the highest version they support, and MUST fail if
+<code class="docutils literal notranslate"><span class="pre">metadata_version</span></code> has a greater major version than the highest
+version they support (as described in <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a>, the major version is the
+value before the first dot).</p>
+<p>For broader compatibility, build tools MAY choose to produce
+distribution metadata using the lowest metadata version that includes
+all of the needed fields.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Metadata</span><span class="o">-</span><span class="n">Version</span><span class="p">:</span> <span class="mf">2.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="name">
+<h2><a class="toc-backref" href="#id6">Name</a><a class="headerlink" href="#name" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">버전 2.1으로 변경: </span>Added additional restrictions on format from <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0508"><strong>PEP 508</strong></a></p>
+</div>
+<p>The name of the distribution. The name field is the primary identifier for a
+distribution. A valid name consists only of ASCII letters and numbers, period,
+underscore and hyphen. It must start and end with a letter or number.
+Distribution names are limited to those which match the following
+regex (run with <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">BeagleVote</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="version">
+<h2><a class="toc-backref" href="#id7">Version</a><a class="headerlink" href="#version" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A string containing the distribution's version number.  This
+field  must be in the format specified in PEP 440.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span><span class="p">:</span> <span class="mf">1.0</span><span class="n">a2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="platform-multiple-use">
+<h2><a class="toc-backref" href="#id8">Platform (multiple use)</a><a class="headerlink" href="#platform-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A Platform specification describing an operating system supported by
+the distribution which is not listed in the &quot;Operating System&quot; Trove classifiers.
+See &quot;Classifier&quot; below.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Platform</span><span class="p">:</span> <span class="n">ObscureUnix</span>
+<span class="n">Platform</span><span class="p">:</span> <span class="n">RareDOS</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="supported-platform-multiple-use">
+<h2><a class="toc-backref" href="#id9">Supported-Platform (multiple use)</a><a class="headerlink" href="#supported-platform-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.1에 추가.</span></p>
+</div>
+<p>Binary distributions containing a PKG-INFO file will use the
+Supported-Platform field in their metadata to specify the OS and
+CPU for which the binary distribution was compiled.  The semantics of
+the Supported-Platform field are not specified in this PEP.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Supported</span><span class="o">-</span><span class="n">Platform</span><span class="p">:</span> <span class="n">RedHat</span> <span class="mf">7.2</span>
+<span class="n">Supported</span><span class="o">-</span><span class="n">Platform</span><span class="p">:</span> <span class="n">i386</span><span class="o">-</span><span class="n">win32</span><span class="o">-</span><span class="mi">2791</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><a class="toc-backref" href="#id10">Summary</a><a class="headerlink" href="#summary" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A one-line summary of what the distribution does.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Summary</span><span class="p">:</span> <span class="n">A</span> <span class="n">module</span> <span class="k">for</span> <span class="n">collecting</span> <span class="n">votes</span> <span class="kn">from</span> <span class="nn">beagles.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<span id="description-optional"></span><h2><a class="toc-backref" href="#id11">Description</a><a class="headerlink" href="#description" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">버전 2.1으로 변경: </span>This field may be specified in the message body instead.</p>
+</div>
+<p>A longer description of the distribution that can run to several
+paragraphs.  Software that deals with metadata should not assume
+any maximum size for this field, though people shouldn't include
+their instruction manual as the description.</p>
+<p>The contents of this field can be written using reStructuredText
+markup <a class="footnote-reference" href="#id3" id="id1">[1]</a>.  For programs that work with the metadata, supporting
+markup is optional; programs can also display the contents of the
+field as-is.  This means that authors should be conservative in
+the markup they use.</p>
+<p>To support empty lines and lines with indentation with respect to
+the RFC 822 format, any CRLF character has to be suffixed by 7 spaces
+followed by a pipe (&quot;|&quot;) char. As a result, the Description field is
+encoded into a folded field that can be interpreted by RFC822
+parser <a class="footnote-reference" href="#id4" id="id2">[2]</a>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Description: This project provides powerful math functions
+        |For example, you can use `sum()` to sum numbers:
+        |
+        |Example::
+        |
+        |    &gt;&gt;&gt; sum(1, 2)
+        |    3
+        |
+</pre></div>
+</div>
+<p>This encoding implies that any occurrences of a CRLF followed by 7 spaces
+and a pipe char have to be replaced by a single CRLF when the field is unfolded
+using a RFC822 reader.</p>
+<p>Alternatively, the distribution's description may instead be provided in the
+message body (i.e., after a completely blank line following the headers, with
+no indentation or other special formatting necessary).</p>
+</div>
+<div class="section" id="description-content-type">
+<span id="description-content-type-optional"></span><h2><a class="toc-backref" href="#id12">Description-Content-Type</a><a class="headerlink" href="#description-content-type" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 2.1에 추가.</span></p>
+</div>
+<p>A string stating the markup syntax (if any) used in the distribution's
+description, so that tools can intelligently render the description.</p>
+<p>Historically, PyPI supported descriptions in plain text and <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText
+(reST)</a>,
+and could render reST into HTML. However, it is common for distribution
+authors to write the description in <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<a class="reference external" href="https://tools.ietf.org/html/rfc7763">RFC 7763</a>) as many code hosting sites render
+Markdown READMEs, and authors would reuse the file for the description. PyPI
+didn't recognize the format and so could not render the description correctly.
+This resulted in many packages on PyPI with poorly-rendered descriptions when
+Markdown is left as plain text, or worse, was attempted to be rendered as reST.
+This field allows the distribution author to specify the format of their
+description, opening up the possibility for PyPI and other tools to be able to
+render Markdown and other formats.</p>
+<p>The format of this field is the same as the <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header in HTTP
+(i.e.:
+<a class="reference external" href="https://www.w3.org/Protocols/rfc1341/4_Content-Type.html">RFC 1341</a>).
+Briefly, this means that it has a <code class="docutils literal notranslate"><span class="pre">type/subtype</span></code> part and then it can
+optionally have a number of parameters:</p>
+<p>Format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;/&lt;</span><span class="n">subtype</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">charset</span><span class="o">=&lt;</span><span class="n">charset</span><span class="o">&gt;</span><span class="p">[;</span> <span class="o">&lt;</span><span class="n">param_name</span><span class="o">&gt;=&lt;</span><span class="n">param</span> <span class="n">value</span><span class="o">&gt;</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">type/subtype</span></code> part has only a few legal values:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">text/plain</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">text/x-rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">text/markdown</span></code></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">charset</span></code> parameter can be used to specify the character encoding of
+the description. The only legal value is <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>. If omitted, it is assumed to
+be <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>.</p>
+<p>Other parameters might be specific to the chosen subtype. For example, for the
+<code class="docutils literal notranslate"><span class="pre">markdown</span></code> subtype, there is an optional <code class="docutils literal notranslate"><span class="pre">variant</span></code> parameter that allows
+specifying the variant of Markdown in use (defaults to <code class="docutils literal notranslate"><span class="pre">GFM</span></code> if not
+specified). Currently, two variants are recognized:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">GFM</span></code> for <a class="reference external" href="https://tools.ietf.org/html/rfc7764#section-3.2">Github-flavored Markdown</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">CommonMark</span></code> for <a class="reference external" href="https://tools.ietf.org/html/rfc7764#section-3.5">CommonMark</a></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">rst</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">markdown</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span> <span class="n">variant</span><span class="o">=</span><span class="n">GFM</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">markdown</span>
+</pre></div>
+</div>
+<p>If a <code class="docutils literal notranslate"><span class="pre">Description-Content-Type</span></code> is not specified, then applications should
+attempt to render it as <code class="docutils literal notranslate"><span class="pre">text/x-rst;</span> <span class="pre">charset=UTF-8</span></code> and fall back to
+<code class="docutils literal notranslate"><span class="pre">text/plain</span></code> if it is not valid rst.</p>
+<p>If a <code class="docutils literal notranslate"><span class="pre">Description-Content-Type</span></code> is an unrecognized value, then the assumed
+content type is <code class="docutils literal notranslate"><span class="pre">text/plain</span></code> (Although PyPI will probably reject anything
+with an unrecognized value).</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">Description-Content-Type</span></code> is <code class="docutils literal notranslate"><span class="pre">text/markdown</span></code> and <code class="docutils literal notranslate"><span class="pre">variant</span></code> is not
+specified or is set to an unrecognized value, then the assumed <code class="docutils literal notranslate"><span class="pre">variant</span></code> is
+<code class="docutils literal notranslate"><span class="pre">GFM</span></code>.</p>
+<p>So for the last example above, the <code class="docutils literal notranslate"><span class="pre">charset</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> and the
+<code class="docutils literal notranslate"><span class="pre">variant</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">GFM</span></code> and thus it is equivalent to the example
+before it.</p>
+</div>
+<div class="section" id="keywords">
+<span id="keywords-optional"></span><h2><a class="toc-backref" href="#id13">Keywords</a><a class="headerlink" href="#keywords" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A list of additional keywords to be used to assist searching
+for the distribution in a larger catalog.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Keywords</span><span class="p">:</span> <span class="n">dog</span> <span class="n">puppy</span> <span class="n">voting</span> <span class="n">election</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="home-page">
+<span id="home-page-optional"></span><h2><a class="toc-backref" href="#id14">Home-page</a><a class="headerlink" href="#home-page" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A string containing the URL for the distribution's home page.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Home</span><span class="o">-</span><span class="n">page</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">cschultz</span><span class="o">/</span><span class="n">bvote</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-url">
+<h2><a class="toc-backref" href="#id15">Download-URL</a><a class="headerlink" href="#download-url" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.1에 추가.</span></p>
+</div>
+<p>A string containing the URL from which this version of the distribution
+can be downloaded.  (This means that the URL can't be something like
+&quot;.../BeagleVote-latest.tgz&quot;, but instead must be &quot;.../BeagleVote-0.45.tgz&quot;.)</p>
+</div>
+<div class="section" id="author">
+<span id="author-optional"></span><h2><a class="toc-backref" href="#id16">Author</a><a class="headerlink" href="#author" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A string containing the author's name at a minimum; additional
+contact information may be provided.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Author</span><span class="p">:</span> <span class="n">C</span><span class="o">.</span> <span class="n">Schultz</span><span class="p">,</span> <span class="n">Universal</span> <span class="n">Features</span> <span class="n">Syndicate</span><span class="p">,</span>
+        <span class="n">Los</span> <span class="n">Angeles</span><span class="p">,</span> <span class="n">CA</span> <span class="o">&lt;</span><span class="n">cschultz</span><span class="nd">@peanuts</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="author-email">
+<span id="author-email-optional"></span><h2><a class="toc-backref" href="#id17">Author-email</a><a class="headerlink" href="#author-email" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>A string containing the author's e-mail address.  It can contain
+a name and e-mail address in the legal forms for a RFC-822
+<code class="docutils literal notranslate"><span class="pre">From:</span></code> header.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Author</span><span class="o">-</span><span class="n">email</span><span class="p">:</span> <span class="s2">&quot;C. Schultz&quot;</span> <span class="o">&lt;</span><span class="n">cschultz</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Per RFC-822, this field may contain multiple comma-separated e-mail
+addresses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Author</span><span class="o">-</span><span class="n">email</span><span class="p">:</span> <span class="n">cschultz</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span><span class="p">,</span> <span class="n">snoopy</span><span class="nd">@peanuts</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="maintainer">
+<span id="maintainer-optional"></span><h2><a class="toc-backref" href="#id18">Maintainer</a><a class="headerlink" href="#maintainer" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<p>A string containing the maintainer's name at a minimum; additional
+contact information may be provided.</p>
+<p>Note that this field is intended for use when a project is being
+maintained by someone other than the original author:  it should be
+omitted if it is identical to <code class="docutils literal notranslate"><span class="pre">Author</span></code>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Maintainer</span><span class="p">:</span> <span class="n">C</span><span class="o">.</span> <span class="n">Schultz</span><span class="p">,</span> <span class="n">Universal</span> <span class="n">Features</span> <span class="n">Syndicate</span><span class="p">,</span>
+        <span class="n">Los</span> <span class="n">Angeles</span><span class="p">,</span> <span class="n">CA</span> <span class="o">&lt;</span><span class="n">cschultz</span><span class="nd">@peanuts</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="maintainer-email">
+<span id="maintainer-email-optional"></span><h2><a class="toc-backref" href="#id19">Maintainer-email</a><a class="headerlink" href="#maintainer-email" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<p>A string containing the maintainer's e-mail address.  It can contain
+a name and e-mail address in the legal forms for a RFC-822
+<code class="docutils literal notranslate"><span class="pre">From:</span></code> header.</p>
+<p>Note that this field is intended for use when a project is being
+maintained by someone other than the original author:  it should be
+omitted if it is identical to <code class="docutils literal notranslate"><span class="pre">Author-email</span></code>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Maintainer</span><span class="o">-</span><span class="n">email</span><span class="p">:</span> <span class="s2">&quot;C. Schultz&quot;</span> <span class="o">&lt;</span><span class="n">cschultz</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Per RFC-822, this field may contain multiple comma-separated e-mail
+addresses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Maintainer</span><span class="o">-</span><span class="n">email</span><span class="p">:</span> <span class="n">cschultz</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span><span class="p">,</span> <span class="n">snoopy</span><span class="nd">@peanuts</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="license">
+<span id="license-optional"></span><h2><a class="toc-backref" href="#id20">License</a><a class="headerlink" href="#license" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.0에 추가.</span></p>
+</div>
+<p>Text indicating the license covering the distribution where the license
+is not a selection from the &quot;License&quot; Trove classifiers. See
+<a class="reference internal" href="#metadata-classifier"><span class="std std-ref">&quot;Classifier&quot;</span></a> below.
+This field may also be used to specify a
+particular version of a license which is named via the <code class="docutils literal notranslate"><span class="pre">Classifier</span></code>
+field, or to indicate a variation or exception to such a license.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">License</span><span class="p">:</span> <span class="n">This</span> <span class="n">software</span> <span class="n">may</span> <span class="n">only</span> <span class="n">be</span> <span class="n">obtained</span> <span class="n">by</span> <span class="n">sending</span> <span class="n">the</span>
+        <span class="n">author</span> <span class="n">a</span> <span class="n">postcard</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">the</span> <span class="n">user</span> <span class="n">promises</span> <span class="ow">not</span>
+        <span class="n">to</span> <span class="n">redistribute</span> <span class="n">it</span><span class="o">.</span>
+
+<span class="n">License</span><span class="p">:</span> <span class="n">GPL</span> <span class="n">version</span> <span class="mi">3</span><span class="p">,</span> <span class="n">excluding</span> <span class="n">DRM</span> <span class="n">provisions</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="classifier-multiple-use">
+<span id="metadata-classifier"></span><h2><a class="toc-backref" href="#id21">Classifier (multiple use)</a><a class="headerlink" href="#classifier-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.1에 추가.</span></p>
+</div>
+<p>Each entry is a string giving a single classification value
+for the distribution.  Classifiers are described in <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0301"><strong>PEP 301</strong></a>,
+and the Python Package Index publishes a dynamic list of
+<a class="reference external" href="https://pypi.org/classifiers/">currently defined classifiers</a>.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Classifier</span><span class="p">:</span> <span class="n">Development</span> <span class="n">Status</span> <span class="p">::</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">Beta</span>
+<span class="n">Classifier</span><span class="p">:</span> <span class="n">Environment</span> <span class="p">::</span> <span class="n">Console</span> <span class="p">(</span><span class="n">Text</span> <span class="n">Based</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requires-dist-multiple-use">
+<h2><a class="toc-backref" href="#id22">Requires-Dist (multiple use)</a><a class="headerlink" href="#requires-dist-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">버전 2.1으로 변경: </span>The field format specification was relaxed to accept the syntax used by
+popular publishing tools.</p>
+</div>
+<p>Each entry contains a string naming some other distutils
+project required by this distribution.</p>
+<p>The format of a requirement string contains from one to four parts:</p>
+<ul class="simple">
+<li>A project name, in the same format as the <code class="docutils literal notranslate"><span class="pre">Name:</span></code> field.
+The only mandatory part.</li>
+<li>A comma-separated list of 'extra' names. These are defined by
+the required project, referring to specific features which may
+need extra dependencies.</li>
+<li>A version specifier. Tools parsing the format should accept optional
+parentheses around this, but tools generating it should not use
+parentheses.</li>
+<li>An environment marker after a semicolon. This means that the
+requirement is only needed in the specified conditions.</li>
+</ul>
+<p>See <span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0508"><strong>PEP 508</strong></a> for full details of the allowed format.</p>
+<p>The project names should correspond to names as found
+on the <a class="reference external" href="http://pypi.org/">Python Package Index</a>.</p>
+<p>Version specifiers must follow the rules described in
+<a class="reference internal" href="version-specifiers.html"><span class="doc">Version specifiers</span></a>.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">pkginfo</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">PasteDeploy</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">zope</span><span class="o">.</span><span class="n">interface</span> <span class="p">(</span><span class="o">&gt;</span><span class="mf">3.5</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">pywin32</span> <span class="o">&gt;</span><span class="mf">1.0</span><span class="p">;</span> <span class="n">sys_platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requires-python">
+<h2><a class="toc-backref" href="#id23">Requires-Python</a><a class="headerlink" href="#requires-python" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<p>This field specifies the Python version(s) that the distribution is
+guaranteed to be compatible with. Installation tools may look at this when
+picking which version of a project to install.</p>
+<p>The value must be in the format specified in <a class="reference internal" href="version-specifiers.html"><span class="doc">Version specifiers</span></a>.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Requires</span><span class="o">-</span><span class="n">Python</span><span class="p">:</span> <span class="o">&gt;=</span><span class="mi">3</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Python</span><span class="p">:</span> <span class="o">&gt;</span><span class="mf">2.6</span><span class="p">,</span><span class="o">!=</span><span class="mf">3.0</span><span class="o">.*</span><span class="p">,</span><span class="o">!=</span><span class="mf">3.1</span><span class="o">.*</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Python</span><span class="p">:</span> <span class="o">~=</span><span class="mf">2.6</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Python</span><span class="p">:</span> <span class="o">&gt;=</span><span class="mi">3</span><span class="p">;</span> <span class="n">sys_platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requires-external-multiple-use">
+<h2><a class="toc-backref" href="#id24">Requires-External (multiple use)</a><a class="headerlink" href="#requires-external-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">버전 2.1으로 변경: </span>The field format specification was relaxed to accept the syntax used by
+popular publishing tools.</p>
+</div>
+<p>Each entry contains a string describing some dependency in the
+system that the distribution is to be used.  This field is intended to
+serve as a hint to downstream project maintainers, and has no
+semantics which are meaningful to the <code class="docutils literal notranslate"><span class="pre">distutils</span></code> distribution.</p>
+<p>The format of a requirement string is a name of an external
+dependency, optionally followed by a version declaration within
+parentheses.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Because they refer to non-Python software releases, version numbers
+for this field are <strong>not</strong> required to conform to the format
+specified in PEP 440:  they should correspond to the
+version scheme used by the external dependency.</p>
+<p>Notice that there is no particular rule on the strings to be used.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Requires</span><span class="o">-</span><span class="n">External</span><span class="p">:</span> <span class="n">C</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">External</span><span class="p">:</span> <span class="n">libpng</span> <span class="p">(</span><span class="o">&gt;=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">External</span><span class="p">:</span> <span class="n">make</span><span class="p">;</span> <span class="n">sys_platform</span> <span class="o">!=</span> <span class="s2">&quot;win32&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="project-url-multiple-use">
+<h2><a class="toc-backref" href="#id25">Project-URL (multiple-use)</a><a class="headerlink" href="#project-url-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<p>A string containing a browsable URL for the project and a label for it,
+separated by a comma.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bug</span> <span class="n">Tracker</span><span class="p">,</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">tarek</span><span class="o">/</span><span class="n">distribute</span><span class="o">/</span><span class="n">issues</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The label is a free text limited to 32 signs.</p>
+</div>
+<div class="section" id="provides-extra-multiple-use">
+<span id="provides-extra-optional-multiple-use"></span><span id="metadata-provides-extra"></span><h2><a class="toc-backref" href="#id26">Provides-Extra (multiple use)</a><a class="headerlink" href="#provides-extra-multiple-use" title="제목 주소">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">버전 2.1에 추가.</span></p>
+</div>
+<p>A string containing the name of an optional feature. Must be a valid Python
+identifier. May be used to make a dependency conditional on whether the
+optional feature has been requested.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Provides</span><span class="o">-</span><span class="n">Extra</span><span class="p">:</span> <span class="n">pdf</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">reportlab</span><span class="p">;</span> <span class="n">extra</span> <span class="o">==</span> <span class="s1">&#39;pdf&#39;</span>
+</pre></div>
+</div>
+<p>A second distribution requires an optional dependency by placing it
+inside square brackets, and can request multiple features by separating
+them with a comma (,). The requirements are evaluated for each requested
+feature and added to the set of requirements for the distribution.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">beaglevote</span><span class="p">[</span><span class="n">pdf</span><span class="p">]</span>
+<span class="n">Requires</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">libexample</span><span class="p">[</span><span class="n">test</span><span class="p">,</span> <span class="n">doc</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Two feature names <cite>test</cite> and <cite>doc</cite> are reserved to mark dependencies that
+are needed for running automated tests and generating documentation,
+respectively.</p>
+<p>It is legal to specify <code class="docutils literal notranslate"><span class="pre">Provides-Extra:</span></code> without referencing it in any
+<code class="docutils literal notranslate"><span class="pre">Requires-Dist:</span></code>.</p>
+</div>
+<div class="section" id="rarely-used-fields">
+<h2><a class="toc-backref" href="#id27">Rarely Used Fields</a><a class="headerlink" href="#rarely-used-fields" title="제목 주소">¶</a></h2>
+<p>The fields in this section are currently rarely used, as their design
+was inspired by comparable mechanisms in Linux package management systems,
+and it isn't at all clear how tools should interpret them in the context
+of an open index server such as <a class="reference external" href="https://pypi.org">PyPI</a>.</p>
+<p>As a result, popular installation tools ignore them completely, which in
+turn means there is little incentive for package publishers to set them
+appropriately. However, they're retained in the metadata specification,
+as they're still potentially useful for informational purposes, and can
+also be used for their originally intended purpose in combination with
+a curated package repository.</p>
+<div class="section" id="provides-dist-multiple-use">
+<h3><a class="toc-backref" href="#id28">Provides-Dist (multiple use)</a><a class="headerlink" href="#provides-dist-multiple-use" title="제목 주소">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">버전 2.1으로 변경: </span>The field format specification was relaxed to accept the syntax used by
+popular publishing tools.</p>
+</div>
+<p>Each entry contains a string naming a Distutils project which
+is contained within this distribution.  This field <em>must</em> include
+the project identified in the <code class="docutils literal notranslate"><span class="pre">Name</span></code> field, followed by the
+version : Name (Version).</p>
+<p>A distribution may provide additional names, e.g. to indicate that
+multiple projects have been bundled together.  For instance, source
+distributions of the <code class="docutils literal notranslate"><span class="pre">ZODB</span></code> project have historically included
+the <code class="docutils literal notranslate"><span class="pre">transaction</span></code> project, which is now available as a separate
+distribution.  Installing such a source distribution satisfies
+requirements for both <code class="docutils literal notranslate"><span class="pre">ZODB</span></code> and <code class="docutils literal notranslate"><span class="pre">transaction</span></code>.</p>
+<p>A distribution may also provide a &quot;virtual&quot; project name, which does
+not correspond to any separately-distributed project:  such a name
+might be used to indicate an abstract capability which could be supplied
+by one of multiple projects.  E.g., multiple projects might supply
+RDBMS bindings for use by a given ORM:  each project might declare
+that it provides <code class="docutils literal notranslate"><span class="pre">ORM-bindings</span></code>, allowing other projects to depend
+only on having at most one of them installed.</p>
+<p>A version declaration may be supplied and must follow the rules described
+in <a class="reference internal" href="version-specifiers.html"><span class="doc">Version specifiers</span></a>. The distribution's version number will be implied
+if none is specified.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Provides</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">OtherProject</span>
+<span class="n">Provides</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">AnotherProject</span> <span class="p">(</span><span class="mf">3.4</span><span class="p">)</span>
+<span class="n">Provides</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">virtual_package</span><span class="p">;</span> <span class="n">python_version</span> <span class="o">&gt;=</span> <span class="s2">&quot;3.4&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obsoletes-dist-multiple-use">
+<h3><a class="toc-backref" href="#id29">Obsoletes-Dist (multiple use)</a><a class="headerlink" href="#obsoletes-dist-multiple-use" title="제목 주소">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">버전 1.2에 추가.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">버전 2.1으로 변경: </span>The field format specification was relaxed to accept the syntax used by
+popular publishing tools.</p>
+</div>
+<p>Each entry contains a string describing a distutils project's distribution
+which this distribution renders obsolete, meaning that the two projects
+should not be installed at the same time.</p>
+<p>Version declarations can be supplied.  Version numbers must be in the
+format specified in <a class="reference internal" href="version-specifiers.html"><span class="doc">Version specifiers</span></a>.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>The most common use of this field will be in case a project name
+changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0.
+When you install Torqued Python, the Gorgon distribution should be
+removed.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Obsoletes</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">Gorgon</span>
+<span class="n">Obsoletes</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">OtherProject</span> <span class="p">(</span><span class="o">&lt;</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">Obsoletes</span><span class="o">-</span><span class="n">Dist</span><span class="p">:</span> <span class="n">Foo</span><span class="p">;</span> <span class="n">os_name</span> <span class="o">==</span> <span class="s2">&quot;posix&quot;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>reStructuredText markup:
+<a class="reference external" href="http://docutils.sourceforge.net/">http://docutils.sourceforge.net/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>RFC 822 Long Header Fields:
+<a class="reference external" href="http://www.freesoft.org/CIE/RFC/822/7.htm">http://www.freesoft.org/CIE/RFC/822/7.htm</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">An Overview of Packaging for Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">Discussions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">PyPA specifications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#package-distribution-metadata">Package Distribution Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#package-index-interfaces">Package Index Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+</ul>
+
+
+  <h4>이전 항목</h4>
+  <p class="topless"><a href="index.html"
+                        title="이전 장">PyPA specifications</a></p>
+  <h4>다음 항목</h4>
+  <p class="topless"><a href="version-specifiers.html"
+                        title="다음 장">Version specifiers</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             >색인</a></li>
+        <li class="right" >
+          <a href="version-specifiers.html" title="Version specifiers"
+             >다음</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="PyPA specifications"
+             >이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >PyPA specifications</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">저작권</a> 2013–2017, PyPA.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    최종 업데이트: 2019년 06월 12일
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,577 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>An Overview of Packaging for Python &#8212; Python Packaging User Guide</title>
+    <link rel="stylesheet" href="_static/pypa.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorials/index.html" />
+    <link rel="prev" title="파이썬 패키지 제작 사용자 안내서" href="index.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="tutorials/index.html" title="Tutorials"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="파이썬 패키지 제작 사용자 안내서"
+             accesskey="P">이전</a> |</li>
+    <li><img src="_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="index.html">Python Packaging User Guide</a> &#187;
+    
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="an-overview-of-packaging-for-python">
+<h1>An Overview of Packaging for Python<a class="headerlink" href="#an-overview-of-packaging-for-python" title="제목 주소">¶</a></h1>
+<p>As a general-purpose programming language, Python is designed to be
+used in many ways. You can build web sites or industrial robots or a
+game for your friends to play, and much more, all using the same
+core technology.</p>
+<p>Python's flexibility is why the first step in every Python project
+must be to think about the project's audience and the corresponding
+environment where the project will run. It might seem strange to think
+about packaging before writing code, but this process does wonders for
+avoiding future headaches.</p>
+<p>This overview provides a general-purpose decision tree for reasoning
+about Python's plethora of packaging options. Read on to choose the best
+technology for your next project.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#thinking-about-deployment" id="id4">Thinking about deployment</a></li>
+<li><a class="reference internal" href="#packaging-python-libraries-and-tools" id="id5">Packaging Python libraries and tools</a><ul>
+<li><a class="reference internal" href="#python-modules" id="id6">Python modules</a></li>
+<li><a class="reference internal" href="#python-source-distributions" id="id7">Python source distributions</a></li>
+<li><a class="reference internal" href="#python-binary-distributions" id="id8">Python binary distributions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#packaging-python-applications" id="id9">Packaging Python applications</a><ul>
+<li><a class="reference internal" href="#depending-on-a-framework" id="id10">Depending on a framework</a><ul>
+<li><a class="reference internal" href="#service-platforms" id="id11">Service platforms</a></li>
+<li><a class="reference internal" href="#web-browsers-and-mobile-applications" id="id12">Web browsers and mobile applications</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#depending-on-a-pre-installed-python" id="id13">Depending on a pre-installed Python</a></li>
+<li><a class="reference internal" href="#depending-on-a-separate-software-distribution-ecosystem" id="id14">Depending on a separate software distribution ecosystem</a></li>
+<li><a class="reference internal" href="#bringing-your-own-python-executable" id="id15">Bringing your own Python executable</a></li>
+<li><a class="reference internal" href="#bringing-your-own-userspace" id="id16">Bringing your own userspace</a></li>
+<li><a class="reference internal" href="#bringing-your-own-kernel" id="id17">Bringing your own kernel</a></li>
+<li><a class="reference internal" href="#bringing-your-own-hardware" id="id18">Bringing your own hardware</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#what-about" id="id19">What about...</a><ul>
+<li><a class="reference internal" href="#operating-system-packages" id="id20">Operating system packages</a></li>
+<li><a class="reference internal" href="#virtualenv" id="id21">virtualenv</a></li>
+<li><a class="reference internal" href="#security" id="id22">Security</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wrap-up" id="id23">Wrap up</a></li>
+</ul>
+</div>
+<div class="section" id="thinking-about-deployment">
+<h2><a class="toc-backref" href="#id4">Thinking about deployment</a><a class="headerlink" href="#thinking-about-deployment" title="제목 주소">¶</a></h2>
+<p>Packages exist to be installed (or <em>deployed</em>), so before you package
+anything, you'll want to have some answers to the deployment questions
+below:</p>
+<ul class="simple">
+<li>Who are your software's users? Will your software be installed by
+other developers doing software development, operations people in a
+datacenter, or a less software-savvy group?</li>
+<li>Is your software intended to run on servers, desktops, mobile
+clients (phones, tablets, etc.), or embedded in dedicated devices?</li>
+<li>Is your software installed individually, or in large deployment batches?</li>
+</ul>
+<p>Packaging is all about target environment and deployment
+experience. There are many answers to the questions above and each
+combination of circumstances has its own solutions. With this
+information, the following overview will guide you to the packaging
+technologies best suited to your project.</p>
+</div>
+<div class="section" id="packaging-python-libraries-and-tools">
+<h2><a class="toc-backref" href="#id5">Packaging Python libraries and tools</a><a class="headerlink" href="#packaging-python-libraries-and-tools" title="제목 주소">¶</a></h2>
+<p>You may have heard about PyPI, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">wheel</span></code>
+files. These are just a few of the tools Python's ecosystem provides
+for distributing Python code to developers, which you can read about in
+<a class="reference internal" href="guides/distributing-packages-using-setuptools.html"><span class="doc">Packaging and distributing projects</span></a>.</p>
+<p>The following approaches to packaging are meant for libraries and
+tools used by technical audience in a development setting. If you're
+looking for ways to package Python for a non-technical audience and/or
+a production setting, skip ahead to <a class="reference internal" href="#packaging-applications"><span class="std std-ref">Packaging Python applications</span></a>.</p>
+<div class="section" id="python-modules">
+<h3><a class="toc-backref" href="#id6">Python modules</a><a class="headerlink" href="#python-modules" title="제목 주소">¶</a></h3>
+<p>A Python file, provided it only relies on the standard library, can be
+redistributed and reused. You will also need to ensure it's written
+for the right version of Python, and only relies on the standard
+library.</p>
+<p>This is great for sharing simple scripts and snippets between people
+who both have compatible Python versions (such as via email,
+StackOverflow, or GitHub gists). There are even some entire Python
+libraries that offer this as an option, such as <a class="reference external" href="https://bottlepy.org/docs/dev/">bottle.py</a> and <a class="reference external" href="http://boltons.readthedocs.io/en/latest/architecture.html#architecture">boltons</a>.</p>
+<p>However, this pattern won't scale for projects that consist of
+multiple files, need additional libraries, or need a specific version
+of Python, hence the options below.</p>
+</div>
+<div class="section" id="python-source-distributions">
+<h3><a class="toc-backref" href="#id7">Python source distributions</a><a class="headerlink" href="#python-source-distributions" title="제목 주소">¶</a></h3>
+<p>If your code consists of multiple Python files, it's usually organized
+into a directory structure. Any directory containing Python files can
+comprise an <a class="reference internal" href="glossary.html#term-import-package"><span class="xref std std-term">import package</span></a>.</p>
+<p>Because packages consist of multiple files, they are harder to
+distribute. Most protocols support transferring only one file at a
+time (when was the last time you clicked a link and it downloaded
+multiple files?). It's easier to get incomplete transfers, and harder
+to guarantee code integrity at the destination.</p>
+<p>So long as your code contains nothing but pure Python code, and you
+know your deployment environment supports your version of Python, then
+you can use Python's native packaging tools to create a <em>source</em>
+<a class="reference internal" href="glossary.html#term-distribution-package"><span class="xref std std-term">distribution package</span></a>, or <em>sdist</em> for short.</p>
+<p>Python's <em>sdists</em> are compressed archives (<code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> files)
+containing one or more packages or modules. If your code is
+pure-Python, and you only depend on other Python packages, you can <a class="reference external" href="https://docs.python.org/3/distutils/sourcedist.html">go
+here to learn more</a>.</p>
+<p>If you rely on any non-Python code, or non-Python packages (such as
+<a class="reference external" href="https://en.wikipedia.org/wiki/Libxml2">libxml2</a> in the case of
+<a class="reference external" href="https://pypi.org/project/lxml/">lxml</a>, or BLAS libraries in the
+case of <a class="reference external" href="https://pypi.org/project/numpy">numpy</a>), you will need to
+use the format detailed in the next section, which also has many
+advantages for pure-Python libraries.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p>Python and PyPI support multiple distributions providing
+different implementations of the same package. For instance the
+unmaintained-but-seminal <a class="reference external" href="https://pypi.org/project/PIL/">PIL distribution</a> provides the PIL package, and so
+does <a class="reference external" href="https://pypi.org/project/Pillow/">Pillow</a>, an
+actively-maintained fork of PIL!</p>
+<p class="last">This Python packaging superpower makes it possible for Pillow to be
+a drop-in replacement for PIL, just by changing your project's
+<code class="docutils literal notranslate"><span class="pre">install_requires</span></code> or <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+</div>
+</div>
+<div class="section" id="python-binary-distributions">
+<h3><a class="toc-backref" href="#id8">Python binary distributions</a><a class="headerlink" href="#python-binary-distributions" title="제목 주소">¶</a></h3>
+<p>So much of Python's practical power comes from its ability to
+integrate with the software ecosystem, in particular libraries written
+in C, C++, Fortran, Rust, and other languages.</p>
+<p>Not all developers have the right tools or experiences to build these
+components written in these compiled languages, so Python created the
+<a class="reference internal" href="glossary.html#term-wheel"><span class="xref std std-term">wheel</span></a>, a package format designed to ship libraries with
+compiled artifacts. In fact, Python's package installer, <code class="docutils literal notranslate"><span class="pre">pip</span></code>,
+always prefers wheels because installation is always faster, so even
+pure-Python packages work better with wheels.</p>
+<p>Binary distributions are best when they come with source distributions
+to match. Even if you don't upload wheels of your code for every
+operating system, by uploading the sdist, you're enabling users of
+other platforms to still build it for themselves. Default to
+publishing both sdist and wheel archives together, <em>unless</em> you're
+creating artifacts for a very specific use case where you know the
+recipient only needs one or the other.</p>
+<p>Python and PyPI make it easy to upload both wheels and sdists
+together. Just follow the <a class="reference internal" href="tutorials/packaging-projects.html"><span class="doc">Packaging Python Projects</span></a>
+tutorial.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="_images/py_pkg_tools_and_libs.png"><img alt="A summary of Python's packaging capabilities for tools and libraries." src="_images/py_pkg_tools_and_libs.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">Python's recommended built-in library and tool packaging
+technologies. Excerpted from <a class="reference external" href="https://www.youtube.com/watch?v=iLVNWfPWAC8">The Packaging Gradient (2017)</a>.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="packaging-python-applications">
+<span id="packaging-applications"></span><h2><a class="toc-backref" href="#id9">Packaging Python applications</a><a class="headerlink" href="#packaging-python-applications" title="제목 주소">¶</a></h2>
+<p>So far we've only discussed Python's native distribution tools. Based
+on our introduction, you would be correct to infer these built-in
+approaches only target environments which have Python, and an
+audience who knows how to install Python packages.</p>
+<p>With the variety of operating systems, configurations, and people out
+there, this assumption is only safe when targeting a developer
+audience.</p>
+<p>Python's native packaging is mostly built for distributing reusable
+code, called libraries, between developers. You can piggyback
+<strong>tools</strong>, or basic applications for developers, on top of Python's
+library packaging, using technologies like <a class="reference external" href="http://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation">setuptools entry_points</a>.</p>
+<p>Libraries are building blocks, not complete applications. For
+distributing applications, there's a whole new world of technologies
+out there.</p>
+<p>The next few sections organize these application packaging options
+according to their dependencies on the target environment,
+so you can choose the right one for your project.</p>
+<div class="section" id="depending-on-a-framework">
+<h3><a class="toc-backref" href="#id10">Depending on a framework</a><a class="headerlink" href="#depending-on-a-framework" title="제목 주소">¶</a></h3>
+<p>Some types of Python applications, like web site backends and other
+network services, are common enough that they have frameworks to
+enable their development and packaging. Other types of applications,
+like dynamic web frontends and mobile clients, are complex enough to
+target that a framework becomes more than a convenience.</p>
+<p>In all these cases, it makes sense to work backwards, from the
+framework's packaging and deployment story. Some frameworks include a
+deployment system which wraps the technologies outlined in the rest of
+the guide. In these cases, you'll want to defer to your framework's
+packaging guide for the easiest and most reliable production experience.</p>
+<p>If you ever wonder how these platforms and frameworks work under the
+hood, you can always read the sections beyond.</p>
+<div class="section" id="service-platforms">
+<h4><a class="toc-backref" href="#id11">Service platforms</a><a class="headerlink" href="#service-platforms" title="제목 주소">¶</a></h4>
+<p>If you're developing for a &quot;Platform-as-a-Service&quot; or &quot;PaaS&quot; like
+Heroku or Google App Engine, you are going to want to follow their
+respective packaging guides.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://devcenter.heroku.com/articles/getting-started-with-python">Heroku</a></li>
+<li><a class="reference external" href="https://cloud.google.com/appengine/docs/python/">Google App Engine</a></li>
+<li><a class="reference external" href="https://www.pythonanywhere.com/">PythonAnywhere</a></li>
+<li><a class="reference external" href="https://blog.openshift.com/getting-started-python/">OpenShift</a></li>
+<li>&quot;Serverless&quot; frameworks like <a class="reference external" href="https://www.zappa.io/">Zappa</a></li>
+</ul>
+<p>In all these setups, the platform takes care of packaging and
+deployment, as long as you follow their patterns. Most software does
+not fit one of these templates, hence the existence of all the other
+options below.</p>
+<p>If you're developing software that will be deployed to machines you
+own, users' personal computers, or any other arrangement, read on.</p>
+</div>
+<div class="section" id="web-browsers-and-mobile-applications">
+<h4><a class="toc-backref" href="#id12">Web browsers and mobile applications</a><a class="headerlink" href="#web-browsers-and-mobile-applications" title="제목 주소">¶</a></h4>
+<p>Python's steady advances are leading it into new spaces. These days
+you can write a mobile app or web application frontend in
+Python. While the language may be familiar, the packaging and
+deployment practices are brand new.</p>
+<p>If you're planning on releasing to these new frontiers, you'll want to
+check out the following frameworks, and refer to their packaging
+guides:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://kivy.org/#home">Kivy</a></li>
+<li><a class="reference external" href="https://pybee.org/">Beeware</a></li>
+<li><a class="reference external" href="https://brython.info/">Brython</a></li>
+<li><a class="reference external" href="http://flexx.readthedocs.io/en/latest/">Flexx</a></li>
+</ul>
+<p>If you are <em>not</em> interested in using a framework or platform, or just
+wonder about some of the technologies and techniques utilized by the
+frameworks above, continue reading below.</p>
+</div>
+</div>
+<div class="section" id="depending-on-a-pre-installed-python">
+<h3><a class="toc-backref" href="#id13">Depending on a pre-installed Python</a><a class="headerlink" href="#depending-on-a-pre-installed-python" title="제목 주소">¶</a></h3>
+<p>Pick an arbitrary computer, and depending on the context, there's a very
+good chance Python is already installed. Included by default in most
+Linux and Mac operating systems for many years now, you can reasonably
+depend on Python preexisting in your data centers or on the personal
+machines of developers and data scientists.</p>
+<p>Technologies which support this model:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pantsbuild/pex#pex">PEX</a> (Python EXecutable)</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/zipapp.html">zipapp</a> (does not help manage dependencies, requires Python 3.5+)</li>
+<li><a class="reference external" href="https://github.com/linkedin/shiv#shiv">shiv</a> (requires Python 3)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p>Of all the approaches here, depending on a pre-installed
+Python relies the most on the target environment. Of course,
+this also makes for the smallest package, as small as
+single-digit megabytes, or even kilobytes.</p>
+<p class="last">In general, decreasing the dependency on the target system
+increases the size of our package, so the solutions here
+are roughly arranged by increasing size of output.</p>
+</div>
+</div>
+<div class="section" id="depending-on-a-separate-software-distribution-ecosystem">
+<span id="depending-on-a-separate-ecosystem"></span><h3><a class="toc-backref" href="#id14">Depending on a separate software distribution ecosystem</a><a class="headerlink" href="#depending-on-a-separate-software-distribution-ecosystem" title="제목 주소">¶</a></h3>
+<p>For a long time many operating systems, including Mac and Windows,
+lacked built-in package management. Only recently did these OSes gain
+so-called &quot;app stores&quot;, but even those focus on consumer applications
+and offer little for developers.</p>
+<p>Developers long sought remedies, and in this struggle, emerged with
+their own package management solutions, such as <a class="reference external" href="https://brew.sh/">Homebrew</a>. The most relevant alternative for Python
+developers is a package ecosystem called <a class="reference external" href="https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)">Anaconda</a>. Anaconda
+is built around Python and is increasingly common in academic,
+analytical, and other data-oriented environments, even making its way
+<a class="reference external" href="https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/">into server-oriented environments</a>.</p>
+<p>Instructions on building and publishing for the Anaconda ecosystem:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://conda.io/docs/user-guide/tutorials/index.html">Building libraries and applications with conda</a></li>
+<li><a class="reference external" href="https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html">Transitioning a native Python package to Anaconda</a></li>
+</ul>
+<p>A similar model involves installing an alternative Python
+distribution, but does not support arbitrary operating system-level
+packages:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.enthought.com/product/canopy/">Enthought Canopy</a></li>
+<li><a class="reference external" href="https://www.activestate.com/activepython">ActiveState ActivePython</a></li>
+<li><a class="reference external" href="http://winpython.github.io/">WinPython</a></li>
+</ul>
+</div>
+<div class="section" id="bringing-your-own-python-executable">
+<span id="bringing-your-own-python"></span><h3><a class="toc-backref" href="#id15">Bringing your own Python executable</a><a class="headerlink" href="#bringing-your-own-python-executable" title="제목 주소">¶</a></h3>
+<p>Computing as we know it is defined by the ability to execute
+programs. Every operating system natively supports one or more formats
+of program they can natively execute.</p>
+<p>There are many techniques and technologies which turn your Python
+program into one of these formats, most of which involve embedding the
+Python interpreter and any other dependencies into a single executable
+file.</p>
+<p>This approach, called <em>freezing</em>, offers wide compatiblity and
+seamless user experience, though often requires multiple technologies,
+and a good amount of effort.</p>
+<p>A selection of Python freezers:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.pyinstaller.org/">pyInstaller</a> - Cross-platform</li>
+<li><a class="reference external" href="https://anthony-tuininga.github.io/cx_Freeze/">cx_Freeze</a> - Cross-platform</li>
+<li><a class="reference external" href="https://github.com/conda/constructor">constructor</a> - For command-line installers</li>
+<li><a class="reference external" href="http://www.py2exe.org/">py2exe</a> - Windows only</li>
+<li><a class="reference external" href="https://py2app.readthedocs.io/en/latest/">py2app</a> - Mac only</li>
+<li><a class="reference external" href="https://pypi.org/project/bbfreeze">bbFreeze</a> - Windows, Linux, Python 2 only</li>
+<li><a class="reference external" href="https://github.com/jamesabel/osnap">osnap</a> - Windows and Mac</li>
+<li><a class="reference external" href="https://pypi.org/project/pynsist/">pynsist</a> - Windows only</li>
+</ul>
+<p>Most of the above imply single-user deployments. For multi-component
+server applications, see <a class="reference external" href="https://github.com/chef/omnibus#-omnibus">Chef Omnibus</a>.</p>
+</div>
+<div class="section" id="bringing-your-own-userspace">
+<h3><a class="toc-backref" href="#id16">Bringing your own userspace</a><a class="headerlink" href="#bringing-your-own-userspace" title="제목 주소">¶</a></h3>
+<p>An increasing number of operating systems -- including Linux, Mac OS,
+and Windows -- can be set up to run applications packaged as
+lightweight images, using a relatively modern arrangement often
+referred to as <a class="reference external" href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">operating-system-level virtualization</a>,
+or <em>containerization</em>.</p>
+<p>These techniques are mostly Python agnostic, because they package
+whole OS filesystems, not just Python or Python packages.</p>
+<p>Adoption is most extensive among Linux servers, where the technology
+originated and where the technologies below work best:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://appimage.org/">AppImage</a></li>
+<li><a class="reference external" href="https://www.fullstackpython.com/docker.html">Docker</a></li>
+<li><a class="reference external" href="https://flatpak.org/">Flatpak</a></li>
+<li><a class="reference external" href="https://snapcraft.io/">Snapcraft</a></li>
+</ul>
+</div>
+<div class="section" id="bringing-your-own-kernel">
+<h3><a class="toc-backref" href="#id17">Bringing your own kernel</a><a class="headerlink" href="#bringing-your-own-kernel" title="제목 주소">¶</a></h3>
+<p>Most operating systems support some form of classical virtualization,
+running applications packaged as images containing a full operating
+system of their own. Running these virtual machines, or VMs, is a
+mature approach, widespread in data center environments.</p>
+<p>These techniques are mostly reserved for larger scale deployments in
+data centers, though certain complex applications can benefit from
+this packaging. Technologies are Python agnostic, and include:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.vagrantup.com/">Vagrant</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/VHD_(file_format)">VHD</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Amazon_Machine_Image">AMI</a>, and <a class="reference external" href="https://docs.openstack.org/image-guide/image-formats.html">other formats</a></li>
+<li><a class="reference external" href="https://www.redhat.com/en/topics/openstack">OpenStack</a> - A cloud management system in Python, with extensive VM support</li>
+</ul>
+</div>
+<div class="section" id="bringing-your-own-hardware">
+<h3><a class="toc-backref" href="#id18">Bringing your own hardware</a><a class="headerlink" href="#bringing-your-own-hardware" title="제목 주소">¶</a></h3>
+<p>The most all-encompassing way to ship your software would be to ship
+it already-installed on some hardware. This way, your software's user
+would require only electricity.</p>
+<p>Whereas the virtual machines described above are primarily reserved
+for the tech-savvy, you can find hardware appliances being used by
+everyone from the most advanced data centers to the youngest children.</p>
+<p>Embed your code on an <a class="reference external" href="https://github.com/adafruit/circuitpython#adafruit-circuitpython">Adafruit</a>,
+<a class="reference external" href="https://micropython.org/">MicroPython</a>, or more-powerful hardware
+running Python, then ship it to the datacenter or your users'
+homes. They plug and play, and you can call it a day.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/py_pkg_applications.png"><img alt="A summary of technologies used to package Python applications." src="_images/py_pkg_applications.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">The simplified gamut of technologies used to package Python applications.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="what-about">
+<h2><a class="toc-backref" href="#id19">What about...</a><a class="headerlink" href="#what-about" title="제목 주소">¶</a></h2>
+<p>The sections above can only summarize so much, and you might be
+wondering about some of the more conspicuous gaps.</p>
+<div class="section" id="operating-system-packages">
+<h3><a class="toc-backref" href="#id20">Operating system packages</a><a class="headerlink" href="#operating-system-packages" title="제목 주소">¶</a></h3>
+<p>As mentioned in <a class="reference internal" href="#depending-on-a-separate-ecosystem"><span class="std std-ref">Depending on a separate software distribution ecosystem</span></a> above, some operating
+systems have package managers of their own. If you're very sure of the
+operating system you're targeting, you can depend directly on a format
+like <a class="reference external" href="https://en.wikipedia.org/wiki/Deb_(file_format)">deb</a> (for
+Debian, Ubuntu, etc.) or <a class="reference external" href="https://en.wikipedia.org/wiki/RPM_Package_Manager">RPM</a> (for Red Hat,
+Fedora, etc.), and use that built-in package manager to take care of
+installation, and even deployment. You can even use <a class="reference external" href="https://fpm.readthedocs.io/en/latest/source/virtualenv.html">FPM</a> to
+generate both deb and RPMs from the same source.</p>
+<p>In most deployment pipelines, the OS package manager is just one piece
+of the puzzle.</p>
+</div>
+<div class="section" id="virtualenv">
+<h3><a class="toc-backref" href="#id21">virtualenv</a><a class="headerlink" href="#virtualenv" title="제목 주소">¶</a></h3>
+<p><a class="reference external" href="http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/">Virtualenvs</a> have
+been an indispensible tool for multiple generations of Python
+developer, but are slowly fading from view, as they are being wrapped
+by higher-level tools. With packaging in particular, virtualenvs are
+used as a primitive in <a class="reference external" href="http://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html">the dh-virtualenv tool</a> and
+<a class="reference external" href="https://github.com/jamesabel/osnap">osnap</a>, both of which wrap
+virtualenvs in a self-contained way.</p>
+<p>For production deployments, do not rely on running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>
+from the Internet into a virtualenv, as one might do in a development
+environment. The overview above is full of much better solutions.</p>
+</div>
+<div class="section" id="security">
+<h3><a class="toc-backref" href="#id22">Security</a><a class="headerlink" href="#security" title="제목 주소">¶</a></h3>
+<p>The further down the gradient you come, the harder it gets to update
+components of your package. Everything is more tightly bound together.</p>
+<p>For example, if a kernel security issue emerges, and you're deploying
+containers, the host system's kernel can be updated without requiring
+a new build on behalf of the application. If you deploy VM images,
+you'll need a new build. Whether or not this dynamic makes one option
+more secure is still a bit of an old debate, going back to the
+still-unsettled matter of <a class="reference external" href="https://www.google.com/search?channel=fs&amp;q=static+vs+dynamic+linking">static versus dynamic linking</a>.</p>
+</div>
+</div>
+<div class="section" id="wrap-up">
+<h2><a class="toc-backref" href="#id23">Wrap up</a><a class="headerlink" href="#wrap-up" title="제목 주소">¶</a></h2>
+<p>Packaging in Python has a bit of a reputation for being a bumpy
+ride. This impression is mostly a byproduct of Python's
+versatility. Once you understand the natural boundaries between each
+packaging solution, you begin to realize that the varied landscape is
+a small price Python programmers pay for using one of the most
+balanced, flexible language available.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">An Overview of Packaging for Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#thinking-about-deployment">Thinking about deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packaging-python-libraries-and-tools">Packaging Python libraries and tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packaging-python-applications">Packaging Python applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-about">What about...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wrap-up">Wrap up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">Discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+</ul>
+
+
+  <h4>이전 항목</h4>
+  <p class="topless"><a href="index.html"
+                        title="이전 장">파이썬 패키지 제작 사용자 안내서</a></p>
+  <h4>다음 항목</h4>
+  <p class="topless"><a href="tutorials/index.html"
+                        title="다음 장">Tutorials</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="전체 색인"
+             >색인</a></li>
+        <li class="right" >
+          <a href="tutorials/index.html" title="Tutorials"
+             >다음</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="파이썬 패키지 제작 사용자 안내서"
+             >이전</a> |</li>
+    <li><img src="_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="index.html">Python Packaging User Guide</a> &#187;
+    
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">저작권</a> 2013–2017, PyPA.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    최종 업데이트: 2019년 06월 12일
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

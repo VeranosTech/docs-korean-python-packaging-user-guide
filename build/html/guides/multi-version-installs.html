@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Multi-version installs &#8212; Python Packaging User Guide</title>
+    <link rel="stylesheet" href="../_static/pypa.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Packaging and distributing projects" href="distributing-packages-using-setuptools.html" />
+    <link rel="prev" title="Installing scientific packages" href="installing-scientific-packages.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="distributing-packages-using-setuptools.html" title="Packaging and distributing projects"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="installing-scientific-packages.html" title="Installing scientific packages"
+             accesskey="P">이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Guides</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="multi-version-installs">
+<span id="id1"></span><h1>Multi-version installs<a class="headerlink" href="#multi-version-installs" title="제목 주소">¶</a></h1>
+<p>easy_install allows simultaneous installation of different versions of the same
+project into a single environment shared by multiple programs which must
+<code class="docutils literal notranslate"><span class="pre">require</span></code> the appropriate version of the project at run time (using
+<code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>).</p>
+<p>For many use cases, virtual environments address this need without the
+complication of the <code class="docutils literal notranslate"><span class="pre">require</span></code> directive. However, the advantage of
+parallel installations within the same environment is that it works for an
+environment shared by multiple applications, such as the system Python in a
+Linux distribution.</p>
+<p>The major limitation of <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> based parallel installation is
+that as soon as you import <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> it locks in the <em>default</em>
+version of everything which is already available on sys.path. This can
+cause problems, since <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> created command line scripts
+use <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> to find the entry point to execute. This means that,
+for example, you can't use <code class="docutils literal notranslate"><span class="pre">require</span></code> tests invoked through <code class="docutils literal notranslate"><span class="pre">nose</span></code> or a
+WSGI application invoked through <code class="docutils literal notranslate"><span class="pre">gunicorn</span></code> if your application needs a
+non-default version of anything that is available on the standard
+<code class="docutils literal notranslate"><span class="pre">sys.path</span></code> - the script wrapper for the main application will lock in the
+version that is available by default, so the subsequent <code class="docutils literal notranslate"><span class="pre">require</span></code> call
+in your own code fails with a spurious version conflict.</p>
+<p>This can be worked around by setting all dependencies in
+<code class="docutils literal notranslate"><span class="pre">__main__.__requires__</span></code> before importing <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> for the first
+time, but that approach does mean that standard command line invocations of
+the affected tools can't be used - it's necessary to write a custom
+wrapper script or use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">'&lt;commmand&gt;'</span></code> to invoke the application's
+main entry point directly.</p>
+<p>Refer to the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-objects">pkg_resources documentation</a>
+for more details.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">An Overview of Packaging for Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">Installing stand alone command line tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">Installing pip/setuptools/wheel with Linux Package Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-version installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">Supporting multiple Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">Dropping support for older Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">Creating and discovering plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">Analyzing PyPI package downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">Migrating to PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">Using TestPyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">Discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+</ul>
+
+
+  <h4>이전 항목</h4>
+  <p class="topless"><a href="installing-scientific-packages.html"
+                        title="이전 장">Installing scientific packages</a></p>
+  <h4>다음 항목</h4>
+  <p class="topless"><a href="distributing-packages-using-setuptools.html"
+                        title="다음 장">Packaging and distributing projects</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="전체 색인"
+             >색인</a></li>
+        <li class="right" >
+          <a href="distributing-packages-using-setuptools.html" title="Packaging and distributing projects"
+             >다음</a> |</li>
+        <li class="right" >
+          <a href="installing-scientific-packages.html" title="Installing scientific packages"
+             >이전</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+    
+    <a href="../index.html">Python Packaging User Guide</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Guides</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="빠른 검색" type="text" name="q" />
+          <input type="submit" value="바로 가기" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">저작권</a> 2013–2017, PyPA.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    최종 업데이트: 2019년 06월 12일
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
